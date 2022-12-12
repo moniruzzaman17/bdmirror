@@ -40,6 +40,21 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'citizen' => [
+            'driver' => 'session',
+            'provider' => 'citizens',
+        ],
+
+        'authority' => [
+            'driver' => 'session',
+            'provider' => 'authorities',
+        ],
     ],
 
     /*
@@ -65,10 +80,20 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+
+        'citizens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Citizen::class,
+        ],
+
+        'authorities' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Authority::class,
+        ],
     ],
 
     /*
