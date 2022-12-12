@@ -32,14 +32,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet"> --}}
 </head>
 <body>
-    <div class="main-header-content">
+    {{-- <div class="main-header-content">
         <div class="p-0 header-content">
-            {{-- @include('includes.headertop') --}}
-            {{-- @include('includes.navbar') --}}
+            @include('includes.headertop')
+            @include('includes.navbar')
         </div>
-        {{-- @include('header.navbar') --}}
-    </div>
-    <div class="container p-0 main-body">
+        @include('header.navbar')
+    </div> --}}
+    <div class="container-fluid p-0 main-body">
         @yield('content')
         {{-- @include('includes.footer') --}}
     </div>
