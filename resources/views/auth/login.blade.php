@@ -1,21 +1,14 @@
 <div class="container-fluid p-0 login-home">
-    <div class="boxes">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-    <div class="wrapper">
-        <div class="title-text">
+    <div class="wrapper mb-4">
+        <div class="login-logo-wrapper w-100 text-center">
+            <img src="{{ asset('img/logo.png') }}" class="login-logo" alt="">
+        </div>
+        {{-- <div class="title-text">
             <div class="title login">
                 Login Form</div>
             <div class="title signup">
                 Signup Form</div>
-        </div>
+        </div> --}}
         <div class="form-container">
             <div class="slide-controls">
                 <input type="radio" name="slide" id="login" checked>
@@ -28,7 +21,7 @@
             <div class="form-inner">
                 <form action="#" class="login">
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input type="text" placeholder="Email Address / Mobile Number" required>
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Password" required>
@@ -45,7 +38,13 @@
                 </form>
                 <form action="#" class="signup">
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="field">
+                        <input type="email" placeholder="Email Address" required>
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Password" required>

@@ -2,5 +2,6 @@
 @section('title', __('BD Mirror'))
 @section('body-class', 'app-home')
 @section('content')
-@include('auth.login')
+{{-- @include('auth.login') --}}
+@include('feed.feed')
 @endsection

@@ -1,93 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
+@media screen and (max-width:767px) {
+    .login-home {
+        height: 100vh;
+    }
+}
+
 .login-home {
     display: grid;
-    height: 100%;
     width: 100%;
     place-items: center;
     background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
-    height: 100vh;
-    width: 100%;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
 
-    ul {
-        display: block;
-        width: 100%;
-        height: inherit;
+    .login-logo {
+        width: 200px;
     }
-
-    ul {
-        list-style-type: none;
-    }
-
-    li:nth-child(1) {
-        position: absolute;
-        left: 10%;
-        height: 30px;
-        width: 30px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li:nth-child(2) {
-        position: absolute;
-        left: 30%;
-        height: 45px;
-        width: 45px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li:nth-child(3) {
-        position: absolute;
-        left: 50%;
-        height: 70px;
-        width: 70px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li:nth-child(4) {
-        position: absolute;
-        left: 80%;
-        height: 20px;
-        width: 20px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li:nth-child(5) {
-        position: absolute;
-        left: 20%;
-        height: 34px;
-        width: 34px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li:nth-child(6) {
-        position: absolute;
-        left: 70%;
-        height: 20px;
-        width: 20px;
-        background: rgba(255, 255, 255, .2);
-    }
-
-    li {
-        animation: animate 15s linear 1s infinite;
-    }
-
-    @keyframes animate {
-        from {
-            transform: translateY(+1500%) rotate(180deg)
-        }
-
-        to {
-            transform: translateY(-150%) rotate(360deg)
-        }
-    }
-
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 ::selection {

@@ -29,6 +29,7 @@ class CreateAuthoritiesTable extends Migration
             $table->string('working_upazila')->nullable();
             $table->longText('image')->nullable();
             $table->rememberToken();
+            $table->integer('is_approved')->unsigned()->default(0);
             $table->timestamps();
         });
     }

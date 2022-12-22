@@ -8,9 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/favicon.jpg') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" />
 
-    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('images/favicon.jpg') }}' />
+    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('img/favicon.png') }}' />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
