@@ -32,16 +32,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet"> --}}
 </head>
 <body>
-    {{-- <div class="main-header-content">
-        <div class="p-0 header-content">
-            @include('includes.headertop')
-            @include('includes.navbar')
-        </div>
-        @include('header.navbar')
-    </div> --}}
+    <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
+    <div class="main-header">
+        @include('includes.header')
+    </div>
     <div class="container-fluid p-0 main-body">
         @yield('content')
         {{-- @include('includes.footer') --}}
     </div>
+    <script>
+        var toggle = document.getElementById("darkMode");
+        var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme)
+            document.documentElement.setAttribute('data-theme', storedTheme)
+        toggle.onclick = function() {
+            var currentTheme = document.documentElement.getAttribute("data-theme");
+            var targetTheme = "light";
+
+            if (currentTheme === "light") {
+                targetTheme = "dark";
+            }
+
+            document.documentElement.setAttribute('data-theme', targetTheme)
+            localStorage.setItem('theme', targetTheme);
+        };
+
+    </script>
 </body>
 </html>

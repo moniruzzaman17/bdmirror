@@ -3,5 +3,6 @@
 @section('body-class', 'app-home')
 @section('content')
 {{-- @include('auth.login') --}}
-@include('feed.feed')
+{{-- @include('feed.feed') --}}
+@include('home')
 @endsection
