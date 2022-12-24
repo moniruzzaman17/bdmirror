@@ -21126,6 +21126,7 @@ html[data-theme=light] {
   --header-color: #fff;
   --searchbox-bg-color: #F2F2F2;
   --header-icon-color: #656565;
+  --header-roundbg-color: #D9D9D9;
 }
 
 html[data-theme=dark] {
@@ -21135,7 +21136,8 @@ html[data-theme=dark] {
   --link-color: #828fff;
   --header-color: #252525;
   --searchbox-bg-color: #2F2F2F;
-  --header-icon-color: #656565;
+  --header-icon-color: #E7E9ED;
+  --header-roundbg-color: rgba(255, 255, 255, .1);
 }
 
 body {
@@ -21166,6 +21168,14 @@ body {
   background-color: gray;
 }
 
+@keyframes click-pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
 @media screen and (max-width: 767px) {
   .login-home {
     height: 100vh;
@@ -21410,6 +21420,57 @@ form .btn input[type=submit] {
   display: flex;
   align-items: center;
 }
+.main-header .navbar .navbar-nav-right .nav-link-right img {
+  transition: 1s;
+}
+.main-header .navbar .navbar-nav-right .nav-link-right:active {
+  animation: click-pulse 0.2s 1 ease-out;
+}
+.main-header .navbar .navbar-nav-right .chat-popup-wrapper {
+  display: none;
+  position: absolute;
+  background-color: var(--header-color);
+  width: 300px;
+  min-height: 200px;
+  max-height: 425px;
+  top: 57px;
+  right: 0px;
+  z-index: 9;
+  padding: 16px;
+  box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.main-header .navbar .navbar-nav-right .notification-popup-wrapper {
+  display: none;
+  position: absolute;
+  background-color: var(--header-color);
+  width: 300px;
+  min-height: 200px;
+  max-height: 425px;
+  top: 57px;
+  right: 0px;
+  z-index: 9;
+  padding: 16px;
+  box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.main-header .navbar .navbar-nav-right .profile-popup-wrapper {
+  display: none;
+  position: absolute;
+  background-color: var(--header-color);
+  width: 300px;
+  min-height: 200px;
+  max-height: 425px;
+  top: 57px;
+  right: 0px;
+  z-index: 9;
+  padding: 16px;
+  box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  transition: 0.5s;
+}
 .main-header .navbar .nav-link {
   align-items: center;
   color: var(--header-icon-color);
@@ -21425,7 +21486,6 @@ form .btn input[type=submit] {
   -o-border-image: initial;
      border-image: initial;
   border-radius: var(--size2);
-  transition: 0.8s ease 0s;
   cursor: pointer;
 }
 .main-header .navbar .nav-link i {
@@ -21448,7 +21508,6 @@ form .btn input[type=submit] {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  margin: 20px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center right;
@@ -21458,27 +21517,13 @@ form .btn input[type=submit] {
   border-bottom: solid 2px #094A39 !important;
 }
 .main-header .navbar .nav-link-notification {
-  background: #D9D9D9;
+  background: var(--header-roundbg-color);
   border-radius: 50%;
   height: 45px;
   width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.main-header .navbar .nav-link-right img {
-  transition: 1s;
-}
-.main-header .navbar .nav-link-right img:active {
-  animation: pulse 0.2s 1 ease-out;
-}
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.8);
-  }
 }
 
 .navbar-brand img {
@@ -21489,6 +21534,9 @@ form .btn input[type=submit] {
   .navbar-collapse {
     height: 60px;
     align-items: center;
+  }
+  .navbar-nav-left {
+    margin-left: 7%;
   }
   .search-box {
     width: 50%;

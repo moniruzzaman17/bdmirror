@@ -13,6 +13,7 @@ html[data-theme='light'] {
     --header-color: #fff;
     --searchbox-bg-color: #F2F2F2;
     --header-icon-color: #656565;
+    --header-roundbg-color: #D9D9D9;
 }
 
 html[data-theme='dark'] {
@@ -22,7 +23,8 @@ html[data-theme='dark'] {
     --link-color: #828fff;
     --header-color: #252525;
     --searchbox-bg-color: #2F2F2F;
-    --header-icon-color: #656565;
+    --header-icon-color: #E7E9ED;
+    --header-roundbg-color: rgba(255, 255, 255, .1);
 }
 
 body {
@@ -53,5 +55,15 @@ body {
     &:hover,
     &:focus {
         background-color: gray;
+    }
+}
+
+@keyframes click-pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.8);
     }
 }

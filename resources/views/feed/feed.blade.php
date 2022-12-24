@@ -1,3 +1,8 @@
+@extends('layouts.app')
+@section('title', __('BD Mirror'))
+@section('body-class', 'app-home')
+@section('content')
+
 <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
 <div class="common-structure">
     <header class="main-header u-flex">
@@ -479,3 +484,4 @@
     });
 
 </script>
+@endsection

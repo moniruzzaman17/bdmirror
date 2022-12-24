@@ -8,25 +8,76 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-            <li class="nav-item"><a aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <ul class="navbar-nav navbar-nav-left align-items-center">
+            <li class="nav-item"><a aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected active"><i class="fa fa-home" aria-hidden="true"></i></a></li>
             <li class="nav-item"><a aria-label="Legal Authorities" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-gavel" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a aria-label="Message" class="nav-link nav-link-left nav-button alt-text"><i class="fas fa-comments" aria-hidden="true"></i><span class="notification-badge">1</span></a></li>
             <li class="nav-item"><a aria-label="Reports" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
         </ul>
-        <ul class="navbar-nav align-items-center w-100 justify-content-end">
-            <li class="nav-item"><a aria-label="Notification" class="nav-link nav-link-notification nav-button alt-text nav-link-right"><i class="fa fa-bell" aria-hidden="true"></i><span class="notification-badge" style="top: -10px; right: -8px">12</span></a></li>
+        <ul class="navbar-nav navbar-nav-right align-items-center w-100 justify-content-end">
+            <li class="nav-item">
+                <a aria-label="Message" class="nav-link nav-link-right nav-button alt-text" id="chat-avatar">
+                    <i class="fas fa-comments nav-link-notification" aria-hidden="true"></i>
+                    <span class="notification-badge">1</span>
+                </a>
+                <div class="chat-popup-wrapper">
+                    this is Chat wrapper
+                </div>
+
+            </li>
+
+            <li class="nav-item">
+                <a aria-label="Notification" class="nav-link nav-link-notification nav-button alt-text nav-link-right" id="notification-avatar">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <span class="notification-badge" style="top: -10px; right: -8px">12</span>
+                </a>
+                <div class="notification-popup-wrapper">
+                    this is Notification wrapper
+                </div>
+
+            </li>
 
 
-            <li class="nav-item" style="margin-left: -29px"><a aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right"><img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover"></a></li>
+            <li class="nav-item">
+                <a aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
+                    <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
+                </a>
+                <div class="profile-popup-wrapper">
+                    this is profile wrapper
+                </div>
+            </li>
 
         </ul>
     </div>
 </nav>
 <script>
     $('.navbar-toggler').on('click', function() {
-        console.log("wokring");
         $('.navbar-collapse').toggle('show');
+
+
+    });
+
+    $('#profile-avatar').on('click', function(e) {
+        e.preventDefault();
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $('.profile-popup-wrapper').toggle();
+        $('.notification-popup-wrapper').hide();
+        $('.chat-popup-wrapper').hide();
+    });
+
+    $('#notification-avatar').on('click', function(e) {
+        e.preventDefault();
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $('.notification-popup-wrapper').toggle();
+        $('.profile-popup-wrapper').hide();
+        $('.chat-popup-wrapper').hide();
+    });
+
+    $('#chat-avatar').on('click', function(e) {
+        e.preventDefault();
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $('.chat-popup-wrapper').toggle();
+        $('.profile-popup-wrapper').hide();
+        $('.notification-popup-wrapper').hide();
 
 
     });
