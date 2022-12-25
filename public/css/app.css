@@ -21116,6 +21116,7 @@ readers do not read off random characters that represent icons */
   --oposite-bg-color: #CCCED0;
   --text-color: #121416d8;
   --link-color: #543fd7;
+  --max-width: 1500px;
 }
 
 html[data-theme=light] {
@@ -21147,6 +21148,11 @@ html[data-theme=dark] {
 body {
   background: var(--background-color);
   color: var(--text-color);
+}
+
+.body-wrapper {
+  max-width: var(--max-width);
+  margin: auto;
 }
 
 /*entitiy*/
@@ -21445,7 +21451,9 @@ form .btn input[type=submit] {
 }
 
 .main-header {
-  position: fixed;
+  background-color: var(--header-color);
+  position: sticky;
+  z-index: 9999;
   width: 100%;
   top: 0;
   left: 0;
@@ -21453,7 +21461,8 @@ form .btn input[type=submit] {
   box-shadow: -2px -1px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .main-header .navbar {
-  background-color: var(--header-color);
+  max-width: var(--max-width);
+  margin: auto;
 }
 .main-header .navbar .navbar-nav .nav-item {
   height: 60px;
@@ -21637,13 +21646,12 @@ form .btn input[type=submit] {
 
 .common-structure {
   position: relative;
-  top: 60px;
   padding-top: 20px;
 }
 
 .side-a,
 .side-b {
-  position: fixed;
+  position: sticky;
   top: 70px;
   max-height: calc(100vh - 60px);
   overflow: auto;
@@ -21651,7 +21659,6 @@ form .btn input[type=submit] {
 }
 
 .side-a {
-  left: 0;
   bottom: 0;
   background-color: var(--background-color);
   width: auto;
@@ -21661,7 +21668,6 @@ form .btn input[type=submit] {
 }
 
 .side-b {
-  right: 0;
   bottom: 0;
   background-color: var(--background-color);
   width: auto;

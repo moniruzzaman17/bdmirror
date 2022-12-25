@@ -2,7 +2,9 @@
 @section('title', __('BD Mirror'))
 @section('body-class', 'app-home')
 @section('content')
-{{-- @include('auth.login') --}}
-{{-- @include('feed.feed') --}}
-@include('home.home')
+<div class="body-wrapper">
+    {{-- @include('auth.login') --}}
+    {{-- @include('feed.feed') --}}
+    @include('home.home')
+</div>
 @endsection

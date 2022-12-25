@@ -2,13 +2,12 @@
 
 .common-structure {
     position: relative;
-    top: 60px;
     padding-top: 20px;
 }
 
 .side-a,
 .side-b {
-    position: fixed;
+    position: sticky;
     top: 70px;
     max-height: calc(100vh - 60px);
     overflow: auto;
@@ -17,7 +16,7 @@
 
 .side-a {
     // z-index: 1;
-    left: 0;
+    // left: 0;
     // right: 0;
     bottom: 0;
     background-color: var(--background-color);
@@ -31,7 +30,7 @@
 .side-b {
     // z-index: 1;
     // left: 0;
-    right: 0;
+    // right: 0;
     bottom: 0;
     background-color: var(--background-color);
     width: auto;

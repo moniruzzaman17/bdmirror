@@ -3,6 +3,7 @@
     --oposite-bg-color: #CCCED0;
     --text-color: #121416d8;
     --link-color: #543fd7;
+    --max-width: 1500px;
 }
 
 html[data-theme='light'] {
@@ -34,6 +35,11 @@ html[data-theme='dark'] {
 body {
     background: var(--background-color);
     color: var(--text-color);
+}
+
+.body-wrapper {
+    max-width: var(--max-width);
+    margin: auto;
 }
 
 /*entitiy*/
