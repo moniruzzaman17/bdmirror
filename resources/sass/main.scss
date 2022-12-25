@@ -14,6 +14,8 @@ html[data-theme='light'] {
     --searchbox-bg-color: #F2F2F2;
     --header-icon-color: #656565;
     --header-roundbg-color: #D9D9D9;
+    --post-bg-color: #fff;
+    --hover-color: #EBEBEB;
 }
 
 html[data-theme='dark'] {
@@ -25,6 +27,8 @@ html[data-theme='dark'] {
     --searchbox-bg-color: #2F2F2F;
     --header-icon-color: #E7E9ED;
     --header-roundbg-color: rgba(255, 255, 255, .1);
+    --post-bg-color: #252525;
+    --hover-color: rgba(37, 37, 37, 0.5);
 }
 
 body {
@@ -65,5 +69,39 @@ body {
 
     to {
         transform: scale(0.8);
+    }
+}
+
+.bdmirror-button {
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 167ms;
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    min-width: 6.4rem;
+    max-width: 480px;
+    overflow: hidden;
+    text-align: center;
+    transition-property: background-color, box-shadow, color;
+    vertical-align: middle;
+    background-color: transparent;
+    color: var(--text-color);
+
+    .button__icon {
+        color: #378fe9;
+    }
+
+    .button__text {
+        margin-left: 0.5rem;
+    }
+
+    &:hover {
+        background-color: var(--hover-color);
     }
 }

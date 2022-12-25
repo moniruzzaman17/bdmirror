@@ -1,3 +1,3 @@
 <main class="main-feed">
-    this is main feed
+    @include('home.create')
 </main>

@@ -1,5 +1,5 @@
 <aside class="side-a">
-    <section class="common-section text-center pt-2">
+    <section class="common-section text-center">
         <ul class="common-list">
             <li class="common-list-item">
                 <a href="" target="_blank" class="common-list-button">
