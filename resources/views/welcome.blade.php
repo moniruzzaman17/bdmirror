@@ -4,5 +4,5 @@
 @section('content')
 {{-- @include('auth.login') --}}
 {{-- @include('feed.feed') --}}
-@include('home')
+@include('home.home')
 @endsection

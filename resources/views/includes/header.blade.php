@@ -19,7 +19,7 @@
                     <i class="fas fa-comments nav-link-notification" aria-hidden="true"></i>
                     <span class="notification-badge">1</span>
                 </a>
-                <div class="chat-popup-wrapper">
+                <div class="chat-popup-wrapper header-popup">
                     this is Chat wrapper
                 </div>
 
@@ -30,7 +30,7 @@
                     <i class="fa fa-bell" aria-hidden="true"></i>
                     <span class="notification-badge" style="top: -10px; right: -8px">12</span>
                 </a>
-                <div class="notification-popup-wrapper">
+                <div class="notification-popup-wrapper header-popup">
                     this is Notification wrapper
                 </div>
 
@@ -41,7 +41,7 @@
                 <a aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
                     <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
                 </a>
-                <div class="profile-popup-wrapper">
+                <div class="profile-popup-wrapper header-popup">
                     this is profile wrapper
                 </div>
             </li>
@@ -78,8 +78,17 @@
         $('.chat-popup-wrapper').toggle();
         $('.profile-popup-wrapper').hide();
         $('.notification-popup-wrapper').hide();
+    });
 
+    $(document).mouseup(function(e) {
+        e.stopPropagation();
 
+        var container = $(".header-popup");
+        // If the target of the click isn't the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.slideUp('fast');
+
+        }
     });
 
 </script>

@@ -1,0 +1,124 @@
+.common-structure {
+    position: relative;
+    top: 60px;
+    padding-top: 20px;
+}
+
+.side-a,
+.side-b {
+    position: fixed;
+    top: 60px;
+    max-height: calc(100vh - 60px);
+    overflow: auto;
+}
+
+.side-a {
+    // z-index: 1;
+    left: 0;
+    // right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    width: auto;
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.side-b {
+    // z-index: 1;
+    // left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    width: auto;
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.common-list {
+    list-style: none;
+
+    &-button {
+        display: flex;
+        height: 52px;
+        padding: 8px;
+        color: var(--text-color);
+        text-decoration: none;
+        cursor: pointer;
+
+        >* {
+            margin: auto 0;
+        }
+
+        img {
+            border-radius: 8px;
+        }
+
+        .user-image {
+            border-radius: 50%;
+        }
+
+        .icon {
+            width: 36px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-inline-end: 8px;
+        }
+
+        .text {
+            font-weight: bold;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: rgb(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        &.is-ads {
+            height: auto;
+
+            .image {
+                width: 115px;
+                flex-shrink: 0;
+                margin-inline-end: var(--size3);
+            }
+
+            .ads-url {
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.common-more {
+    background-color: rgb(0, 0, 0, 0.05);
+    color: var(--text-color);
+    border-radius: 8px;
+    height: 36px;
+    width: calc(100% - 60px);
+    border: none;
+    margin: 8px;
+    text-align: center;
+
+    .text {
+        font-weight: bold;
+    }
+
+    .icon {
+        color: var(--text-color);
+        font-size: 12px;
+        filter: grayscale(100%);
+        opacity: 0.8;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: rgba(0, 0, 0, 0.10);
+    }
+}

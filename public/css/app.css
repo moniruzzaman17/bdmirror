@@ -21410,6 +21410,11 @@ form .btn input[type=submit] {
 }
 
 .main-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   box-shadow: -2px -1px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .main-header .navbar {
@@ -21426,7 +21431,7 @@ form .btn input[type=submit] {
 .main-header .navbar .navbar-nav-right .nav-link-right:active {
   animation: click-pulse 0.2s 1 ease-out;
 }
-.main-header .navbar .navbar-nav-right .chat-popup-wrapper {
+.main-header .navbar .navbar-nav-right .header-popup {
   display: none;
   position: absolute;
   background-color: var(--header-color);
@@ -21435,37 +21440,7 @@ form .btn input[type=submit] {
   max-height: 425px;
   top: 57px;
   right: 0px;
-  z-index: 9;
-  padding: 16px;
-  box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  transition: 0.5s;
-}
-.main-header .navbar .navbar-nav-right .notification-popup-wrapper {
-  display: none;
-  position: absolute;
-  background-color: var(--header-color);
-  width: 300px;
-  min-height: 200px;
-  max-height: 425px;
-  top: 57px;
-  right: 0px;
-  z-index: 9;
-  padding: 16px;
-  box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  transition: 0.5s;
-}
-.main-header .navbar .navbar-nav-right .profile-popup-wrapper {
-  display: none;
-  position: absolute;
-  background-color: var(--header-color);
-  width: 300px;
-  min-height: 200px;
-  max-height: 425px;
-  top: 57px;
-  right: 0px;
-  z-index: 9;
+  z-index: 99;
   padding: 16px;
   box-shadow: -2px 8px 5px 2px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -21577,4 +21552,110 @@ form .btn input[type=submit] {
   position: absolute;
   top: 10px;
   left: 12px;
+}
+
+.common-structure {
+  position: relative;
+  top: 60px;
+  padding-top: 20px;
+}
+
+.side-a,
+.side-b {
+  position: fixed;
+  top: 60px;
+  max-height: calc(100vh - 60px);
+  overflow: auto;
+}
+
+.side-a {
+  left: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  width: auto;
+}
+.side-a.is-open {
+  display: block;
+}
+
+.side-b {
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  width: auto;
+}
+.side-b.is-open {
+  display: block;
+}
+
+.common-list {
+  list-style: none;
+}
+.common-list-button {
+  display: flex;
+  height: 52px;
+  padding: 8px;
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+.common-list-button > * {
+  margin: auto 0;
+}
+.common-list-button img {
+  border-radius: 8px;
+}
+.common-list-button .user-image {
+  border-radius: 50%;
+}
+.common-list-button .icon {
+  width: 36px;
+  font-size: 24px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  -webkit-margin-end: 8px;
+          margin-inline-end: 8px;
+}
+.common-list-button .text {
+  font-weight: bold;
+}
+.common-list-button:hover, .common-list-button:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+.common-list-button.is-ads {
+  height: auto;
+}
+.common-list-button.is-ads .image {
+  width: 115px;
+  flex-shrink: 0;
+  -webkit-margin-end: var(--size3);
+          margin-inline-end: var(--size3);
+}
+.common-list-button.is-ads .ads-url {
+  font-weight: normal;
+}
+
+.common-more {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+  border-radius: 8px;
+  height: 36px;
+  width: calc(100% - 60px);
+  border: none;
+  margin: 8px;
+  text-align: center;
+}
+.common-more .text {
+  font-weight: bold;
+}
+.common-more .icon {
+  color: var(--text-color);
+  font-size: 12px;
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+.common-more:hover, .common-more:focus {
+  background-color: rgba(0, 0, 0, 0.1);
 }
