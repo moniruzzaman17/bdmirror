@@ -20,6 +20,7 @@ html[data-theme='light'] {
     --hover-text-color: #252525;
     --button-bg-color: #252525;
     --button-color: #fff;
+    --divider-border-color: rgba(0, 0, 0, 0.3);
 }
 
 html[data-theme='dark'] {
@@ -36,6 +37,7 @@ html[data-theme='dark'] {
     --hover-text-color: #EBEBEB;
     --button-bg-color: #fff;
     --button-color: #252525;
+    --divider-border-color: rgba(255, 255, 255, 0.3);
 }
 
 body {

@@ -10,7 +10,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav navbar-nav-left align-items-center">
             <li class="nav-item"><a href="/" aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected active"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a aria-label="Legal Authorities" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-gavel" aria-hidden="true"></i></a></li>
+            <li class="nav-item"><a href="{{ route('authority.list') }}" aria-label="Legal Authorities" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-gavel" aria-hidden="true"></i></a></li>
+
             <li class="nav-item"><a aria-label="Reports" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
         </ul>
         <ul class="navbar-nav navbar-nav-right align-items-center w-100 justify-content-end">
@@ -49,6 +50,14 @@
                                     <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                                 </span>
                                 <span class="text">My Profile</span>
+                            </a>
+                        </li>
+                        <li class="common-list-item">
+                            <a href="" class="common-list-button">
+                                <span class="icon">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </span>
+                                <span class="text">Logout</span>
                             </a>
                         </li>
                     </ul>

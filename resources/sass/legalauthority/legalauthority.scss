@@ -1,0 +1,15 @@
+.authority-list-wrapper {
+    .table {
+        color: var(--text-color);
+
+        .thead-bg {
+            background-color: var(--header-color);
+        }
+    }
+
+    .table-hover tbody tr:hover td,
+    .table-hover tbody tr:hover th {
+        background-color: var(--header-color) !important;
+        color: var(--text-color);
+    }
+}

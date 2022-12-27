@@ -44,7 +44,7 @@ h6 {
     .info {
         padding: 10px 20px;
         margin: 0;
-        border-bottom: 1px solid #d4d4d4;
+        border-bottom: 1px solid var(--divider-border-color);
 
         .user {
             font-weight: bold;
@@ -97,7 +97,7 @@ h6 {
             color: #a4a5a5;
             font-size: 0.8rem;
             font-weight: normal;
-            border-bottom: 1px solid #d5d5d5;
+            border-bottom: 1px solid var(--divider-border-color);
         }
     }
 
@@ -149,10 +149,14 @@ h6 {
 }
 
 .post .post-comment-feed .add-comment .textfield {
-    background: #fff;
+    background: var(--background-color);
     margin-left: 10px;
     padding-right: 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
+
+    .btn-camera {
+        color: var(--header-icon-color);
+    }
 }
 
 .post .post-comment-feed .add-comment .textfield::before {
@@ -163,7 +167,7 @@ h6 {
     border-left: none;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 10px solid #ffffff;
+    border-right: 10px solid var(--background-color);
     margin-left: -18px;
     margin-top: 5px;
 }
@@ -179,6 +183,7 @@ h6 {
 }
 
 .post .post-comment-feed .add-comment .textfield input[type="text"] {
+    background: transparent;
     border: none;
     font-size: 0.8rem;
     outline: none;
