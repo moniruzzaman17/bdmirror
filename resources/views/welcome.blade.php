@@ -3,8 +3,13 @@
 @section('body-class', 'app-home')
 @section('content')
 <div class="body-wrapper">
-    {{-- @include('auth.login') --}}
     {{-- @include('feed.feed') --}}
+    @auth('citizen')
     @include('home.home')
+    @endauth
+
+    @guest('citizen')
+    @include('auth.login')
+    @endguest
 </div>
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class Authority extends Model
+class Authority extends Model implements AuthenticatableContract
 {
     use HasFactory;
     use Authenticatable;
@@ -15,7 +15,7 @@ class Authority extends Model
     	'name',
         'email',
         'password',
-        'phone',
+        'mobile',
         'organization',
         'designation',
         'official_id',

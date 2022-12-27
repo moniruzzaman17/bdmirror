@@ -53,12 +53,16 @@
                             </a>
                         </li>
                         <li class="common-list-item">
-                            <a href="" class="common-list-button">
+                            <a href="" onclick="event.preventDefault();
+								document.getElementById('logout-form').submit();" class="common-list-button">
                                 <span class="icon">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 </span>
                                 <span class="text">Logout</span>
                             </a>
+                            <form id="logout-form" action="{{route('citizen.logout')}}" method="POST" class="d-none">
+                                @csrf
+
                         </li>
                     </ul>
                 </div>

@@ -19,7 +19,7 @@ class CreateAuthoritiesTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('phone')->nullable();
+            $table->string('mobile')->nullable();
             $table->string('organization')->nullable();
             $table->string('designation')->nullable();
             $table->string('official_id')->nullable();

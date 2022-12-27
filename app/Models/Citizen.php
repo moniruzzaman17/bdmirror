@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class Citizen extends Model
+class Citizen extends Model implements AuthenticatableContract
 {
     use HasFactory;
     use Authenticatable;
@@ -15,7 +15,7 @@ class Citizen extends Model
     	'name',
     	'email',
     	'password',
-    	'phone',
+    	'mobile',
     	'image',
         'division',
         'district',

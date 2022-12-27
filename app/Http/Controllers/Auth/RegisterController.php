@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\Citizen;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -25,49 +26,39 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+		$msg = [
+			'name.regex' => 'For full name only alphabet, white-space and dot are allowed',
+			'email.email' => 'Invalid email address',
+			'email.unique' => 'This email associated with another account',
+
+			'mobile.regex' => 'Mobile number must start with 01 and followed by the 9 number',
+			'mobile.unique' => 'This mobile number already exist for another account',
+		];
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255','regex:/[a-zA-Z|.]+(\s|[a-zA-Z|.]+)+$/'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:citizens,email'],
+            'mobile' => ['required', 'regex:/(01)[0-9]{9}/', 'unique:citizens,mobile'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ],$msg);
+
+        $success =  Citizen::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'mobile' => request('mobile'),
+            'password' => Hash::make(request('password')),
         ]);
+	        if ($success) {
+	        	return redirect()->back()->with('success','Successfully Registered');
+	        }
+	        else {
+	        	return redirect()->back()->with('error','Something went Wrong! Not Saved');
+	        }
     }
 }

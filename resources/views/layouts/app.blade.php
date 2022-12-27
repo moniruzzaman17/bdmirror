@@ -33,9 +33,13 @@
 </head>
 <body>
     <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
+
+    @auth('citizen')
     <div class="main-header">
         @include('includes.header')
     </div>
+    @endauth
+
     <div class="container-fluid p-0 main-body">
         @yield('content')
         {{-- @include('includes.footer') --}}
