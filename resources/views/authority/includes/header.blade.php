@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg p-0">
-    <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a> Authority
+    <a class="navbar-brand" href="{{ route('authority.home') }}"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a> Authority
     <div class="search-box-wrapper">
         <input type="search" class="search-box" placeholder="Search in BDmirror">
         <span class="icon-search" aria-label="hidden">🔎</span>
@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav navbar-nav-left align-items-center">
-            <li class="nav-item"><a href="/" aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected active"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li class="nav-item"><a href="{{ route('authority.home') }}" aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected active"><i class="fa fa-home" aria-hidden="true"></i></a></li>
             <li class="nav-item"><a href="{{ route('authority.list') }}" aria-label="Legal Authorities" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-gavel" aria-hidden="true"></i></a></li>
 
             <li class="nav-item"><a aria-label="Reports" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
@@ -39,13 +39,13 @@
 
 
             <li class="nav-item">
-                <a href="{{ route('citizen.profile') }}" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
+                <a href="javascript:void(0)" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
                     <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
                 </a>
                 <div class="profile-popup-wrapper header-popup">
                     <ul class="common-list p-0">
                         <li class="common-list-item">
-                            <a href="{{ route('citizen.profile') }}" class="common-list-button">
+                            <a href="{{ route('authority.profile') }}" class="common-list-button">
                                 <span class="icon">
                                     <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                                 </span>

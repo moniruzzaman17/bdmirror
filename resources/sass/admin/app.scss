@@ -1,0 +1,17 @@
+// Fonts
+// Variables
+@import '../variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+// Icon Fonts
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// others
+@import 'login';
+@import 'adminIndex';
+@import 'adminuser/adminuser';
+@import 'main';

@@ -1,0 +1,113 @@
+.admin-login-body {
+  margin: auto;
+  padding: 0;
+  background: $primary;
+  font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-header .logo {
+  display: inline-block;
+  width: 60%;
+}
+
+.login-header .logo-img {
+  width: 100%;
+  outline: none;
+}
+
+.admin-login {
+  margin-top: 10% !important;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 5px 30px 0 #000;
+  display: block;
+  float: none;
+  margin: auto;
+  width: 445px;
+  height: 100%;
+  padding: 40px 80px 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.admin_fieldset legend {
+  color: #eb5202;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 2.2;
+  margin: -1rem 0 2rem;
+}
+
+.admin_fieldset label:before {
+  color: #e22626;
+  content: '*';
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-left: -18px;
+  margin-top: .2rem;
+  position: absolute;
+  z-index: 1;
+}
+
+.admin_fieldset label {
+  margin-left: 18px;
+}
+
+.form-control {
+  font-size: 14px !important;
+  border: 1px solid #adadad;
+  margin-bottom: 15px;
+}
+
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.action-button {
+  text-transform: uppercase;
+  background: $primary;
+  padding: 10px 13px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 10px 13px;
+  text-decoration: none;
+  transition: 1s;
+}
+
+.action-button:hover {
+  background: $secondary;
+  color: white;
+  border: none;
+  text-decoration: none;
+}
+
+.forgot-pass-link a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 1s;
+}
+
+.login-footer {
+  color: #989287;
+  font-weight: 400;
+  left: 0;
+  margin: 5rem 0 2rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+/*----------------END of Admin Login Page----------------*/

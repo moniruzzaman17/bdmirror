@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Profile;
+namespace App\Http\Controllers\Authority\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class ProfileController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('citizen.auth');
+        $this->middleware('authority.auth');
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.profile');
+        return view('authority.profile.profile');
     }
 
     /**
