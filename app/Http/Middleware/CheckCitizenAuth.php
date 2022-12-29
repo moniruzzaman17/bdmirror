@@ -21,7 +21,7 @@ class CheckCitizenAuth
             return $next($request);
         }
         else {
-            return redirect()->route('citizen.home')->with('warning',__('Authorized login is required for viewing the requested page.'));
+            return redirect()->route('citizen')->with('warning',__('Authorized login is required for viewing the requested page.'));
         }
     }
 }

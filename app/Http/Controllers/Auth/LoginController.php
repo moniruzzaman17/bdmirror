@@ -36,7 +36,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     protected function guard(){
-        return Auth::guard('citizen');
+        if (request('user_type') == "ctz") {
+            return Auth::guard('citizen');
+        }
+        else{
+            return Auth::guard('authority');
+        }
     }
     // /**
     //  * Redirect to homepage after login.
@@ -44,7 +49,12 @@ class LoginController extends Controller
     //  * @return \Illuminate\Http\Response
     //  */
     public function redirectTo(){
-        return route('citizen.home'); // works for login
+        if (request('user_type') == "ctz") {
+            return route('home'); // works for login
+        } else {
+            return route('authority.home'); // works for login
+        }
+        
     }
 
     // /**
@@ -82,11 +92,19 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){
-        $this->guard('citizen')->logout();
-        $request->session()->flush();
-        $request->session()->regenerate();
-
-        return redirect()->route('citizen.home');
-        // return route('citizen.login');
+        if (Auth::guard('citizen')->check()) {
+            $this->guard('citizen')->logout();
+            $request->session()->flush();
+            $request->session()->regenerate();
+            return redirect()->route('home');
+        } else if (Auth::guard('authority')->check()) {
+            $this->guard('authority')->logout();
+            $request->session()->flush();
+            $request->session()->regenerate();
+            return redirect()->route('home');
+        }
+        else{
+            return false;
+        }
     }
 }

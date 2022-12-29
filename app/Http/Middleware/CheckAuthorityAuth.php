@@ -21,7 +21,7 @@ class CheckAuthorityAuth
             return $next($request);
         }
         else {
-            return redirect()->route('authority.home')->with('warning',__('Authorized login is required for viewing the requested page.'));
+            return redirect()->route('home')->with('warning',__('Authorized login is required for viewing the requested page.'));
         }
     }
 }

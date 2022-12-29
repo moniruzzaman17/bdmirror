@@ -97,9 +97,9 @@ input[type="radio"] {
     display: none;
 }
 
-#signup:checked~.slider-tab {
-    left: 50%;
-}
+// #signup:checked~.slider-tab {
+//     left: 50%;
+// }
 
 #signup:checked~label.signup {
     color: #fff;
@@ -142,6 +142,18 @@ input[type="radio"] {
 }
 
 .form-inner form .field input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.form-inner form .field select {
     height: 100%;
     width: 100%;
     outline: none;

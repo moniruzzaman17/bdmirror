@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg p-0">
-    <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a>
+    <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a> Authority
     <div class="search-box-wrapper">
         <input type="search" class="search-box" placeholder="Search in BDmirror">
         <span class="icon-search" aria-label="hidden">🔎</span>

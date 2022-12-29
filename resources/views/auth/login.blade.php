@@ -26,21 +26,39 @@
             </ul>
         </div>
         @else
-        <legend class="mb-2">{{ __('Welcome, bdMirror Login') }}</legend>
+        <style>
+            .login-heade-title-wrapper {
+                width: 200%;
+                transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+        </style>
+        <div class="login-heade-title-wrapper d-flex align-items-center">
+            <legend class="mb-2 text-center h5">Welcome, bdMirror Login</legend>
+            <legend class="mb-2 text-center h5">Welcome, bdMirror Registration</legend>
+        </div>
         @endif
 
         <div class="form-container">
             <div class="slide-controls">
-                <input type="radio" name="slide" id="login" checked>
-                <input type="radio" name="slide" id="signup">
+                {{-- <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup"> --}}
                 <label for="login" class="slide login">Login</label>
                 <label for="signup" class="slide signup">Signup</label>
                 <div class="slider-tab">
                 </div>
             </div>
             <div class="form-inner">
-                <form action="{{ route('citizen.login') }}" class="login" method="post" enctype="multipart/form-data">
+                <form action="{{ route('login') }}" class="login" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="field">
+                        <select name="user_type" id="" required>
+                            <option value="" selected hidden>Login As..</option>
+                            <option value="ctz" @if (old('user_type')=="ctz" ) {{ 'selected' }} @endif>Citizen</option>
+                            <option value="lauth" @if (old('user_type')=="lauth" ) {{ 'selected' }} @endif>Legal Authority</option>
+                        </select>
+                    </div>
+
                     <div class="field">
                         <input type="text" name="mobile" value="{{ old('mobile') }}" placeholder="Mobile Number" autocomplete="off" required>
 
@@ -58,7 +76,7 @@
                     <div class="signup-link">
                         Not a member? <a href="">Signup now</a></div>
                 </form>
-                <form action="{{ route('citizen.register') }}" class="signup" method="post" enctype="multipart/form-data">
+                <form action="{{ route('register') }}" class="signup" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="field">
                         <input type="text" name="name" placeholder="Full Name" value="{{ old('name') }}" required>
@@ -68,6 +86,13 @@
                     </div>
                     <div class="field">
                         <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required>
+                    </div>
+                    <div class="field">
+                        <select name="user_type" id="" required>
+                            <option value="" selected hidden>Register As..</option>
+                            <option value="ctz" @if (old('user_type')=="ctz" ) {{ 'selected' }} @endif>Citizen</option>
+                            <option value="lauth" @if (old('user_type')=="lauth" ) {{ 'selected' }} @endif>Legal Authority</option>
+                        </select>
                     </div>
                     <div class="field">
                         <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
@@ -86,32 +111,49 @@
     </div>
     <script>
         $(document).on("click", 'label.login', function() {
+            $(".login-heade-title-wrapper").css("margin-left", "0%");
             $("form.login").css("margin-left", "0%");
             $(".title-text .login").css("margin-left", "0%");
             localStorage.setItem('sinupActive', 0);
+            $(".slider-tab").css("left", "0%");
+            $(".slider-tab").css("transform", "scaleX(1)");
         });
         $(document).on("click", 'label.signup', function() {
+            $(".login-heade-title-wrapper").css("margin-left", "-100%");
             $("form.login").css("margin-left", "-50%");
             $(".title-text .login").css("margin-left", "-50%");
             localStorage.setItem('sinupActive', 1);
+            $(".slider-tab").css("left", "50%");
+            $(".slider-tab").css("transform", "scaleX(-1)");
         });
 
         $(document).on("click", 'form .signup-link a', function(e) {
             e.preventDefault();
+            $(".login-heade-title-wrapper").css("margin-left", "-100%");
             $("form.login").css("margin-left", "-50%");
             $(".title-text .login").css("margin-left", "-50%");
             localStorage.setItem('sinupActive', 1);
+            $(".slider-tab").css("left", "50%");
+            $(".slider-tab").css("transform", "scaleX(-1)");
+
+
         });
 
         $(document).ready(function() {
             if (localStorage.getItem('sinupActive') == 1) {
+                $(".login-heade-title-wrapper").css("margin-left", "-100%");
                 $("form.login").css("margin-left", "-50%");
                 $(".title-text .login").css("margin-left", "-50%");
                 $(".slider-tab").css("left", "50%");
+                $(".slider-tab").css("transform", "scaleX(-1)");
+
             } else {
+                $(".login-heade-title-wrapper").css("margin-left", "0%");
                 $("form.login").css("margin-left", "0%");
                 $(".title-text .login").css("margin-left", "0%");
                 $(".slider-tab").css("left", "0%");
+                $(".slider-tab").css("transform", "scaleX(1)");
+
             }
         });
         $(document).ready(function() {
