@@ -68,7 +68,10 @@ Route::group([
             Route::get('details/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'details'])->name('authority.user.details');
             Route::post('details/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'updateUser']);
 
-            Route::get('delete/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AdminUserController::class, 'deleteUser'])->name('authority.user.delete');
+            Route::get('delete/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'deleteUser'])->name('authority.user.delete');
+
+            Route::get('approve/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'approveUser'])->name('authority.user.approve');
+            Route::get('refuse/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'refuseUser'])->name('authority.user.refuse');
         });
 
 });

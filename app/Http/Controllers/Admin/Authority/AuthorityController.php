@@ -56,34 +56,50 @@ class AuthorityController extends Controller
 			'currentUserPass' => 'required',
 		],$Messages);
         // orders
-		$currentUserRegisteredPass = Admin::select('password')->where('id',Auth::guard('admin')->user()->id)->first()->password;
-		$adminUser = Admin::find(request('user_id'));
+		// $currentUserRegisteredPass = Admin::select('password')->where('id',Auth::guard('admin')->user()->id)->first()->password;
+		// $adminUser = Admin::find(request('user_id'));
 
-		if (Hash::check(request('currentUserPass'), $currentUserRegisteredPass)) {
-			if (!empty(request('userPass'))) {
-				$adminUsersUpdated  =   $adminUser->update([
-					'name'            => request('userName'),
-					'email'            => request('userEmail'),
-					'password'   => Hash::make(request('userPass')),
-				]);
-			}
-			else{
-				$adminUsersUpdated  =   $adminUser->update([
-					'name'            => request('userName'),
-					'email'            => request('userEmail'),
-				]);
-			}
+		// if (Hash::check(request('currentUserPass'), $currentUserRegisteredPass)) {
+		// 	if (!empty(request('userPass'))) {
+		// 		$adminUsersUpdated  =   $adminUser->update([
+		// 			'name'            => request('userName'),
+		// 			'email'            => request('userEmail'),
+		// 			'password'   => Hash::make(request('userPass')),
+		// 		]);
+		// 	}
+		// 	else{
+		// 		$adminUsersUpdated  =   $adminUser->update([
+		// 			'name'            => request('userName'),
+		// 			'email'            => request('userEmail'),
+		// 		]);
+		// 	}
 
-			if ($adminUsersUpdated) {
+		// 	if ($adminUsersUpdated) {
 
-				return redirect()->back()->with('success','Admin user successfully updated');
-			}
-			else {
-				return redirect()->back()->with('failed','Something went Wrong! Not Saved');
-			}
-		}
-		else {
-			return redirect()->back()->with('failed','Current logged user password not matched with the records ! Not Updated');
-		}
+		// 		return redirect()->back()->with('success','Admin user successfully updated');
+		// 	}
+		// 	else {
+		// 		return redirect()->back()->with('failed','Something went Wrong! Not Saved');
+		// 	}
+		// }
+		// else {
+		// 	return redirect()->back()->with('failed','Current logged user password not matched with the records ! Not Updated');
+		// }
 	}
+    public function approveUser(){
+		$authority = Authority::where('id', request('user_id'))->update([
+            'is_approved' => 1
+        ]);
+        if ($authority) {
+            return redirect()->back()->with('success','Legal authority has been approved!');
+        }
+    }
+    public function refuseUser(){
+		$authority = Authority::where('id', request('user_id'))->update([
+            'is_approved' => 0
+        ]);
+        if ($authority) {
+            return redirect()->back()->with('success','Approval has been removed');
+        }
+    }
 }

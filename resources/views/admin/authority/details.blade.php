@@ -11,9 +11,14 @@
                 <h4></h4>
             </div>
             <div class="col-sm-8">
-                <a href="{{route('authority.user.grid')}}" class="btn action-button mr-2"><i class="fa fa-arrow-left" aria-hidden="true"></i>{{ __(' Back') }}</a>
-                <a href="" class="btn action-button mr-2"><i class="fa fa-check" aria-hidden="true"></i>{{ __(' Approve') }}</a>
+                <a href="{{route('authority.user.approve',['user_id'=>request('user_id')])}}" class="btn action-button mr-2"><i class="fa fa-arrow-left" aria-hidden="true"></i>{{ __(' Back') }}</a>
+                @if($authority->is_approved == 0)
+                <a href="{{route('authority.user.approve',['user_id'=>request('user_id')])}}" class="btn action-button mr-2"><i class="fa fa-check" aria-hidden="true"></i>{{ __(' Approve') }}</a>
 
+                @else
+                <a href="{{route('authority.user.refuse',['user_id'=>request('user_id')])}}" class="btn action-button bg-danger mr-2"><i class="fa fa-times" aria-hidden="true"></i>{{ __(' Remove Approval') }}</a>
+
+                @endif
                 <a href="{{route('authority.user.delete',['user_id'=>request('user_id')])}}" onclick="return confirm('Are you sure?')" class="btn action-button mr-2"><i class="fa fa-trash" aria-hidden="true"></i>{{ __(' Delete User') }}</a>
 
             </div>
