@@ -1,6 +1,6 @@
 @extends('admin.index')
-@section('title', __('Admin User Details / ArtCam'))
-@section('body-class', 'artcam-admin-user-details')
+@section('title', __('Admin User Details / bdmirror'))
+@section('body-class', 'bdmirror-admin-user-details')
 @section('content')
 <div class="grid-container">
     @csrf

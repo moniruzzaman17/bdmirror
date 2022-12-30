@@ -47,6 +47,26 @@
                         </a>
                     </li>
                     <li class="header-menu">
+                        <span>Management</span>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a href="#" class="d-flex justify-content-between align-items-center">
+                            {{-- <i class="fas fa-cog"></i> --}}
+                            <span>Legal Authority</span>
+                            <i class="fa-solid fa-greater-than bg-transparent"></i>
+                            {{-- <span class="badge badge-pill badge-primary">Beta</span> --}}
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="{{ route('authority.user.grid') }}">Authority List</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="header-menu">
                         <span>System</span>
                     </li>
                     <li class="sidebar-dropdown">

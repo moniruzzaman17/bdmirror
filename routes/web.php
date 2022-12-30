@@ -52,13 +52,23 @@ Route::group([
         Route::get('user_grid', [App\Http\Controllers\Admin\Adminuser\AdminUserGridController::class, 'index'])->name('admin.user.grid');
 
         Route::get('user/create/new', [App\Http\Controllers\Admin\Adminuser\NewUserController::class, 'index'])->name('admin.user.create');
-
         Route::post('user/create/new', [App\Http\Controllers\Admin\Adminuser\NewUserController::class, 'store']);
-        
         Route::get('details/id/{user_id}/new', [App\Http\Controllers\Admin\Adminuser\AdminUserController::class, 'index'])->name('admin.user.details');
-        
         Route::post('details/id/{user_id}/new', [App\Http\Controllers\Admin\Adminuser\AdminUserController::class, 'updateUser']);
-        
         Route::get('delete/id/{user_id}/new', [App\Http\Controllers\Admin\Adminuser\AdminUserController::class, 'deleteUser'])->name('admin.user.delete');
+
+        Route::group([
+            'prefix' => 'authority'], function () {
+            
+            Route::get('user_grid', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'index'])->name('authority.user.grid');
+            Route::get('user/create/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'index'])->name('authority.user.create');
+            
+            Route::post('user/create/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'store']);
+
+            Route::get('details/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'details'])->name('authority.user.details');
+            Route::post('details/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AuthorityController::class, 'updateUser']);
+
+            Route::get('delete/id/{user_id}/new', [App\Http\Controllers\Admin\Authority\AdminUserController::class, 'deleteUser'])->name('authority.user.delete');
+        });
 
 });

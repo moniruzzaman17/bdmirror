@@ -21,7 +21,7 @@ class CheckAdminAuth
             return $next($request);
         }
         else {
-            return redirect()->route('admin.home')->with('warning',__('Authorized login is required for viewing the requested page.'));
+            return redirect()->route('admin.login')->with('warning',__('Authorized login is required for viewing the requested page.'));
         }
     }
 }
