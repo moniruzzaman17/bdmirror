@@ -30,6 +30,12 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::get('/profile', [App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('citizen.profile');
 Route::get('/legal-authorities', [App\Http\Controllers\LegalAuthority\LegalAuthorityController::class, 'index'])->name('authority.list');
 
+// message route 
+Route::get('/messages/{type}/{id}', [App\Http\Controllers\Message\MessageController::class, 'index'])->name('message');
+// ajax route 
+// message ajax 
+Route::get('/send-message', [App\Http\Controllers\Message\MessageController::class, 'sendMessage']);
+
 
 // Authority routes
 

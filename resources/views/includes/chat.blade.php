@@ -10,13 +10,13 @@
     <!--     Notification list container/box -->
     <div class="chat-list-box">
         <div class="list-group">
-            <a href="#" class="list-group-item w-100">
+            <a href="{{ route('message',['type'=>'citizen','id'=>1]) }}" class="list-group-item w-100">
                 <div class="d-flex align-items-center">
                     <div class="list-left">
                         <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
                     </div>
                     <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
+                        <h4 class="list-heading"> Moniruzzaman Send you a message</h4>
                         <div class="list-time"> 3 min ago </div>
                     </div>
                 </div>
