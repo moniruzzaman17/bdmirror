@@ -1,0 +1,42 @@
+.chat-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--header-color);
+    max-height: 400px;
+
+    .list-group-item {
+        background-color: var(--header-color);
+        margin-bottom: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 5px;
+
+        &:hover {
+            background: var(--hover-color);
+            cursor: pointer;
+        }
+
+        &.unread {
+            background: var(--hover-color);
+        }
+
+        .list-left {
+            .img-circle {
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                margin-right: 3px;
+            }
+        }
+
+        .list-right {
+            .list-heading {
+                font-size: .9rem;
+                color: var(--text-color);
+            }
+
+            .list-time {
+                color: #a4a5a5;
+            }
+        }
+    }
+}

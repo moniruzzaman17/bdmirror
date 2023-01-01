@@ -1,0 +1,32 @@
+.notification-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--header-color);
+    max-height: 400px;
+
+    .list-group-item {
+        background-color: var(--header-color);
+        margin-bottom: 8px;
+        border: none;
+
+        &:hover {
+            background: var(--hover-color);
+            cursor: pointer;
+        }
+
+        &.unread {
+            background: var(--hover-color);
+        }
+
+        .list-content {
+            .list-heading {
+                font-size: .9rem;
+                color: var(--text-color);
+            }
+
+            .list-time {
+                color: #a4a5a5;
+            }
+        }
+    }
+}

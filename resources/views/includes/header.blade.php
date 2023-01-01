@@ -21,7 +21,9 @@
                     <span class="notification-badge">1</span>
                 </a>
                 <div class="chat-popup-wrapper header-popup">
-                    this is Chat wrapper
+                    <div class="chat-body">
+                        @include('includes.chat')
+                    </div>
                 </div>
 
             </li>
@@ -32,12 +34,11 @@
                     <span class="notification-badge" style="top: -10px; right: -8px">12</span>
                 </a>
                 <div class="notification-popup-wrapper header-popup">
-                    this is Notification wrapper
+                    <div class="notification-body">
+                        @include('includes.notification')
+                    </div>
                 </div>
-
             </li>
-
-
             <li class="nav-item">
                 <a href="{{ route('citizen.profile') }}" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
                     <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
