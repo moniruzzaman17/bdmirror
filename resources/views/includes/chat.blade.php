@@ -10,116 +10,23 @@
     <!--     Notification list container/box -->
     <div class="chat-list-box">
         <div class="list-group">
-            <a href="{{ route('message',['type'=>'authority','id'=>1]) }}" class="list-group-item w-100">
+            @php
+            $i = 0;
+            @endphp
+            @foreach($senders as $key => $sender)
+            <a href="{{ route('message',['type'=>'authority','id'=>$sender->id]) }}" class="list-group-item w-100">
                 <div class="d-flex align-items-center">
                     <div class="list-left">
                         <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
                     </div>
                     <div class="list-right">
-                        <h4 class="list-heading"> Moniruzzaman Send you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
+                        <h4 class="list-heading"> {{ $sender->name }} Send you a message</h4>
+
+                        <div class="list-time"> {{ Carbon\Carbon::parse($msgNotifications[$i++]->created_at)->diffForHumans()}} minute ago</div>
                     </div>
                 </div>
             </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item w-100">
-                <div class="d-flex align-items-center">
-                    <div class="list-left">
-                        <img class="img-circle" src="{{ asset('img/moon.jpg') }}">
-                    </div>
-                    <div class="list-right">
-                        <h4 class="list-heading"> Mr. Josim sent you a message</h4>
-                        <div class="list-time"> 3 min ago </div>
-                    </div>
-                </div>
-            </a>
+            @endforeach
         </div>
     </div>
 </div>

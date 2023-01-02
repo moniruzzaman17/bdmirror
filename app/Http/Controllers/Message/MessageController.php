@@ -141,4 +141,25 @@ class MessageController extends Controller
             return view('message.messagebody', compact('messages'));
         }
     }
+
+    public function viewMessageNotification(){
+        if (Auth::guard('citizen')->check()) {
+            $id = Auth::guard('citizen')->user()->id;
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type','id','created_at')->where('receiver_id', $id)->where('receiver_type','citizen')->get();
+            $senders = array();
+            foreach ($msgNotifications as $key => $msgNotification) {
+                $senders = Authority::select('name','id')->where('id',$msgNotification->sender_id)->get();
+            }
+            return view('includes.chat', compact('senders','msgNotifications'));
+        }
+        if (Auth::guard('authority')->check()) {
+            $id = Auth::guard('authority')->user()->id;
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type','id','created_at')->where('receiver_id', $id)->where('receiver_type','authority')->get();
+            $senders = array();
+            foreach ($msgNotifications as $key => $msgNotification) {
+                $senders = Citizen::select('name','id')->where('id',$msgNotification->sender_id)->get();
+            }
+            return view('includes.chat', compact('senders','msgNotifications'));
+        }
+    }
 }

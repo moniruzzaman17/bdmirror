@@ -22,7 +22,7 @@
                 </a>
                 <div class="chat-popup-wrapper header-popup">
                     <div class="chat-body">
-                        @include('includes.chat')
+                        {{-- @include('includes.chat') --}}
                     </div>
                 </div>
 
@@ -112,6 +112,31 @@
             container.slideUp('fast');
 
         }
+    });
+
+    $(document).on('click', '#chat-avatar', function(event) {
+        event.preventDefault();
+        var _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "/view-chat-notification"
+            , type: "POST"
+            , data: {
+                _token: _token
+            },
+
+            // shows the loader element before sending.
+            beforeSend: function() {
+                $(".msg-spinner").fadeIn('fast');
+            }
+            , success: function(data) {
+                $('.chat-body').html(data);
+                console.log(data);
+            }
+            , error: function(response) {
+                console.log('Error Function Working');
+            }
+        });
     });
 
 </script>
