@@ -27,7 +27,7 @@ Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, '
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/profile', [App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('citizen.profile');
+Route::get('/profile', [App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('profile');
 Route::get('/legal-authorities', [App\Http\Controllers\LegalAuthority\LegalAuthorityController::class, 'index'])->name('authority.list');
 
 // message route 
@@ -41,10 +41,12 @@ Route::post('/view-chat-notification', [App\Http\Controllers\Message\MessageCont
 
 // Authority routes
 
-Route::prefix('mcp')->group(function() {
-    Route::get('/', [App\Http\Controllers\Authority\HomeController::class, 'index'])->name('authority.home');
-    Route::get('/profile', [App\Http\Controllers\Authority\Profile\ProfileController::class, 'index'])->name('authority.profile');
-});
+// Route::prefix('mcp')->group(function() {
+//     Route::get('/', [App\Http\Controllers\Authority\HomeController::class, 'index'])->name('authority.home');
+//     Route::get('/profile', [App\Http\Controllers\Authority\Profile\ProfileController::class, 'index'])->name('authority.profile');
+//     // message route 
+//     Route::get('/messages/{type}/{id}', [App\Http\Controllers\Message\MessageController::class, 'index'])->name('authority.message');
+// });
 
 
 

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg p-0">
-    <a class="navbar-brand" href="{{ route('authority.home') }}"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a> Authority
+    <a class="navbar-brand" href="{{ route('authority.home') }}"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a>
     <div class="search-box-wrapper">
         <input type="search" class="search-box" placeholder="Search in BDmirror">
         <span class="icon-search" aria-label="hidden">🔎</span>
@@ -21,7 +21,9 @@
                     <span class="notification-badge">1</span>
                 </a>
                 <div class="chat-popup-wrapper header-popup">
-                    this is Chat wrapper
+                    <div class="chat-body">
+                        {{-- @include('includes.chat') --}}
+                    </div>
                 </div>
 
             </li>
@@ -32,20 +34,19 @@
                     <span class="notification-badge" style="top: -10px; right: -8px">12</span>
                 </a>
                 <div class="notification-popup-wrapper header-popup">
-                    this is Notification wrapper
+                    <div class="notification-body">
+                        @include('includes.notification')
+                    </div>
                 </div>
-
             </li>
-
-
             <li class="nav-item">
-                <a href="javascript:void(0)" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
+                <a href="{{ route('citizen.profile') }}" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
                     <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
                 </a>
                 <div class="profile-popup-wrapper header-popup">
                     <ul class="common-list p-0">
                         <li class="common-list-item">
-                            <a href="{{ route('authority.profile') }}" class="common-list-button">
+                            <a href="{{ route('citizen.profile') }}" class="common-list-button">
                                 <span class="icon">
                                     <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                                 </span>
@@ -62,7 +63,7 @@
                             </a>
                             <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
                                 @csrf
-
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -111,6 +112,31 @@
             container.slideUp('fast');
 
         }
+    });
+
+    $(document).on('click', '#chat-avatar', function(event) {
+        event.preventDefault();
+        var _token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "/view-chat-notification"
+            , type: "POST"
+            , data: {
+                _token: _token
+            },
+
+            // shows the loader element before sending.
+            beforeSend: function() {
+                $(".msg-spinner").fadeIn('fast');
+            }
+            , success: function(data) {
+                $('.chat-body').html(data);
+                console.log(data);
+            }
+            , error: function(response) {
+                console.log('Error Function Working');
+            }
+        });
     });
 
 </script>

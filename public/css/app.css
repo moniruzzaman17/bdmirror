@@ -22567,7 +22567,7 @@ button.createbtn i {
   border-radius: 15px;
 }
 .message-wrapper .body .bubble p {
-  color: #f9fbff;
+  color: var(--text-color);
   font-size: 14px;
   text-align: left;
   line-height: 1.4;
@@ -22576,13 +22576,13 @@ button.createbtn i {
   text-align: left;
 }
 .message-wrapper .body .incoming .bubble {
-  background-color: #b2b2b2;
+  background-color: rgba(0, 103, 76, 0.5);
 }
 .message-wrapper .body .outgoing {
   text-align: right;
 }
 .message-wrapper .body .outgoing .bubble {
-  background-color: rgba(0, 103, 76, 0.5);
+  background-color: #b2b2b2;
 }
 .message-wrapper .body .msg-time {
   color: #a4a5a5;

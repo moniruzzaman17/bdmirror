@@ -13,6 +13,7 @@
         <div class="bubble m-0">
             <p>{{ $message->message }}</p>
         </div><br>
+
         <i class="msg-time">{{ date('d-m-y h:ia', strtotime($message->created_at)) }}</i>
     </div>
     @endif
@@ -21,16 +22,16 @@
     @if($message->receiver_type == "authority")
     <div class="incoming">
         <div class="bubble m-0">
-            <p>{{ $message->message }}</p>
-        </div><br>
-        <i class="msg-time">{{ date('d-m-y h:ia', strtotime($message->created_at)) }}</i>
+            <p>{{ $message->message }}</p><br>
+            <i class="msg-time">{{ date('d-m-y h:ia', strtotime($message->created_at)) }}</i>
+        </div>
     </div>
     @else
     <div class="outgoing">
         <div class="bubble m-0">
-            <p>{{ $message->message }}</p>
-        </div><br>
-        <i class="msg-time">{{ date('d-m-y h:ia', strtotime($message->created_at)) }}</i>
+            <p>{{ $message->message }}</p><br>
+            <i class="msg-time">{{ date('d-m-y h:ia', strtotime($message->created_at)) }}</i>
+        </div>
     </div>
     @endif
     @endif

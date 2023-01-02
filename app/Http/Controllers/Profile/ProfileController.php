@@ -14,7 +14,7 @@ class ProfileController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('citizen.auth');
+        // $this->middleware('citizen.auth');
     }
     /**
      * Display a listing of the resource.

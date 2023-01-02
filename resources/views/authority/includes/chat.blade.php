@@ -21,7 +21,7 @@
             }
             @endphp
             @foreach($senders as $key => $sender)
-            <a href="{{ route('message',['type'=>$type ,'id'=>$sender->id]) }}" class="list-group-item w-100">
+            <a href="{{ route('authority.message',['type'=>$type ,'id'=>$sender->id]) }}" class="list-group-item w-100">
                 <div class="d-flex align-items-center">
                     <div class="list-left">
                         <img class="img-circle" src="{{ asset('img/moon.jpg') }}">

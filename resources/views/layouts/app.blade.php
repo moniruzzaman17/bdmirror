@@ -39,6 +39,11 @@
         @include('includes.header')
     </div>
     @endauth
+    @auth('authority')
+    <div class="main-header">
+        @include('includes.header')
+    </div>
+    @endauth
 
     <div class="container-fluid p-0 main-body">
         @yield('content')

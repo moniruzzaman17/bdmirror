@@ -52,7 +52,7 @@ class LoginController extends Controller
         if (request('user_type') == "ctz") {
             return route('home'); // works for login
         } else {
-            return route('authority.home'); // works for login
+            return route('home'); // works for login
         }
         
     }

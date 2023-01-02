@@ -125,7 +125,7 @@
     }
 
     .body .bubble p {
-        color: #f9fbff;
+        color: var(--text-color);
         font-size: 14px;
         text-align: left;
         line-height: 1.4;
@@ -136,7 +136,7 @@
     }
 
     .body .incoming .bubble {
-        background-color: #b2b2b2;
+        background-color: $chat-primary-color;
     }
 
     .body .outgoing {
@@ -144,7 +144,7 @@
     }
 
     .body .outgoing .bubble {
-        background-color: $chat-primary-color;
+        background-color: #b2b2b2;
     }
 
     .body .msg-time {

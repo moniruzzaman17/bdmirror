@@ -4,12 +4,12 @@
 @section('content')
 <div class="body-wrapper">
     {{-- @include('feed.feed') --}}
-    @auth('citizen')
+    @if(Auth::guard('authority')->check())
     @include('home.home')
-    @endauth
-
-    @guest('citizen')
+    @elseif (Auth::guard('citizen')->check())
+    @include('home.home')
+    @else
     @include('auth.login')
-    @endguest
+    @endif
 </div>
 @endsection
