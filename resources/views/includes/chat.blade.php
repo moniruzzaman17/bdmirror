@@ -5,7 +5,7 @@
     </header>
     <!--     Notification Options -->
     <div class="notification-option pt-3 pb-3">
-        <p> 3 messages unread </p>
+        <p> {{ $totalmsg }} conversation found </p>
     </div>
     <!--     Notification list container/box -->
     <div class="chat-list-box">

@@ -150,7 +150,8 @@ class MessageController extends Controller
             foreach ($msgNotifications as $key => $msgNotification) {
                 $senders = Authority::select('name','id')->where('id',$msgNotification->sender_id)->get();
             }
-            return view('includes.chat', compact('senders','msgNotifications'));
+            $totalmsg =  count($msgNotifications);
+            return view('includes.chat', compact('senders','msgNotifications','totalmsg'));
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
@@ -159,7 +160,8 @@ class MessageController extends Controller
             foreach ($msgNotifications as $key => $msgNotification) {
                 $senders = Citizen::select('name','id')->where('id',$msgNotification->sender_id)->get();
             }
-            return view('includes.chat', compact('senders','msgNotifications'));
+            $totalmsg =  count($msgNotifications);
+            return view('includes.chat', compact('senders','msgNotifications','totalmsg'));
         }
     }
 }
