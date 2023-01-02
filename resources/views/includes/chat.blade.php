@@ -10,7 +10,7 @@
     <!--     Notification list container/box -->
     <div class="chat-list-box">
         <div class="list-group">
-            <a href="{{ route('message',['type'=>'citizen','id'=>1]) }}" class="list-group-item w-100">
+            <a href="{{ route('message',['type'=>'authority','id'=>1]) }}" class="list-group-item w-100">
                 <div class="d-flex align-items-center">
                     <div class="list-left">
                         <img class="img-circle" src="{{ asset('img/moon.jpg') }}">

@@ -1,7 +1,8 @@
 .message-wrapper {
     $chat-primary-color: rgba(0, 103, 76, 0.5);
-    height: calc(100vh - 65px);
+    // height: calc(100vh - 150px);
     position: relative;
+    margin-top: 10px;
 
     .alink {
         display: inline-block;
@@ -34,9 +35,9 @@
         height: 100%;
         margin: auto;
         background-color: $chat-primary-color;
-        position: absolute;
-        left: 0;
-        right: 0;
+        // position: absolute;
+        // left: 0;
+        // right: 0;
         border: 0;
         top: 10%;
     }
@@ -102,6 +103,18 @@
     .body {
         flex-grow: 1;
         background-color: var(--header-color);
+        padding: 0;
+
+        .body-container {
+            max-height: 350px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 16px;
+        }
+
+        .body-container::-webkit-scrollbar {
+            width: 0 !important
+        }
     }
 
     .body .bubble {
@@ -134,9 +147,24 @@
         background-color: $chat-primary-color;
     }
 
+    .body .msg-time {
+        color: #a4a5a5;
+        font-size: 11px;
+    }
+
     /* foot */
     .foot {
         display: flex;
+        background-color: var(--header-color);
+        border-top: 1px solid var(--divider-border-color);
+
+        button {
+            background: $chat-primary-color;
+
+            &:hover {
+                color: var(--hover-text-color);
+            }
+        }
     }
 
     .foot .msg {

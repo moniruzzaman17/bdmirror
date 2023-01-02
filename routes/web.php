@@ -34,7 +34,8 @@ Route::get('/legal-authorities', [App\Http\Controllers\LegalAuthority\LegalAutho
 Route::get('/messages/{type}/{id}', [App\Http\Controllers\Message\MessageController::class, 'index'])->name('message');
 // ajax route 
 // message ajax 
-Route::get('/send-message', [App\Http\Controllers\Message\MessageController::class, 'sendMessage']);
+Route::post('/send-message', [App\Http\Controllers\Message\MessageController::class, 'sendMessage']);
+Route::get('/view-message', [App\Http\Controllers\Message\MessageController::class, 'viewMessage']);
 
 
 // Authority routes

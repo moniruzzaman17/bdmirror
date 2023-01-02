@@ -22464,8 +22464,8 @@ button.createbtn i {
 }
 
 .message-wrapper {
-  height: calc(100vh - 65px);
   position: relative;
+  margin-top: 10px;
   /* chat_box */
   /* head */
   /* body */
@@ -22497,9 +22497,6 @@ button.createbtn i {
   height: 100%;
   margin: auto;
   background-color: rgba(0, 103, 76, 0.5);
-  position: absolute;
-  left: 0;
-  right: 0;
   border: 0;
   top: 10%;
 }
@@ -22552,6 +22549,16 @@ button.createbtn i {
 .message-wrapper .body {
   flex-grow: 1;
   background-color: var(--header-color);
+  padding: 0;
+}
+.message-wrapper .body .body-container {
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+}
+.message-wrapper .body .body-container::-webkit-scrollbar {
+  width: 0 !important;
 }
 .message-wrapper .body .bubble {
   display: inline-block;
@@ -22577,8 +22584,20 @@ button.createbtn i {
 .message-wrapper .body .outgoing .bubble {
   background-color: rgba(0, 103, 76, 0.5);
 }
+.message-wrapper .body .msg-time {
+  color: #a4a5a5;
+  font-size: 11px;
+}
 .message-wrapper .foot {
   display: flex;
+  background-color: var(--header-color);
+  border-top: 1px solid var(--divider-border-color);
+}
+.message-wrapper .foot button {
+  background: rgba(0, 103, 76, 0.5);
+}
+.message-wrapper .foot button:hover {
+  color: var(--hover-text-color);
 }
 .message-wrapper .foot .msg {
   flex-grow: 1;
