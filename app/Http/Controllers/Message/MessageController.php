@@ -30,10 +30,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'authority')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $id)
-                            ->where('sender_type','authority')
-                            ->orWhere('receiver_type','citizen')
-                            ->orWhere('sender_id',$id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','authority')
+                            ->where('receiver_type','citizen')
+                            ->where('sender_id',$id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.message', compact('user','messages'));
         }
@@ -45,10 +45,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'citizen')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $id)
-                            ->where('sender_type','citizen')
-                            ->orWhere('receiver_type','authority')
-                            ->orWhere('sender_id',$id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','citizen')
+                            ->where('receiver_type','authority')
+                            ->where('sender_id',$id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.message', compact('user','messages'));
         }
@@ -77,10 +77,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'citizen')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $receiver_id)
-                            ->where('sender_type','citizen')
-                            ->orWhere('receiver_type','authority')
-                            ->orWhere('sender_id',$receiver_id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','citizen')
+                            ->where('receiver_type','authority')
+                            ->where('sender_id',$receiver_id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.messagebody', compact('messages'));
         }
@@ -100,10 +100,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'authority')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $receiver_id)
-                            ->where('sender_type','authority')
-                            ->orWhere('receiver_type','citizen')
-                            ->orWhere('sender_id',$receiver_id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','authority')
+                            ->where('receiver_type','citizen')
+                            ->where('sender_id',$receiver_id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.messagebody', compact('messages'));
         }
@@ -118,10 +118,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'citizen')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $receiver_id)
-                            ->where('sender_type','citizen')
-                            ->orWhere('receiver_type','authority')
-                            ->orWhere('sender_id',$receiver_id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','citizen')
+                            ->where('receiver_type','authority')
+                            ->where('sender_id',$receiver_id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.messagebody', compact('messages'));
         }
@@ -133,10 +133,10 @@ class MessageController extends Controller
                             ->where('receiver_type', 'authority')
                             ->where('sender_id', $sender_id)
                             ->where('receiver_id', $receiver_id)
-                            ->where('sender_type','authority')
-                            ->orWhere('receiver_type','citizen')
-                            ->orWhere('sender_id',$receiver_id)
-                            ->orWhere('receiver_id',$sender_id);
+                            ->orWhere('sender_type','authority')
+                            ->where('receiver_type','citizen')
+                            ->where('sender_id',$receiver_id)
+                            ->where('receiver_id',$sender_id);
                         })->get();
             return view('message.messagebody', compact('messages'));
         }
@@ -145,23 +145,34 @@ class MessageController extends Controller
     public function viewMessageNotification(){
         if (Auth::guard('citizen')->check()) {
             $id = Auth::guard('citizen')->user()->id;
-            $msgNotifications = Message::distinct()->select('sender_id','sender_type','id','created_at')->where('receiver_id', $id)->where('receiver_type','citizen')->get();
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','citizen')->get();
             $senders = array();
+            $sentMessages = array();
+            $i = 0;
+            $j = 0;
             foreach ($msgNotifications as $key => $msgNotification) {
-                $senders = Authority::select('name','id')->where('id',$msgNotification->sender_id)->get();
+                $senders[$i++] = Authority::select('name','id')->where('id',$msgNotification->sender_id)->first();
+
+                $sentMessages[$j++] = Message::where('sender_id', $msgNotification->sender_id)->where('receiver_id', $id)->where('sender_type', 'authority')->where('receiver_id', $id)->where('receiver_type','citizen')->orderBy('id', 'DESC')->first();
             }
             $totalmsg =  count($msgNotifications);
-            return view('includes.chat', compact('senders','msgNotifications','totalmsg'));
+            return view('includes.chat', compact('senders','sentMessages','totalmsg'));
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
-            $msgNotifications = Message::distinct()->select('sender_id','sender_type','id','created_at')->where('receiver_id', $id)->where('receiver_type','authority')->get();
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','authority')->get();
             $senders = array();
+            $sentMessages = array();
+            $i = 0;
+            $j = 0;
             foreach ($msgNotifications as $key => $msgNotification) {
-                $senders = Citizen::select('name','id')->where('id',$msgNotification->sender_id)->get();
+                $senders[$i++] = Citizen::select('id','name')->where('id', $msgNotification->sender_id)->first();
+
+                $sentMessages[$j++] = Message::where('sender_id', $msgNotification->sender_id)->where('receiver_id', $id)->where('sender_type', 'citizen')->where('receiver_id', $id)->where('receiver_type','authority')->orderBy('id', 'DESC')->first();
             }
+            
             $totalmsg =  count($msgNotifications);
-            return view('includes.chat', compact('senders','msgNotifications','totalmsg'));
+            return view('includes.chat', compact('senders','sentMessages','totalmsg'));
         }
     }
 }
