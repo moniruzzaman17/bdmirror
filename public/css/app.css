@@ -22038,6 +22038,10 @@ h6,
 .common-list {
   list-style: none;
 }
+.common-list-select {
+  background: var(--header-color);
+  border: none;
+}
 .common-list-button {
   display: flex;
   height: 52px;

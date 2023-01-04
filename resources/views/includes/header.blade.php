@@ -1,8 +1,15 @@
 <nav class="navbar navbar-expand-lg p-0">
-    <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt=""></a>
-    @auth('authority')
-    <h6>Legal Authority Panel</h6>
-    @endauth
+    <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" class="login-logo" alt="">
+        @auth('authority')
+        <style>
+            .navbar-brand {
+                text-align: center;
+            }
+
+        </style>
+        <h6 class="pr-2">Legal Authority Panel</h6>
+        @endauth
+    </a>
     <div class="search-box-wrapper">
         <input type="search" class="search-box" placeholder="Search in BDmirror">
         <span class="icon-search" aria-label="hidden">🔎</span>
@@ -22,7 +29,8 @@
             <li class="nav-item">
                 <a aria-label="Message" class="nav-link nav-link-right nav-button alt-text" id="chat-avatar">
                     <i class="fas fa-comments nav-link-notification" aria-hidden="true"></i>
-                    <span class="notification-badge">1</span>
+                    <span class="notification-badge">{{ $totalConversation }}</span>
+
                 </a>
                 <div class="chat-popup-wrapper header-popup">
                     <div class="chat-body">

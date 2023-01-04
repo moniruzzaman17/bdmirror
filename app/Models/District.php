@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class District extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'division_id',
-        'name',
-        'bn_name',
-        'website',
-    ];
+    
+    function division() {
+        return $this->belongsTo('App\Models\District','district_id','id');
+    }
+    
+    function upazilas() {
+        return $this->hasMany('App\Models\Upazila','district_id','id');
+    }
 }

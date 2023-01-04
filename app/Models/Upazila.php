@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Upazila extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'district_id',
-        'name',
-        'bn_name',
-    ];
+    
+    
+    function district() {
+        return $this->belongsTo('App\Models\District','district_id','id');
+    }
 }

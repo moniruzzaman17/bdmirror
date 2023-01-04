@@ -44,6 +44,11 @@
 .common-list {
     list-style: none;
 
+    &-select {
+        background: var(--header-color);
+        border: none;
+    }
+
     &-button {
         display: flex;
         height: 52px;

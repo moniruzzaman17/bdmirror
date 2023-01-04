@@ -6,7 +6,8 @@
                     <span class="icon">
                         <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                     </span>
-                    <span class="text">Md. Moniruzzaman</span>
+                    <span class="text">{{ $logedUser->name }}</span>
+
                 </a>
             </li>
             <li class="common-list-item">

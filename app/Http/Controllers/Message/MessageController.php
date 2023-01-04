@@ -26,6 +26,9 @@ class MessageController extends Controller
     public function index($type, $id){
         if ($type == "authority") {
             $user = Authority::where('id', $id)->first();
+            if (empty($user)) {
+                return redirect()->route('home');
+            }
             $sender_id = Auth::guard('citizen')->user()->id;
             $messages = Message::where(function($q) use ($id, $sender_id){
                             $q->where('sender_type', 'citizen')
@@ -37,7 +40,12 @@ class MessageController extends Controller
                             ->where('sender_id',$id)
                             ->where('receiver_id',$sender_id);
                         })->get();
-            return view('message.message', compact('user','messages'));
+            if (empty($messages)) {
+                return redirect()->route('home');
+            }
+            else{
+                return view('message.message', compact('user','messages'));
+            }
         }
         elseif ($type == "citizen") {
             $user = Citizen::where('id', $id)->first();
