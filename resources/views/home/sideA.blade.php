@@ -2,7 +2,7 @@
     <section class="common-section text-center">
         <ul class="common-list">
             <li class="common-list-item">
-                <a href="" target="_blank" class="common-list-button">
+                <a href="{{ route('profile') }}" class="common-list-button">
                     <span class="icon">
                         <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                     </span>

@@ -1,0 +1,33 @@
+.create-post-modal {
+    .modal-content {
+        background: var(--header-color);
+
+        .complaint_textarea {
+            background: var(--header-color);
+            color: var(--text-color);
+            padding: 10px;
+
+            &:focus-visible {
+                outline: 1px solid #00674C !important;
+            }
+        }
+    }
+
+    @media screen and (min-width:$large-start) {
+        .modal-dialog {
+            max-width: 50%;
+        }
+    }
+
+    @media screen and (min-width:$medium-start) and (max-width:$medium-end) {
+        .modal-dialog {
+            max-width: 90%;
+        }
+    }
+
+    @media screen and (max-width:$small-end) {
+        .modal-dialog {
+            max-width: 100%;
+        }
+    }
+}

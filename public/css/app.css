@@ -21774,6 +21774,33 @@ form .btn input[type=submit] {
   opacity: 0;
 }
 
+.create-post-modal .modal-content {
+  background: var(--header-color);
+}
+.create-post-modal .modal-content .complaint_textarea {
+  background: var(--header-color);
+  color: var(--text-color);
+  padding: 10px;
+}
+.create-post-modal .modal-content .complaint_textarea:focus-visible {
+  outline: 1px solid #00674C !important;
+}
+@media screen and (min-width: 992px) {
+  .create-post-modal .modal-dialog {
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 991px) {
+  .create-post-modal .modal-dialog {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .create-post-modal .modal-dialog {
+    max-width: 100%;
+  }
+}
+
 .create-post-wrapper .create-post-card {
   color: var(--text-color);
   background-color: var(--post-bg-color);
