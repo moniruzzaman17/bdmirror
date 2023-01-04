@@ -4,6 +4,7 @@ namespace App\Http\Controllers\LegalAuthority;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Authority;
 
 class LegalAuthorityController extends Controller
 {
@@ -14,6 +15,8 @@ class LegalAuthorityController extends Controller
      */
     public function index()
     {
-        return view('legalauthority.legalauthority');
+        $authorities = Authority::with('division','district','upazila')->get();
+        // dd($authorities);
+        return view('legalauthority.legalauthority',compact('authorities'));
     }
 }

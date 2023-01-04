@@ -14,23 +14,31 @@
                     @endforeach
                 </select>
             </li>
-            <li class="common-list-item">
+            <li class="common-list-item mb-3">
                 <select name="" id="district" class="form-controll common-list-button common-list-select w-100">
-                    <option value="" selected disabled hidden> Select District..</option>
+                    <option value="" selected> Select District..</option>
+                </select>
+            </li>
+            <li class="common-list-item">
+                <select name="" id="upazila" class="form-controll common-list-button common-list-select w-100">
+                    <option value="" selected> Select Upazila..</option>
                 </select>
             </li>
         </ul>
-        <button class="common-more">
+        {{-- <button class="common-more">
             <span class="text">See More</span>
             <span class="icon">🔻</span>
-        </button>
+        </button> --}}
     </section>
 </aside>
 <script>
     $("#division").change(function() {
         var divisionID = this.value;
         var _token = $('meta[name="csrf-token"]').attr('content');
-
+        if (divisionID == "") {
+            $('#district').find('option').not(':first').remove();
+            $('#upazila').find('option').not(':first').remove();
+        }
         $.ajax({
             url: "/get-district"
             , dataType: 'json'
@@ -40,13 +48,33 @@
                 , _token: _token
             }
             , success: function(data) {
-                $('#msg_body').html(data);
-                var objDiv = document.getElementById("chat_body_container");
-                objDiv.scrollTop = objDiv.scrollHeight;
+                $('#district').find('option').not(':first').remove();
+                $('#upazila').find('option').not(':first').remove();
+                $.each(data, function(key, district) {
+                    $("#district").append('<option value="' + district.id + '">' + district.name + ' ~ ' + district.bn_name + '</option>');
+                });
             }
         });
+    });
 
-        $("#district").append('<option value="">Working</option>');
+    $("#district").change(function() {
+        var districtID = this.value;
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "/get-upazila"
+            , dataType: 'json'
+            , type: "POST"
+            , data: {
+                districtID: districtID
+                , _token: _token
+            }
+            , success: function(data) {
+                $('#upazila').find('option').not(':first').remove();
+                $.each(data, function(key, upazila) {
+                    $("#upazila").append('<option value="' + upazila.id + '">' + upazila.name + ' ~ ' + upazila.bn_name + '</option>');
+                });
+            }
+        });
     });
 
 </script>

@@ -39,6 +39,7 @@ Route::get('/view-message', [App\Http\Controllers\Message\MessageController::cla
 Route::post('/view-chat-notification', [App\Http\Controllers\Message\MessageController::class, 'viewMessageNotification']);
 // get district ajax
 Route::post('/get-district', [App\Http\Controllers\HomeController::class, 'getDistrict']);
+Route::post('/get-upazila', [App\Http\Controllers\HomeController::class, 'getUpazila']);
 
 // Authority routes
 
