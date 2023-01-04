@@ -14,11 +14,11 @@ class CreateUpazilasTable extends Migration
     public function up()
     {
         Schema::create('upazilas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
             $table->integer('district_id')->unsigned();
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
             $table->string('name');
             $table->string('bn_name');
+            $table->string('url');
             $table->timestamps();
         });
     }

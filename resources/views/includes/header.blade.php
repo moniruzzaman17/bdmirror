@@ -54,7 +54,15 @@
                                 <span class="icon">
                                     <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
                                 </span>
-                                <span class="text">My Profile</span>
+                                <span class="text">
+                                    My Profile (
+                                    @auth('citizen')
+                                    {{ Auth::guard('citizen')->user()->name }}
+                                    @endauth
+                                    @auth('authority')
+                                    {{ Auth::guard('authority')->user()->name }}
+                                    @endauth
+                                    )</span>
                             </a>
                         </li>
                         <li class="common-list-item">

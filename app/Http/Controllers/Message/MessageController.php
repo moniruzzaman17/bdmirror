@@ -18,7 +18,9 @@ class MessageController extends Controller
      */
     public function __construct()
     {
-        
+        // if (Auth::guard('citizen')->check() == false && Auth::guard('authority')->check() == false) {
+        //     return abort (401);
+        // }
     }
 
     public function index($type, $id){
@@ -145,7 +147,7 @@ class MessageController extends Controller
     public function viewMessageNotification(){
         if (Auth::guard('citizen')->check()) {
             $id = Auth::guard('citizen')->user()->id;
-            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','citizen')->get();
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','citizen')->orderBy('id', 'DESC')->get();
             $senders = array();
             $sentMessages = array();
             $i = 0;
@@ -160,7 +162,7 @@ class MessageController extends Controller
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
-            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','authority')->get();
+            $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','authority')->orderBy('id', 'DESC')->get();
             $senders = array();
             $sentMessages = array();
             $i = 0;
