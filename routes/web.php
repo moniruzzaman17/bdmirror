@@ -41,6 +41,9 @@ Route::post('/view-chat-notification', [App\Http\Controllers\Message\MessageCont
 Route::post('/get-district', [App\Http\Controllers\HomeController::class, 'getDistrict']);
 Route::post('/get-upazila', [App\Http\Controllers\HomeController::class, 'getUpazila']);
 
+// complaint route 
+Route::post('/create-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'createComplaint'])->name('create.complaint');
+
 // Authority routes
 
 // Route::prefix('mcp')->group(function() {

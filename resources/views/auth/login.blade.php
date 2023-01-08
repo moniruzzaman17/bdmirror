@@ -92,10 +92,28 @@
                         <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required>
                     </div>
                     <div class="field">
-                        <select name="user_type" id="" required>
+                        <select name="user_type" id="user_type" required>
                             <option value="" selected hidden>Register As..</option>
                             <option value="ctz" @if (old('user_type')=="ctz" ) {{ 'selected' }} @endif>Citizen</option>
                             <option value="lauth" @if (old('user_type')=="lauth" ) {{ 'selected' }} @endif>Legal Authority</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select name="division" id="division" class="form-controll common-list-button common-list-select w-100">
+                            <option value="" selected class="division_dummy"> Select Division..</option>
+                            @foreach($divisions as $key => $division)
+                            <option value="{{ $division->id }}">{{ $division->name}} ~ {{ $division->bn_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select name="district" id="district" class="form-controll common-list-button common-list-select w-100">
+                            <option value="" selected class="district_dummy"> Select District..</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select name="upazila" id="upazila" class="form-controll common-list-button common-list-select w-100">
+                            <option value="" selected class="upazila_dummy"> Select Upazila..</option>
                         </select>
                     </div>
                     <div class="field">
@@ -162,6 +180,66 @@
         });
         $(document).ready(function() {
             $('input').attr('autocomplete', 'off');
+        });
+
+        $("#user_type").change(function() {
+            var usertype = this.value;
+            if (usertype == "ctz") {
+                $('.division_dummy').text('Select division..');
+                $('.district_dummy').text('Select district..');
+                $('.upazila_dummy').text('Select upazila..');
+
+            } else {
+                $('.division_dummy').text('Select working division..');
+                $('.district_dummy').text('Select working district..');
+                $('.upazila_dummy').text('Select working upazila..');
+            }
+        });
+
+        // for depending dropdown
+        $("#division").change(function() {
+            var divisionID = this.value;
+            var _token = $('meta[name="csrf-token"]').attr('content');
+            if (divisionID == "") {
+                $('#district').find('option').not(':first').remove();
+                $('#upazila').find('option').not(':first').remove();
+            }
+            $.ajax({
+                url: "/get-district"
+                , dataType: 'json'
+                , type: "POST"
+                , data: {
+                    divisionID: divisionID
+                    , _token: _token
+                }
+                , success: function(data) {
+                    $('#district').find('option').not(':first').remove();
+                    $('#upazila').find('option').not(':first').remove();
+                    $.each(data, function(key, district) {
+                        $("#district").append('<option value="' + district.id + '">' + district.name + ' ~ ' + district.bn_name + '</option>');
+                    });
+                }
+            });
+        });
+
+        $("#district").change(function() {
+            var districtID = this.value;
+            var _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "/get-upazila"
+                , dataType: 'json'
+                , type: "POST"
+                , data: {
+                    districtID: districtID
+                    , _token: _token
+                }
+                , success: function(data) {
+                    $('#upazila').find('option').not(':first').remove();
+                    $.each(data, function(key, upazila) {
+                        $("#upazila").append('<option value="' + upazila.id + '">' + upazila.name + ' ~ ' + upazila.bn_name + '</option>');
+                    });
+                }
+            });
         });
 
     </script>

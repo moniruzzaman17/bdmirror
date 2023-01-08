@@ -21,4 +21,11 @@ class Citizen extends Model implements AuthenticatableContract
         'district',
         'upazila',
     ];
+    function complaints() {
+        return $this->hasMany('App\Models\Complaint','citizen_id','id');
+    }
+    
+    function comments() {
+        return $this->hasMany('App\Models\Comment','citizen_id','id');
+    }
 }

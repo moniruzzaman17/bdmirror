@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('citizen_id')->unsigned();
-            $table->foreign('citizen_id')->references('id')->on('citizens')->onDelete('cascade');
-            $table->integer('authority_id')->unsigned()->nullable();
-            $table->foreign('authority_id')->references('id')->on('authorities')->onDelete('cascade');
             $table->integer('complaint_id')->unsigned();
             $table->foreign('complaint_id')->references('id')->on('complaints')->onDelete('cascade');
-            $table->text('details')->nullable();
-            $table->timestamps();
+            $table->integer('citizen_id')->unsigned();
+            $table->foreign('citizen_id')->references('id')->on('citizens')->onDelete('cascade');
+            $table->integer('like')->unsigned();
         });
     }
 
@@ -33,6 +30,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('ratings');
     }
 }

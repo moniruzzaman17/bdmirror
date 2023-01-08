@@ -11,6 +11,8 @@ use App\Models\Message;
 use App\Models\Division;
 use App\Models\District;
 use App\Models\Upazila;
+use App\Models\Complaint;
+use App\Models\Comment;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -59,6 +61,9 @@ class AppServiceProvider extends ServiceProvider
         }
         $divisions = Division::get();
         $view->with('divisions', $divisions );
+
+        $complaints = Complaint::with('comments','comments.citizen','ratings','citizen','complaintdivision','complaintdistrict','complaintupazila')->orderBy('id','DESC')->get();
+        $view->with('complaints', $complaints );
       });
     }
 }

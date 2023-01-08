@@ -47,6 +47,9 @@ class RegisterController extends Controller
                 'name' => ['required', 'string', 'max:255','regex:/[a-zA-Z|.]+(\s|[a-zA-Z|.]+)+$/'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:citizens,email'],
                 'mobile' => ['required', 'regex:/(01)[0-9]{9}/', 'unique:citizens,mobile'],
+                'division' => ['required'],
+                'district' => ['required'],
+                'upazila' => ['required'],
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ],$msg);
         }
@@ -63,6 +66,9 @@ class RegisterController extends Controller
                 'name' => ['required', 'string', 'max:255','regex:/[a-zA-Z|.]+(\s|[a-zA-Z|.]+)+$/'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:authorities,email'],
                 'mobile' => ['required', 'regex:/(01)[0-9]{9}/', 'unique:authorities,mobile'],
+                'division' => ['required'],
+                'district' => ['required'],
+                'upazila' => ['required'],
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ],$msg);
         }
@@ -72,6 +78,9 @@ class RegisterController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'mobile' => request('mobile'),
+            'division' => request('division'),
+            'district' => request('district'),
+            'upazila' => request('upazila'),
             'password' => Hash::make(request('password')),
         ]);
         }
@@ -80,6 +89,9 @@ class RegisterController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'mobile' => request('mobile'),
+            'working_division' => request('division'),
+            'working_district' => request('district'),
+            'working_upazila' => request('upazila'),
             'password' => Hash::make(request('password')),
         ]);
         }

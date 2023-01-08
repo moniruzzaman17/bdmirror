@@ -14,4 +14,11 @@ class Comment extends Model
         'complaint_id',
         'details',
     ];
+    
+    function complaints() {
+        return $this->belongsTo('App\Models\Complaint','complaint_id','id');
+    }
+    function citizen() {
+        return $this->belongsTo('App\Models\Citizen','citizen_id','id');
+    }
 }

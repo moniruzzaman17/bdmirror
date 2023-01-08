@@ -18,5 +18,29 @@ class Complaint extends Model
         'upazila',
         'position',
         'visibility',
+        'is_anonymous',
     ];
+
+    function comments() {
+        return $this->hasMany('App\Models\Comment','complaint_id','id');
+    }
+    function ratings() {
+        return $this->hasMany('App\Models\Rating','complaint_id','id');
+    }
+    
+    function citizen() {
+        return $this->belongsTo('App\Models\Citizen','citizen_id','id');
+    }
+
+    function complaintdivision() {
+        return $this->belongsTo('App\Models\Division','division','id');
+    }
+
+    function complaintdistrict() {
+        return $this->belongsTo('App\Models\District','district','id');
+    }
+
+    function complaintupazila() {
+        return $this->belongsTo('App\Models\Upazila','upazila','id');
+    }
 }
