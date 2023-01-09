@@ -30,12 +30,16 @@
         <span class="user"> {{ $comment->citizen->name }} </span>
         <span class="text"> {{ $comment->details }}</span>
         <h5 class="updated"> {{ Carbon\Carbon::parse($comment->created_at)->diffForHumans()}} </h5>
+        @if(Auth::guard('citizen')->check())
         <div class="comment-ellipsis-wrapper comment-ellipsis-wrapper{{ $comment->id }}" style="display: none">
             <a href="" class="deleteCommentBtn" data1="{{ $comment->id }}" data="{{ $complaint->id }}" user-data="{{ Auth::guard('citizen')->user()->id }}">Delete</a>
         </div>
+        @endif
     </div>
+    @if(Auth::guard('citizen')->check())
     @if($comment->citizen->id == Auth::guard('citizen')->user()->id)
     <i class="fa fa-ellipsis-h comment-ellipsis" data="{{ $comment->id }}" aria-hidden="true"></i>
+    @endif
     @endif
 </div>
 @endforeach

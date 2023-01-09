@@ -130,27 +130,11 @@
 
     $('#chat-avatar').on('click', function(e) {
         e.preventDefault();
-        var _token = $('meta[name="csrf-token"]').attr('content');
         $('.chat-popup-wrapper').toggle();
         $('.profile-popup-wrapper').hide();
         $('.notification-popup-wrapper').hide();
-    });
-
-    $(document).mouseup(function(e) {
-        e.stopPropagation();
-
-        var container = $(".header-popup");
-        // If the target of the click isn't the container
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            container.slideUp('fast');
-
-        }
-    });
-
-    $(document).on('click', '#chat-avatar', function(event) {
-        event.preventDefault();
         var _token = $('meta[name="csrf-token"]').attr('content');
-
+        console.log('working');
         $.ajax({
             url: "/view-chat-notification"
             , type: "POST"
@@ -164,12 +148,47 @@
             }
             , success: function(data) {
                 $('.chat-body').html(data);
-                console.log(data);
             }
             , error: function(response) {
                 console.log('Error Function Working');
             }
         });
     });
+
+    $(document).mouseup(function(e) {
+        e.stopPropagation();
+
+        var container = $(".header-popup");
+        // If the target of the click isn't the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.slideUp('fast');
+
+        }
+    });
+
+    // $(document).on('click', '#chat-avatar', function(event) {
+    //     event.preventDefault();
+    //     var _token = $('meta[name="csrf-token"]').attr('content');
+    //     console.log('working');
+    //     $.ajax({
+    //         url: "/view-chat-notification"
+    //         , type: "POST"
+    //         , data: {
+    //             _token: _token
+    //         },
+
+    //         // shows the loader element before sending.
+    //         beforeSend: function() {
+    //             $(".msg-spinner").fadeIn('fast');
+    //         }
+    //         , success: function(data) {
+    //             $('.chat-body').html(data);
+    //             console.log(data);
+    //         }
+    //         , error: function(response) {
+    //             console.log('Error Function Working');
+    //         }
+    //     });
+    // });
 
 </script>
