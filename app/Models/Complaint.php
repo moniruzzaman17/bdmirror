@@ -27,6 +27,9 @@ class Complaint extends Model
     function ratings() {
         return $this->hasMany('App\Models\Rating','complaint_id','id');
     }
+    function medias() {
+        return $this->hasMany('App\Models\ComplaintMedias','complaint_id','id');
+    }
     
     function citizen() {
         return $this->belongsTo('App\Models\Citizen','citizen_id','id');

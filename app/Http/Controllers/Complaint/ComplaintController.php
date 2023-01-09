@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
 use App\Models\ComplaintMedias;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Auth;
@@ -89,5 +90,25 @@ class ComplaintController extends Controller
             }
         }
         return redirect()->back();
+    }
+
+    public function like(){
+        $complaint_id = request('complaint_id');
+        $logged_citizen_id = request('citizen_id');
+            $rated = Rating::where('complaint_id', $complaint_id)->where('citizen_id', $logged_citizen_id)->count();
+            if ($rated > 0) {
+                Rating::where('complaint_id', $complaint_id)->where('citizen_id', $logged_citizen_id)->delete();
+            }
+            else{
+                Rating::create([
+                    'complaint_id' => $complaint_id,
+                    'citizen_id' => $logged_citizen_id,
+                    'like' => 1,
+                ]);
+            }
+            
+        $complaint = Complaint::with('ratings','citizen','citizen.ratings')->where('id', $complaint_id)->first();
+        return view('home.likeNcomment', compact('complaint'));
+        // return $complaint_id." workign ".$logged_citizen_id;
     }
 }

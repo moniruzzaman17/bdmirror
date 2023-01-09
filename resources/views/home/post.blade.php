@@ -18,35 +18,62 @@
 
     <!-- Post Content Section -->
     <section class="post-content">
-        <p class="content">
+        <div class="content">
             {{ $complaint->details }}
-        </p>
-        <div class="stats">
-            <span clas="likes"> {{ count($complaint->ratings) }} Likes </span>
-            <span class="comments"> . {{ count($complaint->comments) }} Comments</span>
         </div>
-        <div class="post-controls">
-            <button class="btn btn-like"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like </button>
-            <button class="btn btn-comment"> <i class="fa fa-comment" aria-hidden="true"></i> Comment </button>
-            <button class="btn btn-share"> <i class="fa fa-share" aria-hidden="true"></i> Share </button>
+        <div class="post-image-preview">
+            @if(count($complaint->medias) == 0)
+            {{-- nothing --}}
+            @elseif (count($complaint->medias) == 1)
+            @if($complaint->medias[0]->type == "image")
+            <div class="row w-100 p-0 m-0">
+                <img src="{{ asset('medias/images') }}/{{ $complaint->medias[0]->medias }}" class="w-100" alt="">
+            </div>
+            @elseif ($complaint->medias[0]->type == "video")
+            <video width="100" src="{{ asset('medias/videos') }}/{{ $complaint->medias[0]->medias }}" height="200" style="margin-right: 18px;" controls autoplay>
+                Your browser does not support the video tag.
+            </video>
+            @elseif ($complaint->medias[0]->type == "document")
+            <a href="{{ asset('medias/documents') }}/{{ $complaint->medias[0]->medias }}" download>{{ $complaint->medias[0]->medias }}</a>
+            @else
+            @endif
+            @elseif (count($complaint->medias) > 1)
+            <div class="row w-100 p-0 m-0">
+                @php
+                $i = 1;
+                @endphp
+                @foreach($complaint->medias as $key => $media)
+                @if($media->type == "image")
+                <div class="col-sm-6">
+                    <img src="{{ asset('medias/images') }}/{{ $media->medias }}" class="w-100" alt="">
+                </div>
+                @elseif ($media->type == "video")
+                <div class="row w-100 p-0 mt-3">
+                    <video width="100" src="{{ asset('medias/videos') }}/{{ $media->medias }}" height="200" style="margin-right: 18px;" controls autoplay>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                @elseif ($media->type == "document")
+                <div class="row w-100 p-0 mt-3">
+                    <b>Downloadable Documents:</b>
+                    <div class="d-flex align-items-center">
+                        <span>{{ $i++ }}.</span>&nbsp;<a href="{{ asset('medias/documents') }}/{{ $media->medias }}" download>{{ $media->medias }}</a>
+                    </div>
+                </div>
+                @else
+                @endif
+                @endforeach
+            </div>
+            @else
+            @endif
+        </div>
+        <div class="linNcomment{{ $complaint->id }}">
+            @include('home.likeNcomment')
         </div>
     </section>
     <!-- Post Comments Section -->
-    <section class="post-comment-feed">
-        @foreach($complaint->comments as $key => $comment)
-        <div class="comment">
-            <figure class="avatar-wrapper">
-                <img src="https://avatars1.githubusercontent.com/u/1109686?v=4&s=460" class="avatar" alt="Post avatar" />
-            </figure>
-            <div class="content">
-                <span class="user"> {{ $comment->citizen->name }} </span>
-
-                <span class="text"> {{ $comment->details }}</span>
-
-                <h5 class="updated"> {{ Carbon\Carbon::parse($comment->created_at)->diffForHumans()}} </h5>
-            </div>
-        </div>
-        @endforeach
+    <section class="post-comment-feed commentSection">
+        @include('home.comment')
     </section>
 </article>
 @endforeach

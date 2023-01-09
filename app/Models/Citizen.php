@@ -28,4 +28,8 @@ class Citizen extends Model implements AuthenticatableContract
     function comments() {
         return $this->hasMany('App\Models\Comment','citizen_id','id');
     }
+    
+    function ratings() {
+        return $this->hasMany('App\Models\Rating','citizen_id','id');
+    }
 }

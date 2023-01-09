@@ -14,4 +14,7 @@ class ComplaintMedias extends Model
         'medias',
         'additional_medias',
     ];
+    function complaint() {
+        return $this->belongsTo('App\Models\Complaint','complaint_id','id');
+    }
 }

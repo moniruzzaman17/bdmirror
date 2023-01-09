@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
         $divisions = Division::get();
         $view->with('divisions', $divisions );
 
-        $complaints = Complaint::with('comments','comments.citizen','ratings','citizen','complaintdivision','complaintdistrict','complaintupazila')->orderBy('id','DESC')->get();
+        $complaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('id','DESC')->get();
         $view->with('complaints', $complaints );
       });
     }

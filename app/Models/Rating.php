@@ -9,6 +9,8 @@ class Rating extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'citizen_id',
         'complaint_id',
@@ -17,5 +19,9 @@ class Rating extends Model
     
     function complaint() {
         return $this->belongsTo('App\Models\Rating','complaint_id','id');
+    }
+    
+    function citizen() {
+        return $this->belongsTo('App\Models\Citizen','citizen_id','id');
     }
 }

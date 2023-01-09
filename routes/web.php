@@ -44,6 +44,9 @@ Route::post('/get-upazila', [App\Http\Controllers\HomeController::class, 'getUpa
 // complaint route 
 Route::post('/create-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'createComplaint'])->name('create.complaint');
 
+Route::post('/like', [App\Http\Controllers\Complaint\ComplaintController::class, 'like']);
+
+
 // Authority routes
 
 // Route::prefix('mcp')->group(function() {
