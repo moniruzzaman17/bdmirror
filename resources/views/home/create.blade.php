@@ -3,7 +3,11 @@
         <div class="d-flex align-items-center mt2 mr4 ml4">
             <a href="" class="create-post-profile-avatar-anchor">
                 <div class="create-post-profile-avatar">
-                    <img src="{{ asset('img/moon.jpg') }}" alt="" id="ember1652" class="w-100">
+                    @if(empty(Auth::guard('citizen')->user()->image))
+                    <img src="{{ asset('img/avatar.png') }}" id="ember1652" class="w-100" />
+                    @else
+                    <img src="{{ Auth::guard('citizen')->user()->image }}" id="ember1652" class="w-100" />
+                    @endif
                 </div>
             </a>
             <button class="typing-button" type="button" data-bs-toggle="modal" data-bs-target="#createPostModal">

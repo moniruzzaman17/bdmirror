@@ -25,12 +25,11 @@
     <button class="btn btn-like" data="{{ $complaint->id }}" user-data="{{ Auth::guard('citizen')->user()->id }}"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like </button>
     @endif
     @endauth
-    <button class="btn btn-comment"> <i class="fa fa-comment" aria-hidden="true"></i> Comment </button>
+    <button class="btn btn-comment" data="{{ $complaint->id }}"> <i class="fa fa-comment" aria-hidden="true"></i> Comment </button>
     <button class="btn btn-share"> <i class="fa fa-share" aria-hidden="true"></i> Share </button>
 </div>
 <script>
     $('.btn-like').unbind().click(function(e) {
-
         // e.preventDefault;
         var complaint_id = $(this).attr('data');
         var citizen_id = $(this).attr('user-data');
@@ -46,7 +45,6 @@
             , success: function(data) {
                 // console.log($(this).parent().parent('.linNcomment')).text();
                 $('.linNcomment' + complaint_id).html(data);
-                console.log(data);
             }
         });
     });

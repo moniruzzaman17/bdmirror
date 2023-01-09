@@ -4,7 +4,21 @@
             <li class="common-list-item">
                 <a href="{{ route('profile') }}" class="common-list-button">
                     <span class="icon">
-                        <img class="user-image" src="{{ asset('img/moon.jpg') }}" height="36" width="36" alt="">
+                        @auth('citizen')
+                        @if(empty(Auth::guard('citizen')->user()->image))
+                        <img src="{{ asset('img/avatar.png') }}" class="user-image" height="36" width="36" />
+                        @else
+                        <img src="{{ Auth::guard('citizen')->user()->image }}" class="user-image" height="36" width="36" />
+                        @endif
+                        @endauth
+                        @auth('authority')
+                        @if(empty(Auth::guard('authority')->user()->image))
+                        <img src="{{ asset('img/avatar.png') }}" class="user-image" height="36" width="36" />
+                        @else
+                        <img src="{{ Auth::guard('authority')->user()->image }}" class="user-image" height="36" width="36" />
+                        @endif
+                        @endauth
+
                     </span>
                     <span class="text">{{ $logedUser->name }}</span>
 

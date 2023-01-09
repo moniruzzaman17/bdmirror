@@ -1,13 +1,25 @@
 @foreach($complaints as $key => $complaint)
 <article class="post mt-3 mb-3">
+    @foreach($complaint->comments as $key => $comment)
+    @php
+    $lastcommenter = $comment->citizen->name;
+    @endphp
+    @endforeach
+    @if(empty($lastcommenter))
+    @else
     <div class="info">
-        <a href="#" class="user"> Josim Uddin </a>
+        <a href="#" class="user"> {{ $lastcommenter }} </a>
         <span class="text"> commented on this</span>
     </div>
+    @endif
     <!-- Post Header -->
     <header class="post-header">
         <figure class="avatar-wrapper">
-            <img src="{{ asset('img/moon.jpg') }}" class="avatar" alt="Post avatar" class="w-100" />
+            @if(empty($complaint->citizen->image))
+            <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" class="w-100" />
+            @else
+            <img src="{{ $complaint->citizen->image }}" class="avatar" alt="Post avatar" class="w-100" />
+            @endif
         </figure>
         <div class="content">
             <h4><strong> {{ $complaint->citizen->name }}</strong></h4>
@@ -72,7 +84,7 @@
         </div>
     </section>
     <!-- Post Comments Section -->
-    <section class="post-comment-feed commentSection">
+    <section class="post-comment-feed commentSection{{ $complaint->id }}">
         @include('home.comment')
     </section>
 </article>

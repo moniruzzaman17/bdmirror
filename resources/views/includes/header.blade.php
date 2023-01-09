@@ -53,7 +53,20 @@
             </li>
             <li class="nav-item">
                 <a href="" aria-label="Homepage" class="nav-link nav-button alt-text is-selected nav-link-right" id="profile-avatar">
-                    <img src="{{ asset('img/moon.jpg') }}" class="profile-image-cover">
+                    @auth('citizen')
+                    @if(empty(Auth::guard('citizen')->user()->image))
+                    <img src="{{ asset('img/avatar.png') }}" class="profile-image-cover" />
+                    @else
+                    <img src="{{ Auth::guard('citizen')->user()->image }}" class="profile-image-cover" />
+                    @endif
+                    @endauth
+                    @auth('authority')
+                    @if(empty(Auth::guard('authority')->user()->image))
+                    <img src="{{ asset('img/avatar.png') }}" class="profile-image-cover" />
+                    @else
+                    <img src="{{ Auth::guard('authority')->user()->image }}" class="profile-image-cover" />
+                    @endif
+                    @endauth
                 </a>
                 <div class="profile-popup-wrapper header-popup">
                     <ul class="common-list p-0">

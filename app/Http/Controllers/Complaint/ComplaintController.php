@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Complaint;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
+use App\Models\Comment;
 use App\Models\ComplaintMedias;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Hash;
@@ -107,8 +108,25 @@ class ComplaintController extends Controller
                 ]);
             }
             
-        $complaint = Complaint::with('ratings','citizen','citizen.ratings')->where('id', $complaint_id)->first();
+        $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', $complaint_id)->first();
         return view('home.likeNcomment', compact('complaint'));
         // return $complaint_id." workign ".$logged_citizen_id;
+    }
+
+    public function addComment(){
+        Comment::create([
+            'complaint_id' => request('complaint_id'),
+            'citizen_id' => request('citizen_id'),
+            'details' => request('commentText')
+        ]);
+        $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', request('complaint_id'))->first();
+        return view('home.comment', compact('complaint'));
+        // return "working";
+    }
+
+    public function deleteComment(){
+        Comment::where('id',request('comment_id'))->delete();
+        $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', request('complaint_id'))->first();
+        return view('home.comment', compact('complaint'));
     }
 }

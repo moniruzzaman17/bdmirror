@@ -45,6 +45,8 @@ Route::post('/get-upazila', [App\Http\Controllers\HomeController::class, 'getUpa
 Route::post('/create-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'createComplaint'])->name('create.complaint');
 
 Route::post('/like', [App\Http\Controllers\Complaint\ComplaintController::class, 'like']);
+Route::get('/add-comment', [App\Http\Controllers\Complaint\ComplaintController::class, 'addComment']);
+Route::get('/delete-comment', [App\Http\Controllers\Complaint\ComplaintController::class, 'deleteComment']);
 
 
 // Authority routes
