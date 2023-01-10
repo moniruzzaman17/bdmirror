@@ -32,4 +32,16 @@ class Citizen extends Model implements AuthenticatableContract
     function ratings() {
         return $this->hasMany('App\Models\Rating','citizen_id','id');
     }
+
+    function citizenDivision() {
+        return $this->belongsTo('App\Models\Division','division','id');
+    }
+
+    function citizenDistrict() {
+        return $this->belongsTo('App\Models\District','district','id');
+    }
+
+    function citizenUpazila() {
+        return $this->belongsTo('App\Models\Upazila','upazila','id');
+    }
 }

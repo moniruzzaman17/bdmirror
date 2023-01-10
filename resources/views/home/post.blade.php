@@ -1,3 +1,12 @@
+@if(empty($mycomplaints))
+@php
+$complaints = $globalComplaint;
+@endphp
+@else
+@php
+$complaints = $mycomplaints;
+@endphp
+@endif
 @foreach($complaints as $key => $complaint)
 <article class="post mt-3 mb-3">
     @foreach($complaint->comments as $key => $comment)

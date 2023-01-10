@@ -16,4 +16,12 @@ class Division extends Model
     function complaints() {
         return $this->hasMany('App\Models\Complaint','division','id');
     }
+
+    function citizens() {
+        return $this->hasMany('App\Models\Citizen','division','id');
+    }
+    
+    function authorities() {
+        return $this->hasMany('App\Models\Authority','working_division','id');
+    }
 }

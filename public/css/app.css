@@ -22235,6 +22235,10 @@ h6,
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.profile-area-select {
+  background: var(--background-color);
+}
+
 .profile-header {
   background: var(--header-color);
   width: 100%;

@@ -1,13 +1,19 @@
 <div class="container p-3">
     <div class="profile-header">
         <div class="profile-img">
-            <img src="{{ asset('img/moon.jpg') }}" width="200" alt="Profile Image">
+            @if(empty($authority->image))
+            <img src="{{ asset('img/avatar.png') }}" class="user-image" height="36" width="36" />
+            @else
+            <img src="{{ $authority->image }}" class="user-image" height="36" width="36">
+            @endif
         </div>
         <div class="profile-nav-info">
-            <h3 class="user-name">Md. Moniruzzaman</h3>
+            <h3 class="user-name">{{ $authority->name }}</h3>
             <div class="address">
-                <p id="state" class="state">Rangpur</p>
-                <span id="country" class="country">Nilphamari</span>
+                <p id="state" class="state">{{ $authority->authorityDivision->name }}</p>&nbsp;|&nbsp;
+                <span id="country" class="country">{{ $authority->authorityDistrict->name }}</span>&nbsp;|&nbsp;
+                <span id="country" class="country">{{ $authority->authorityUpazila->name }}</span>&nbsp;|&nbsp;
+
             </div>
 
         </div>
@@ -22,33 +28,31 @@
     <div class="main-bd">
         <div class="left-side">
             <div class="profile-side">
-                <p class="mobile-no"><i class="fa fa-phone"></i> +8801761189963</p>
-                <p class="user-mail"><i class="fa fa-envelope"></i> bdmirror@gmail.com</p>
+                <p class="mobile-no"><i class="fa fa-phone"></i> {{ $authority->mobile }}</p>
+                <p class="user-mail"><i class="fa fa-envelope"></i> {{ $authority->email }}</p>
                 <div class="user-bio">
-                    <h3>Bio</h3>
-                    <p class="bio">
-                        Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
-                    </p>
-                </div>
-                <div class="profile-btn">
-                    <button class="chatbtn" id="chatBtn"><i class="fa fa-comment"></i> Chat</button>
-                    <button class="createbtn" id="Create-post"><i class="fa fa-plus"></i> Create</button>
-                </div>
-                <div class="user-rating">
-                    <h3 class="rating">4.5</h3>
-                    <div class="rate">
-                        <div class="star-outer">
-                            <div class="star-inner">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                        <span class="no-of-user-rate"><span>123</span>&nbsp;&nbsp;reviews</span>
+                    <div class="field">
+                        <select name="division" id="division" class="form-controll common-list-button common-list-select w-100 profile-area-select mb-2">
+                            <option value="" selected class="division_dummy"> Select Division..</option>
+                            @foreach($divisions as $key => $division)
+                            @if($division->id == $authority->working_division)
+                            <option value="{{ $division->id }}" selected>{{ $division->name}} ~ {{ $division->bn_name }}</option>
+                            @else
+                            <option value="{{ $division->id }}">{{ $division->name}} ~ {{ $division->bn_name }}</option>
+                            @endif
+                            @endforeach
+                        </select>
                     </div>
-
+                    <div class="field">
+                        <select name="district" id="district" class="form-controll common-list-button common-list-select w-100 profile-area-select mb-2">
+                            <option value="{{ $authority->working_district }}" selected hidden disabled class="district_dummy"> {{ $authority->authorityDistrict->name }} ~ {{ $authority->authorityDistrict->bn_name }}</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select name="upazila" id="upazila" class="form-controll common-list-button common-list-select w-100 profile-area-select mb-2">
+                            <option value="{{ $authority->working_upazila }}" selected hidden disabled class="upazila_dummy"> {{ $authority->authorityUpazila->name }} ~ {{ $authority->authorityUpazila->bn_name }}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -57,17 +61,16 @@
 
             <div class="nav">
                 <ul>
-                    <li onclick="tabs(0)" class="user-post active">Posts</li>
-                    <li onclick="tabs(1)" class="user-review">Reviews</li>
-                    <li onclick="tabs(2)" class="user-setting"> Settings</li>
+                    <li onclick="tabs(0)" class="user-post active">Complaint in My Area</li>
+                    {{-- <li onclick="tabs(1)" class="user-review">Reviews</li>
+                    <li onclick="tabs(2)" class="user-setting"> Settings</li> --}}
                 </ul>
             </div>
             <div class="profile-body">
-                <div class="profile-posts tab">
-                    <h1>Your Post</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quia sunt itaque ut libero cupiditate ullam qui velit laborum placeat doloribus, non tempore nisi ratione error rem minima ducimus. Accusamus adipisci quasi at itaque repellat sed
-                        magni eius magnam repellendus. Quidem inventore repudiandae sunt odit. Aliquid facilis fugiat earum ex officia eveniet, nisi, similique ad ullam repudiandae molestias aspernatur qui autem, nam? Cupiditate ut quasi iste, eos perspiciatis maiores
-                        molestiae.</p>
+                <div class="profile-posts tab pt-0">
+                    <div class="mycomplaint-wrapper text-left">
+                        @include('profile.authoritycomplaint')
+                    </div>
                 </div>
                 <div class="profile-reviews tab">
                     <h1>User reviews</h1>

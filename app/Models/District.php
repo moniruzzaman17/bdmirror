@@ -20,4 +20,12 @@ class District extends Model
     function complaints() {
         return $this->hasMany('App\Models\Complaint','district','id');
     }
+
+    function citizens() {
+        return $this->hasMany('App\Models\Citizen','district','id');
+    }
+
+    function authorities() {
+        return $this->hasMany('App\Models\Authority','working_district','id');
+    }
 }

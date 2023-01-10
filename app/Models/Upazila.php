@@ -17,4 +17,12 @@ class Upazila extends Model
     function complaints() {
         return $this->hasMany('App\Models\Complaint','upazila','id');
     }
+
+    function citizens() {
+        return $this->hasMany('App\Models\Citizen','upazila','id');
+    }
+
+    function authorities() {
+        return $this->hasMany('App\Models\Authority','working_upazila','id');
+    }
 }

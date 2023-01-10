@@ -35,4 +35,15 @@ class Authority extends Model implements AuthenticatableContract
     function upazila() {
         return $this->hasOne('App\Models\Upazila','id','working_upazila');
     }
+    function authorityDivision() {
+        return $this->belongsTo('App\Models\Division','working_division','id');
+    }
+
+    function authorityDistrict() {
+        return $this->belongsTo('App\Models\District','working_district','id');
+    }
+
+    function authorityUpazila() {
+        return $this->belongsTo('App\Models\Upazila','working_upazila','id');
+    }
 }
