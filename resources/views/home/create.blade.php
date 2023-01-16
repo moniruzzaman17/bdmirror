@@ -24,7 +24,8 @@
                 <form action="{{ route('create.complaint') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="createPostModalLabel">Create New Complaint</h1>
+                        <h1 class="modal-title fs-5" id="createPostModalLabel" style="justify-content:left; width:100%">Create New Complaint</h1>
+
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -35,7 +36,7 @@
                             <input type="checkbox" id="complaint_type" name="is_anonymous" value="1">&nbsp;&nbsp;
                             <label for="complaint_type" class="font-italic text-primary">Check this box if you want to post anonymously.</label>
                         </div>
-                        <div class="toolbar__wrapper">
+                        <div class="toolbar__wrapper" style="text-align:left;">
                             <label aria-label="Add a photo" class="bdmirror-button" for="image">
                                 <li-icon aria-hidden="true" type="image" class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
                                         <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>

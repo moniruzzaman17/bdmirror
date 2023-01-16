@@ -21,6 +21,13 @@ class Citizen extends Model implements AuthenticatableContract
         'district',
         'upazila',
     ];
+
+    public static function updateLastLoginDate() {
+        if (Auth::guard('citizen')->check()) {
+            $user = Citizen::where('mobile', Auth::guard('citizen')->user()->mobile)->first();
+            $user->touch();
+        }
+    }
     function complaints() {
         return $this->hasMany('App\Models\Complaint','citizen_id','id');
     }

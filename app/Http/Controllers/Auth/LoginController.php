@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Citizen;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Auth;
 
 class LoginController extends Controller
@@ -90,7 +91,9 @@ class LoginController extends Controller
             'password'=>$request->password
         ];
     }
-
+    public function authenticated(Request $request, $user) {
+        $user->touch();
+    }
     public function logout(Request $request){
         if (Auth::guard('citizen')->check()) {
             $this->guard('citizen')->logout();

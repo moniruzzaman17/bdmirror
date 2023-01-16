@@ -31,14 +31,14 @@ class ProfileController extends Controller
             $id = Auth::guard('citizen')->user()->id;
             $citizen = Citizen::with('complaints','citizenDivision','citizenDistrict','citizenUpazila')->where('id',$id)->first();
             
-            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('id','DESC')->where('citizen_id',$id)->get();
+            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('updated_at','DESC')->where('citizen_id',$id)->get();
             return view('profile.profile', compact('citizen','mycomplaints'));
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
             $authority = Authority::with('authorityDivision','authorityDistrict','authorityUpazila')->where('id',$id)->first();
             
-            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('id','DESC')->where('division', Auth::guard('authority')->user()->working_division)->where('district',Auth::guard('authority')->user()->working_district)->where('upazila',Auth::guard('authority')->user()->working_upazila)->get();
+            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('updated_at','DESC')->where('division', Auth::guard('authority')->user()->working_division)->where('district',Auth::guard('authority')->user()->working_district)->where('upazila',Auth::guard('authority')->user()->working_upazila)->get();
 
             return view('profile.profile', compact('authority','mycomplaints'));
         }
