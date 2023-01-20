@@ -21946,6 +21946,24 @@ h6,
   margin: 0;
   /* Common Styles */
 }
+.post .post-options-wrapper {
+  position: relative;
+}
+.post .post-options-wrapper .post-options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: var(--background-color);
+  left: -77px;
+  padding: 10px;
+  border: 1px solid #a4a5a5;
+  color: var(--text-color);
+}
+.post .fa-ellipsis-h {
+  cursor: pointer;
+  margin: 5px;
+}
 .post .btn {
   padding: 10px;
   color: var(--text-color);

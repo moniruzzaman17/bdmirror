@@ -24,7 +24,7 @@
 
                 </a>
             </li>
-            <li class="common-list-item">
+            {{-- <li class="common-list-item">
                 <a class="common-list-button">
                     <span class="icon" aria-hidden="true">💬</span>
                     <span class="text">Messenger</span>
@@ -47,7 +47,7 @@
                     <span class="icon">📺</span>
                     <span class="text">Videos</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <button class="common-more">
             <span class="text">See More</span>

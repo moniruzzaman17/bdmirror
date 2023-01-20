@@ -20,30 +20,60 @@ class ComplaintController extends Controller
             'image' => 'nullable',
             'video' => 'nullable',
             'document' => 'nullable',
-            'is_anonymous' => 'nullable'
+            'is_anonymous' => 'nullable',
+            'complaint_schedule' => 'nullable'
         ]);
-        
         if (empty(request('is_anonymous'))) {
-            $complaint = Complaint::create([
-                'citizen_id' => Auth::guard('citizen')->user()->id,
-                'is_anonymous' => request('is_anonymous'),
-                'details' => request('complaint'),
-                'division' => Auth::guard('citizen')->user()->division,
-                'district' => Auth::guard('citizen')->user()->district,
-                'upazila' => Auth::guard('citizen')->user()->upazila,
-                'is_anonymous' => 0
-            ]);
+            if (empty(request('complaint_schedule'))) {
+                $complaint = Complaint::create([
+                    'citizen_id' => Auth::guard('citizen')->user()->id,
+                    'is_anonymous' => request('is_anonymous'),
+                    'details' => request('complaint'),
+                    'division' => Auth::guard('citizen')->user()->division,
+                    'district' => Auth::guard('citizen')->user()->district,
+                    'upazila' => Auth::guard('citizen')->user()->upazila,
+                    'is_anonymous' => 0
+                ]);
+            }
+            else{
+                $complaint = Complaint::create([
+                    'citizen_id' => Auth::guard('citizen')->user()->id,
+                    'is_anonymous' => request('is_anonymous'),
+                    'details' => request('complaint'),
+                    'division' => Auth::guard('citizen')->user()->division,
+                    'district' => Auth::guard('citizen')->user()->district,
+                    'upazila' => Auth::guard('citizen')->user()->upazila,
+                    'is_anonymous' => 0,
+                    'is_published' => 0,
+                    'publish_datetime' => request('complaint_schedule')
+                ]);
+            }
         }
         else{
-            $complaint = Complaint::create([
-                'citizen_id' => Auth::guard('citizen')->user()->id,
-                'is_anonymous' => request('is_anonymous'),
-                'details' => request('complaint'),
-                'division' => Auth::guard('citizen')->user()->division,
-                'district' => Auth::guard('citizen')->user()->district,
-                'upazila' => Auth::guard('citizen')->user()->upazila,
-                'is_anonymous' => 1
-            ]);
+            if (empty(request('complaint_schedule'))) {
+                $complaint = Complaint::create([
+                    'citizen_id' => Auth::guard('citizen')->user()->id,
+                    'is_anonymous' => request('is_anonymous'),
+                    'details' => request('complaint'),
+                    'division' => Auth::guard('citizen')->user()->division,
+                    'district' => Auth::guard('citizen')->user()->district,
+                    'upazila' => Auth::guard('citizen')->user()->upazila,
+                    'is_anonymous' => 1
+                ]);
+            }
+            else{
+                $complaint = Complaint::create([
+                    'citizen_id' => Auth::guard('citizen')->user()->id,
+                    'is_anonymous' => request('is_anonymous'),
+                    'details' => request('complaint'),
+                    'division' => Auth::guard('citizen')->user()->division,
+                    'district' => Auth::guard('citizen')->user()->district,
+                    'upazila' => Auth::guard('citizen')->user()->upazila,
+                    'is_anonymous' => 1,
+                    'is_published' => 0,
+                    'publish_datetime' => request('complaint_schedule')
+                ]);
+            }
         }
         $complaint_id = $complaint->id;
 
@@ -128,5 +158,18 @@ class ComplaintController extends Controller
         Comment::where('id',request('comment_id'))->delete();
         $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', request('complaint_id'))->first();
         return view('home.comment', compact('complaint'));
+    }
+
+    public function publishComplaint(){
+        $updated = Complaint::where('id', request('complaint_id'))->update([
+            'is_published' => 1
+        ]);
+        return $updated;
+    }
+    public function hideComplaint(){
+        $updated = Complaint::where('id', request('complaint_id'))->update([
+            'is_published' => 0
+        ]);
+        return $updated;
     }
 }

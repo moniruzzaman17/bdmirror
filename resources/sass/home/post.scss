@@ -24,6 +24,27 @@ h6 {
     flex-direction: column;
     margin: 0;
 
+    .post-options-wrapper {
+        position: relative;
+
+        .post-options {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            background-color: var(--background-color);
+            left: -77px;
+            padding: 10px;
+            border: 1px solid #a4a5a5;
+            color: var(--text-color);
+        }
+    }
+
+    .fa-ellipsis-h {
+        cursor: pointer;
+        margin: 5px;
+    }
+
     /* Common Styles */
     .btn {
         padding: 10px;

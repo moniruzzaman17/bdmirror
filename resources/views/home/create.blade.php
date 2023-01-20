@@ -36,6 +36,10 @@
                             <input type="checkbox" id="complaint_type" name="is_anonymous" value="1">&nbsp;&nbsp;
                             <label for="complaint_type" class="font-italic text-primary">Check this box if you want to post anonymously.</label>
                         </div>
+                        <div class="d-flex align-items-center mt-3 mb-3">
+                            <label for="complaint_schedule" class="">Set Publish Schedule <i class="text-danger">(If no needed leave the field blank)</i></label>&nbsp;&nbsp;
+                            <input type="datetime-local" name="complaint_schedule" id="complaint_schedule" name="publish_timetable">
+                        </div>
                         <div class="toolbar__wrapper" style="text-align:left;">
                             <label aria-label="Add a photo" class="bdmirror-button" for="image">
                                 <li-icon aria-hidden="true" type="image" class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">

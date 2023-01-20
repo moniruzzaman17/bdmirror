@@ -19,6 +19,8 @@ class Complaint extends Model
         'position',
         'visibility',
         'is_anonymous',
+        'is_published',
+        'publish_datetime',
     ];
 
     function comments() {

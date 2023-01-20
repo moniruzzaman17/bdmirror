@@ -7,19 +7,21 @@ namespace Composer\Autoload;
 class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '972fda704d680a3a53c68e34e193cb22' => __DIR__ . '/..' . '/react/promise-timer/src/functions_include.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
@@ -42,6 +44,10 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'v' => 
         array (
             'voku\\' => 5,
+        ),
+        'Y' => 
+        array (
+            'Yosymfony\\ResourceWatcher\\' => 26,
         ),
         'W' => 
         array (
@@ -84,6 +90,15 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         ),
         'R' => 
         array (
+            'React\\Stream\\' => 13,
+            'React\\Socket\\' => 13,
+            'React\\Promise\\Timer\\' => 20,
+            'React\\Promise\\' => 14,
+            'React\\EventLoop\\' => 16,
+            'React\\Dns\\' => 10,
+            'React\\Cache\\' => 12,
+            'Ratchet\\RFC6455\\' => 16,
+            'Ratchet\\' => 8,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -167,6 +182,7 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'BangNokia\\ServeLiveReload\\' => 26,
         ),
         'A' => 
         array (
@@ -179,6 +195,10 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Yosymfony\\ResourceWatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yosymfony/resource-watcher/src',
         ),
         'Whoops\\' => 
         array (
@@ -299,6 +319,42 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'React\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/stream/src',
+        ),
+        'React\\Socket\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/socket/src',
+        ),
+        'React\\Promise\\Timer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise-timer/src',
+        ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
+        'React\\EventLoop\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/event-loop/src',
+        ),
+        'React\\Dns\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/dns/src',
+        ),
+        'React\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/cache/src',
+        ),
+        'Ratchet\\RFC6455\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ratchet/rfc6455/src',
+        ),
+        'Ratchet\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -490,6 +546,10 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'BangNokia\\ServeLiveReload\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -506,6 +566,13 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+        ),
+        'E' => 
+        array (
+            'Evenement' => 
+            array (
+                0 => __DIR__ . '/..' . '/evenement/evenement/src',
             ),
         ),
     );
@@ -563,6 +630,15 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'BangNokia\\ServeLiveReload\\CommandServiceProvider' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/CommandServiceProvider.php',
+        'BangNokia\\ServeLiveReload\\Commands\\ServeCommand' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Commands/ServeCommand.php',
+        'BangNokia\\ServeLiveReload\\Commands\\ServeHttpCommand' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Commands/ServeHttpCommand.php',
+        'BangNokia\\ServeLiveReload\\Commands\\ServeWebSocketsCommand' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Commands/ServeWebSocketsCommand.php',
+        'BangNokia\\ServeLiveReload\\Injector' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Injector.php',
+        'BangNokia\\ServeLiveReload\\Middleware\\InjectScriptsMiddleware' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Middleware/InjectScriptsMiddleware.php',
+        'BangNokia\\ServeLiveReload\\ResponseServiceProvider' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/ResponseServiceProvider.php',
+        'BangNokia\\ServeLiveReload\\Socket' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Socket.php',
+        'BangNokia\\ServeLiveReload\\Watcher' => __DIR__ . '/..' . '/bangnokia/laravel-serve-livereload/src/Watcher.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -855,6 +931,9 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
+        'Evenement\\EventEmitter' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitter.php',
+        'Evenement\\EventEmitterInterface' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterInterface.php',
+        'Evenement\\EventEmitterTrait' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterTrait.php',
         'Facade\\FlareClient\\Api' => __DIR__ . '/..' . '/facade/flare-client-php/src/Api.php',
         'Facade\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/HasContext.php',
         'Facade\\FlareClient\\Concerns\\UsesTime' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/UsesTime.php',
@@ -4468,6 +4547,141 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'Ratchet\\AbstractConnectionDecorator' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/AbstractConnectionDecorator.php',
+        'Ratchet\\App' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/App.php',
+        'Ratchet\\ComponentInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/ComponentInterface.php',
+        'Ratchet\\ConnectionInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/ConnectionInterface.php',
+        'Ratchet\\Http\\CloseResponseTrait' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/CloseResponseTrait.php',
+        'Ratchet\\Http\\HttpRequestParser' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/HttpRequestParser.php',
+        'Ratchet\\Http\\HttpServer' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/HttpServer.php',
+        'Ratchet\\Http\\HttpServerInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/HttpServerInterface.php',
+        'Ratchet\\Http\\NoOpHttpServerController' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/NoOpHttpServerController.php',
+        'Ratchet\\Http\\OriginCheck' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/OriginCheck.php',
+        'Ratchet\\Http\\Router' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Http/Router.php',
+        'Ratchet\\MessageComponentInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/MessageComponentInterface.php',
+        'Ratchet\\MessageInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/MessageInterface.php',
+        'Ratchet\\RFC6455\\Handshake\\ClientNegotiator' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/ClientNegotiator.php',
+        'Ratchet\\RFC6455\\Handshake\\InvalidPermessageDeflateOptionsException' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/InvalidPermessageDeflateOptionsException.php',
+        'Ratchet\\RFC6455\\Handshake\\NegotiatorInterface' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/NegotiatorInterface.php',
+        'Ratchet\\RFC6455\\Handshake\\PermessageDeflateOptions' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/PermessageDeflateOptions.php',
+        'Ratchet\\RFC6455\\Handshake\\RequestVerifier' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/RequestVerifier.php',
+        'Ratchet\\RFC6455\\Handshake\\ResponseVerifier' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/ResponseVerifier.php',
+        'Ratchet\\RFC6455\\Handshake\\ServerNegotiator' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Handshake/ServerNegotiator.php',
+        'Ratchet\\RFC6455\\Messaging\\CloseFrameChecker' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/CloseFrameChecker.php',
+        'Ratchet\\RFC6455\\Messaging\\DataInterface' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/DataInterface.php',
+        'Ratchet\\RFC6455\\Messaging\\Frame' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/Frame.php',
+        'Ratchet\\RFC6455\\Messaging\\FrameInterface' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/FrameInterface.php',
+        'Ratchet\\RFC6455\\Messaging\\Message' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/Message.php',
+        'Ratchet\\RFC6455\\Messaging\\MessageBuffer' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/MessageBuffer.php',
+        'Ratchet\\RFC6455\\Messaging\\MessageInterface' => __DIR__ . '/..' . '/ratchet/rfc6455/src/Messaging/MessageInterface.php',
+        'Ratchet\\Server\\EchoServer' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Server/EchoServer.php',
+        'Ratchet\\Server\\FlashPolicy' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Server/FlashPolicy.php',
+        'Ratchet\\Server\\IoConnection' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Server/IoConnection.php',
+        'Ratchet\\Server\\IoServer' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Server/IoServer.php',
+        'Ratchet\\Server\\IpBlackList' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Server/IpBlackList.php',
+        'Ratchet\\Session\\Serialize\\HandlerInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/Serialize/HandlerInterface.php',
+        'Ratchet\\Session\\Serialize\\PhpBinaryHandler' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/Serialize/PhpBinaryHandler.php',
+        'Ratchet\\Session\\Serialize\\PhpHandler' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/Serialize/PhpHandler.php',
+        'Ratchet\\Session\\SessionProvider' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/SessionProvider.php',
+        'Ratchet\\Session\\Storage\\Proxy\\VirtualProxy' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/Storage/Proxy/VirtualProxy.php',
+        'Ratchet\\Session\\Storage\\VirtualSessionStorage' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Session/Storage/VirtualSessionStorage.php',
+        'Ratchet\\Wamp\\Exception' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/Exception.php',
+        'Ratchet\\Wamp\\JsonException' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/JsonException.php',
+        'Ratchet\\Wamp\\ServerProtocol' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/ServerProtocol.php',
+        'Ratchet\\Wamp\\Topic' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/Topic.php',
+        'Ratchet\\Wamp\\TopicManager' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/TopicManager.php',
+        'Ratchet\\Wamp\\WampConnection' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/WampConnection.php',
+        'Ratchet\\Wamp\\WampServer' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/WampServer.php',
+        'Ratchet\\Wamp\\WampServerInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/Wamp/WampServerInterface.php',
+        'Ratchet\\WebSocket\\ConnContext' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/ConnContext.php',
+        'Ratchet\\WebSocket\\MessageCallableInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/MessageCallableInterface.php',
+        'Ratchet\\WebSocket\\MessageComponentInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/MessageComponentInterface.php',
+        'Ratchet\\WebSocket\\WsConnection' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/WsConnection.php',
+        'Ratchet\\WebSocket\\WsServer' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php',
+        'Ratchet\\WebSocket\\WsServerInterface' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/WebSocket/WsServerInterface.php',
+        'React\\Cache\\ArrayCache' => __DIR__ . '/..' . '/react/cache/src/ArrayCache.php',
+        'React\\Cache\\CacheInterface' => __DIR__ . '/..' . '/react/cache/src/CacheInterface.php',
+        'React\\Dns\\BadServerException' => __DIR__ . '/..' . '/react/dns/src/BadServerException.php',
+        'React\\Dns\\Config\\Config' => __DIR__ . '/..' . '/react/dns/src/Config/Config.php',
+        'React\\Dns\\Config\\HostsFile' => __DIR__ . '/..' . '/react/dns/src/Config/HostsFile.php',
+        'React\\Dns\\Model\\Message' => __DIR__ . '/..' . '/react/dns/src/Model/Message.php',
+        'React\\Dns\\Model\\Record' => __DIR__ . '/..' . '/react/dns/src/Model/Record.php',
+        'React\\Dns\\Protocol\\BinaryDumper' => __DIR__ . '/..' . '/react/dns/src/Protocol/BinaryDumper.php',
+        'React\\Dns\\Protocol\\Parser' => __DIR__ . '/..' . '/react/dns/src/Protocol/Parser.php',
+        'React\\Dns\\Query\\CachingExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/CachingExecutor.php',
+        'React\\Dns\\Query\\CancellationException' => __DIR__ . '/..' . '/react/dns/src/Query/CancellationException.php',
+        'React\\Dns\\Query\\CoopExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/CoopExecutor.php',
+        'React\\Dns\\Query\\ExecutorInterface' => __DIR__ . '/..' . '/react/dns/src/Query/ExecutorInterface.php',
+        'React\\Dns\\Query\\FallbackExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/FallbackExecutor.php',
+        'React\\Dns\\Query\\HostsFileExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/HostsFileExecutor.php',
+        'React\\Dns\\Query\\Query' => __DIR__ . '/..' . '/react/dns/src/Query/Query.php',
+        'React\\Dns\\Query\\RetryExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/RetryExecutor.php',
+        'React\\Dns\\Query\\SelectiveTransportExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/SelectiveTransportExecutor.php',
+        'React\\Dns\\Query\\TcpTransportExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/TcpTransportExecutor.php',
+        'React\\Dns\\Query\\TimeoutException' => __DIR__ . '/..' . '/react/dns/src/Query/TimeoutException.php',
+        'React\\Dns\\Query\\TimeoutExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/TimeoutExecutor.php',
+        'React\\Dns\\Query\\UdpTransportExecutor' => __DIR__ . '/..' . '/react/dns/src/Query/UdpTransportExecutor.php',
+        'React\\Dns\\RecordNotFoundException' => __DIR__ . '/..' . '/react/dns/src/RecordNotFoundException.php',
+        'React\\Dns\\Resolver\\Factory' => __DIR__ . '/..' . '/react/dns/src/Resolver/Factory.php',
+        'React\\Dns\\Resolver\\Resolver' => __DIR__ . '/..' . '/react/dns/src/Resolver/Resolver.php',
+        'React\\Dns\\Resolver\\ResolverInterface' => __DIR__ . '/..' . '/react/dns/src/Resolver/ResolverInterface.php',
+        'React\\EventLoop\\ExtEvLoop' => __DIR__ . '/..' . '/react/event-loop/src/ExtEvLoop.php',
+        'React\\EventLoop\\ExtEventLoop' => __DIR__ . '/..' . '/react/event-loop/src/ExtEventLoop.php',
+        'React\\EventLoop\\ExtLibevLoop' => __DIR__ . '/..' . '/react/event-loop/src/ExtLibevLoop.php',
+        'React\\EventLoop\\ExtLibeventLoop' => __DIR__ . '/..' . '/react/event-loop/src/ExtLibeventLoop.php',
+        'React\\EventLoop\\ExtUvLoop' => __DIR__ . '/..' . '/react/event-loop/src/ExtUvLoop.php',
+        'React\\EventLoop\\Factory' => __DIR__ . '/..' . '/react/event-loop/src/Factory.php',
+        'React\\EventLoop\\Loop' => __DIR__ . '/..' . '/react/event-loop/src/Loop.php',
+        'React\\EventLoop\\LoopInterface' => __DIR__ . '/..' . '/react/event-loop/src/LoopInterface.php',
+        'React\\EventLoop\\SignalsHandler' => __DIR__ . '/..' . '/react/event-loop/src/SignalsHandler.php',
+        'React\\EventLoop\\StreamSelectLoop' => __DIR__ . '/..' . '/react/event-loop/src/StreamSelectLoop.php',
+        'React\\EventLoop\\Tick\\FutureTickQueue' => __DIR__ . '/..' . '/react/event-loop/src/Tick/FutureTickQueue.php',
+        'React\\EventLoop\\TimerInterface' => __DIR__ . '/..' . '/react/event-loop/src/TimerInterface.php',
+        'React\\EventLoop\\Timer\\Timer' => __DIR__ . '/..' . '/react/event-loop/src/Timer/Timer.php',
+        'React\\EventLoop\\Timer\\Timers' => __DIR__ . '/..' . '/react/event-loop/src/Timer/Timers.php',
+        'React\\Promise\\CancellablePromiseInterface' => __DIR__ . '/..' . '/react/promise/src/CancellablePromiseInterface.php',
+        'React\\Promise\\CancellationQueue' => __DIR__ . '/..' . '/react/promise/src/CancellationQueue.php',
+        'React\\Promise\\Deferred' => __DIR__ . '/..' . '/react/promise/src/Deferred.php',
+        'React\\Promise\\Exception\\LengthException' => __DIR__ . '/..' . '/react/promise/src/Exception/LengthException.php',
+        'React\\Promise\\ExtendedPromiseInterface' => __DIR__ . '/..' . '/react/promise/src/ExtendedPromiseInterface.php',
+        'React\\Promise\\FulfilledPromise' => __DIR__ . '/..' . '/react/promise/src/FulfilledPromise.php',
+        'React\\Promise\\LazyPromise' => __DIR__ . '/..' . '/react/promise/src/LazyPromise.php',
+        'React\\Promise\\Promise' => __DIR__ . '/..' . '/react/promise/src/Promise.php',
+        'React\\Promise\\PromiseInterface' => __DIR__ . '/..' . '/react/promise/src/PromiseInterface.php',
+        'React\\Promise\\PromisorInterface' => __DIR__ . '/..' . '/react/promise/src/PromisorInterface.php',
+        'React\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/react/promise/src/RejectedPromise.php',
+        'React\\Promise\\Timer\\TimeoutException' => __DIR__ . '/..' . '/react/promise-timer/src/TimeoutException.php',
+        'React\\Promise\\UnhandledRejectionException' => __DIR__ . '/..' . '/react/promise/src/UnhandledRejectionException.php',
+        'React\\Socket\\Connection' => __DIR__ . '/..' . '/react/socket/src/Connection.php',
+        'React\\Socket\\ConnectionInterface' => __DIR__ . '/..' . '/react/socket/src/ConnectionInterface.php',
+        'React\\Socket\\Connector' => __DIR__ . '/..' . '/react/socket/src/Connector.php',
+        'React\\Socket\\ConnectorInterface' => __DIR__ . '/..' . '/react/socket/src/ConnectorInterface.php',
+        'React\\Socket\\DnsConnector' => __DIR__ . '/..' . '/react/socket/src/DnsConnector.php',
+        'React\\Socket\\FdServer' => __DIR__ . '/..' . '/react/socket/src/FdServer.php',
+        'React\\Socket\\FixedUriConnector' => __DIR__ . '/..' . '/react/socket/src/FixedUriConnector.php',
+        'React\\Socket\\HappyEyeBallsConnectionBuilder' => __DIR__ . '/..' . '/react/socket/src/HappyEyeBallsConnectionBuilder.php',
+        'React\\Socket\\HappyEyeBallsConnector' => __DIR__ . '/..' . '/react/socket/src/HappyEyeBallsConnector.php',
+        'React\\Socket\\LimitingServer' => __DIR__ . '/..' . '/react/socket/src/LimitingServer.php',
+        'React\\Socket\\SecureConnector' => __DIR__ . '/..' . '/react/socket/src/SecureConnector.php',
+        'React\\Socket\\SecureServer' => __DIR__ . '/..' . '/react/socket/src/SecureServer.php',
+        'React\\Socket\\Server' => __DIR__ . '/..' . '/react/socket/src/Server.php',
+        'React\\Socket\\ServerInterface' => __DIR__ . '/..' . '/react/socket/src/ServerInterface.php',
+        'React\\Socket\\SocketServer' => __DIR__ . '/..' . '/react/socket/src/SocketServer.php',
+        'React\\Socket\\StreamEncryption' => __DIR__ . '/..' . '/react/socket/src/StreamEncryption.php',
+        'React\\Socket\\TcpConnector' => __DIR__ . '/..' . '/react/socket/src/TcpConnector.php',
+        'React\\Socket\\TcpServer' => __DIR__ . '/..' . '/react/socket/src/TcpServer.php',
+        'React\\Socket\\TimeoutConnector' => __DIR__ . '/..' . '/react/socket/src/TimeoutConnector.php',
+        'React\\Socket\\UnixConnector' => __DIR__ . '/..' . '/react/socket/src/UnixConnector.php',
+        'React\\Socket\\UnixServer' => __DIR__ . '/..' . '/react/socket/src/UnixServer.php',
+        'React\\Stream\\CompositeStream' => __DIR__ . '/..' . '/react/stream/src/CompositeStream.php',
+        'React\\Stream\\DuplexResourceStream' => __DIR__ . '/..' . '/react/stream/src/DuplexResourceStream.php',
+        'React\\Stream\\DuplexStreamInterface' => __DIR__ . '/..' . '/react/stream/src/DuplexStreamInterface.php',
+        'React\\Stream\\ReadableResourceStream' => __DIR__ . '/..' . '/react/stream/src/ReadableResourceStream.php',
+        'React\\Stream\\ReadableStreamInterface' => __DIR__ . '/..' . '/react/stream/src/ReadableStreamInterface.php',
+        'React\\Stream\\ThroughStream' => __DIR__ . '/..' . '/react/stream/src/ThroughStream.php',
+        'React\\Stream\\Util' => __DIR__ . '/..' . '/react/stream/src/Util.php',
+        'React\\Stream\\WritableResourceStream' => __DIR__ . '/..' . '/react/stream/src/WritableResourceStream.php',
+        'React\\Stream\\WritableStreamInterface' => __DIR__ . '/..' . '/react/stream/src/WritableStreamInterface.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
@@ -5494,6 +5708,13 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Yosymfony\\ResourceWatcher\\ContentHashInterface' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ContentHashInterface.php',
+        'Yosymfony\\ResourceWatcher\\Crc32ContentHash' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/Crc32ContentHash.php',
+        'Yosymfony\\ResourceWatcher\\ResourceCacheInterface' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ResourceCacheInterface.php',
+        'Yosymfony\\ResourceWatcher\\ResourceCacheMemory' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ResourceCacheMemory.php',
+        'Yosymfony\\ResourceWatcher\\ResourceCachePhpFile' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ResourceCachePhpFile.php',
+        'Yosymfony\\ResourceWatcher\\ResourceWatcher' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ResourceWatcher.php',
+        'Yosymfony\\ResourceWatcher\\ResourceWatcherResult' => __DIR__ . '/..' . '/yosymfony/resource-watcher/src/ResourceWatcherResult.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 

@@ -48,6 +48,10 @@ Route::post('/like', [App\Http\Controllers\Complaint\ComplaintController::class,
 Route::get('/add-comment', [App\Http\Controllers\Complaint\ComplaintController::class, 'addComment']);
 Route::get('/delete-comment', [App\Http\Controllers\Complaint\ComplaintController::class, 'deleteComment']);
 
+// complaint ajax 
+Route::post('/publish-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'publishComplaint']);
+Route::post('/hide-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'hideComplaint']);
+
 
 // Authority routes
 

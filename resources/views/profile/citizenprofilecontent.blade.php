@@ -61,7 +61,7 @@
 
             <div class="nav">
                 <ul>
-                    <li onclick="tabs(0)" class="user-post active">My Complaints</li>
+                    <li onclick="tabs(0)" class="user-post active">My Complaintss</li>
                     {{-- <li onclick="tabs(1)" class="user-review">Reviews</li>
                     <li onclick="tabs(2)" class="user-setting"> Settings</li> --}}
                 </ul>

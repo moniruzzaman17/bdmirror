@@ -35,6 +35,52 @@ $complaints = $mycomplaints;
             <p class="title"> {{ Carbon\Carbon::parse($complaint->created_at)->diffForHumans()}} </p>
             <span class="updated">{{ $complaint->complaintdivision->name }} | {{ $complaint->complaintdistrict->name }}| {{ $complaint->complaintupazila->name }}</span>
         </div>
+        @if(Route::is('profile'))
+        <div class="right-side-content">
+            @if ($complaint->is_published == 1)
+            <span class="text-success d-flex text-center flex-column"><i class="fa fa-globe" aria-hidden="true"></i> Published</span>
+            @else
+            <span class="text-danger d-flex text-center" style="border: 1px solid;">Not Published</span>
+            @endif
+        </div>
+        @endif
+        @if(Auth::guard('citizen')->check())
+        @if($complaint->citizen->id == Auth::guard('citizen')->user()->id)
+        <div class="post-options-wrapper">
+            <i class="fa fa-ellipsis-h post-ellipsis" data="{{ $complaint->id }}" aria-hidden="true"></i>
+            <div class="post-options post-options{{ $complaint->id }}" style="display: none">
+                @if($complaint->is_published == 1)
+                <style>
+                    .post-options {
+                        width: 160px;
+                    }
+
+                </style>
+                <a href="javascript:void(0)" class="hidehBTN" data="{{ $complaint->id }}"><i class="fa fa-eye-slash" aria-hidden="true"></i>&nbsp;Hide from others</a>
+                @else
+                <style>
+                    .post-options {
+                        width: 90px;
+                    }
+
+                </style>
+                <a href="javascript:void(0)" class="publishBTN" data="{{ $complaint->id }}"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Publish</a>
+                @endif
+                <a href="javascript:void(0)"><i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Update</a>
+                <a href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a>
+            </div>
+        </div>
+        <script>
+            $('.post-ellipsis').unbind().click(function(e) {
+                var post_id = $(this).attr('data');
+                $('.post-options').not('.post-options' + post_id).hide();
+                $('.post-options' + post_id).toggle();
+            });
+
+        </script>
+        @endif
+        @endif
+
     </header>
 
     <!-- Post Content Section -->
@@ -98,3 +144,41 @@ $complaints = $mycomplaints;
     </section>
 </article>
 @endforeach
+<script>
+    $('.publishBTN').unbind().click(function(e) {
+        // console.log('working');
+        e.preventDefault;
+        var complaint_id = $(this).attr('data');
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "/publish-complaint"
+            , type: "POST"
+            , data: {
+                complaint_id: complaint_id
+                , _token: _token
+            }
+            , success: function(data) {
+                document.location.reload(true);
+            }
+        });
+    });
+
+    $('.hidehBTN').unbind().click(function(e) {
+        // console.log('working');
+        e.preventDefault;
+        var complaint_id = $(this).attr('data');
+        var _token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "/hide-complaint"
+            , type: "POST"
+            , data: {
+                complaint_id: complaint_id
+                , _token: _token
+            }
+            , success: function(data) {
+                document.location.reload(true);
+            }
+        });
+    });
+
+</script>
