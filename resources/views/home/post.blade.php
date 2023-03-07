@@ -80,6 +80,28 @@ $complaints = $mycomplaints;
         </script>
         @endif
         @endif
+        @if(Auth::guard('authority')->check())
+        <div class="post-options-wrapper">
+            <i class="fa fa-ellipsis-h post-ellipsis" data="{{ $complaint->id }}" aria-hidden="true"></i>
+            <div class="post-options post-options{{ $complaint->id }}" style="display: none">
+                <style>
+                    .post-options {
+                        width: 138px;
+                    }
+
+                </style>
+                <a href="/messages/citizen/{{  $complaint->citizen_id }}"><i class="fa-solid fa-message"></i>&nbsp;Send Message</a>
+            </div>
+        </div>
+        <script>
+            $('.post-ellipsis').unbind().click(function(e) {
+                var post_id = $(this).attr('data');
+                $('.post-options').not('.post-options' + post_id).hide();
+                $('.post-options' + post_id).toggle();
+            });
+
+        </script>
+        @endif
 
     </header>
 
