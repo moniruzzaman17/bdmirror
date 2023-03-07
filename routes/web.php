@@ -51,6 +51,7 @@ Route::get('/delete-comment', [App\Http\Controllers\Complaint\ComplaintControlle
 // complaint ajax 
 Route::post('/publish-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'publishComplaint']);
 Route::post('/hide-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'hideComplaint']);
+Route::get('/complaint/id/{id}', [App\Http\Controllers\Complaint\ComplaintController::class, 'complaintDetails'])->name('complaint.details');
 
 // Authority routes
 Route::get('/complaint-list', [App\Http\Controllers\LegalAuthority\Complaint\ComplaintController::class, 'showList'])->name('complaint.list');

@@ -45,7 +45,8 @@
             <li class="nav-item">
                 <a aria-label="Notification" class="nav-link nav-link-notification nav-button alt-text nav-link-right" id="notification-avatar">
                     <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="notification-badge" style="top: -10px; right: -8px">12</span>
+                    <span class="notification-badge" style="top: -10px; right: -8px">{{ $notificationsCount }}</span>
+
                 </a>
                 <div class="notification-popup-wrapper header-popup">
                     <div class="notification-body">

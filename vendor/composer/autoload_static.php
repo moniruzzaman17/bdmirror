@@ -619,6 +619,7 @@ class ComposerStaticInit5071fe38ea645efb82496cc5a66e9f4b
         'App\\Models\\District' => __DIR__ . '/../..' . '/app/Models/District.php',
         'App\\Models\\Division' => __DIR__ . '/../..' . '/app/Models/Division.php',
         'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
+        'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Rating' => __DIR__ . '/../..' . '/app/Models/Rating.php',
         'App\\Models\\Reply' => __DIR__ . '/../..' . '/app/Models/Reply.php',
         'App\\Models\\Status' => __DIR__ . '/../..' . '/app/Models/Status.php',

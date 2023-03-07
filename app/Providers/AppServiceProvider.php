@@ -13,6 +13,7 @@ use App\Models\District;
 use App\Models\Upazila;
 use App\Models\Complaint;
 use App\Models\Comment;
+use App\Models\Notification;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,13 @@ class AppServiceProvider extends ServiceProvider
             $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','citizen')->orderBy('id', 'DESC')->get();
             $totalConversation =  count($msgNotifications);
             $view->with('totalConversation', $totalConversation );
+
+            // citizen notification
+            $notifications = Notification::where('citizen_id', $id)->orderBy('id', 'DESC')->get();
+            $view->with('notifications', $notifications );
+            // dd( $notifications);
+            $notificationsCount = Notification::where('citizen_id', $id)->where('is_read', 0)->count();
+            $view->with('notificationsCount', $notificationsCount);
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
@@ -58,12 +66,20 @@ class AppServiceProvider extends ServiceProvider
             $msgNotifications = Message::distinct()->select('sender_id','sender_type')->where('receiver_id', $id)->where('receiver_type','authority')->orderBy('id', 'DESC')->get();
             $totalConversation =  count($msgNotifications);
             $view->with('totalConversation', $totalConversation );
+            
+            // authority notification
+            $notifications = Notification::where('authority_id', $id)->orderBy('id', 'DESC')->get();
+            $view->with('notifications', $notifications );
+            // dd( $notifications);
+            $notificationsCount = Notification::where('authority_id', $id)->where('is_read', 0)->count();
+            $view->with('notificationsCount', $notificationsCount);
         }
         $divisions = Division::get();
         $view->with('divisions', $divisions );
 
         $globalComplaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->where('visibility', 1)->where('is_published', 1)->orderBy('updated_at','DESC')->get();
         $view->with('globalComplaint', $globalComplaint );
+
       });
     }
 }

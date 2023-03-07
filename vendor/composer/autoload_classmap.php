@@ -47,6 +47,7 @@ return array(
     'App\\Models\\District' => $baseDir . '/app/Models/District.php',
     'App\\Models\\Division' => $baseDir . '/app/Models/Division.php',
     'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
+    'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
     'App\\Models\\Rating' => $baseDir . '/app/Models/Rating.php',
     'App\\Models\\Reply' => $baseDir . '/app/Models/Reply.php',
     'App\\Models\\Status' => $baseDir . '/app/Models/Status.php',

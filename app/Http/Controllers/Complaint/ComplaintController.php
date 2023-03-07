@@ -172,4 +172,8 @@ class ComplaintController extends Controller
         ]);
         return $updated;
     }
+    public function complaintDetails($id){
+        $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', $id)->first();
+        return false;
+    }
 }
