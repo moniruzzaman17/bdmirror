@@ -52,8 +52,12 @@ Route::get('/delete-comment', [App\Http\Controllers\Complaint\ComplaintControlle
 Route::post('/publish-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'publishComplaint']);
 Route::post('/hide-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'hideComplaint']);
 
-
 // Authority routes
+Route::get('/complaint-list', [App\Http\Controllers\LegalAuthority\Complaint\ComplaintController::class, 'showList'])->name('complaint.list');
+
+// /ajax 
+Route::post('/update-complaint-status', [App\Http\Controllers\LegalAuthority\Complaint\ComplaintController::class, 'updateStatus']);
+
 
 // Route::prefix('mcp')->group(function() {
 //     Route::get('/', [App\Http\Controllers\Authority\HomeController::class, 'index'])->name('authority.home');

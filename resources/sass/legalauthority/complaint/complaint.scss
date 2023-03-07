@@ -1,0 +1,22 @@
+.complaint-list-wrapper {
+    .table {
+        color: var(--text-color);
+
+        tbody {
+            tr {
+                &:hover {
+                    background-color: var(--header-color) !important;
+                    color: var(--text-color) !important;
+
+                    th {
+                        color: var(--text-color) !important;
+                    }
+
+                    td {
+                        color: var(--text-color) !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -34,10 +34,7 @@ class ProfileController extends Controller
             $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('updated_at','DESC')->where('citizen_id',$id)->get();
             return view('profile.profile', compact('citizen','mycomplaints'));
         }
-        else {
-            return redirect()->route('home')->with('failed', 'Not Authorized');
-        }
-        if (Auth::guard('authority')->check()) {
+        elseif (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;
             $authority = Authority::with('authorityDivision','authorityDistrict','authorityUpazila')->where('id',$id)->first();
             

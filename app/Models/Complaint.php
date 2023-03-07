@@ -48,4 +48,8 @@ class Complaint extends Model
     function complaintupazila() {
         return $this->belongsTo('App\Models\Upazila','upazila','id');
     }
+
+    function complaintstatus() {
+        return $this->belongsTo('App\Models\Status','status','id');
+    }
 }

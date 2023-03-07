@@ -22613,6 +22613,20 @@ button.createbtn i {
   color: var(--text-color);
 }
 
+.complaint-list-wrapper .table {
+  color: var(--text-color);
+}
+.complaint-list-wrapper .table tbody tr:hover {
+  background-color: var(--header-color) !important;
+  color: var(--text-color) !important;
+}
+.complaint-list-wrapper .table tbody tr:hover th {
+  color: var(--text-color) !important;
+}
+.complaint-list-wrapper .table tbody tr:hover td {
+  color: var(--text-color) !important;
+}
+
 .message-wrapper {
   position: relative;
   margin-top: 10px;
