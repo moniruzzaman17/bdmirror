@@ -50,6 +50,7 @@ class RegisterController extends Controller
                 'division' => ['required'],
                 'district' => ['required'],
                 'upazila' => ['required'],
+                'dept_category' => ['nullable'],
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ],$msg);
         }
@@ -61,6 +62,7 @@ class RegisterController extends Controller
 
                 'mobile.regex' => 'Mobile number must start with 01 and followed by the 9 number',
                 'mobile.unique' => 'This mobile number already exist for another account',
+                'dept_category.required' => 'For legal authority department category is required',
             ];
             $validatedData = $request->validate([
                 'name' => ['required', 'string', 'max:255','regex:/[a-zA-Z|.]+(\s|[a-zA-Z|.]+)+$/'],
@@ -69,6 +71,7 @@ class RegisterController extends Controller
                 'division' => ['required'],
                 'district' => ['required'],
                 'upazila' => ['required'],
+                'dept_category' => ['required'],
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ],$msg);
         }
@@ -89,6 +92,7 @@ class RegisterController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'mobile' => request('mobile'),
+            'dept_category' => request('dept_category'),
             'working_division' => request('division'),
             'working_district' => request('district'),
             'working_upazila' => request('upazila'),

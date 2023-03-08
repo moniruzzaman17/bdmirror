@@ -11,6 +11,10 @@
                 outline: 1px solid #00674C !important;
             }
         }
+
+        #category {
+            border: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+        }
     }
 
     @media screen and (min-width:$large-start) {

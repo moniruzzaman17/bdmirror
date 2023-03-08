@@ -14,6 +14,7 @@ use App\Models\Upazila;
 use App\Models\Complaint;
 use App\Models\Comment;
 use App\Models\Notification;
+use App\Models\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,6 +56,9 @@ class AppServiceProvider extends ServiceProvider
             // dd( $notifications);
             $notificationsCount = Notification::where('citizen_id', $id)->where('is_read', 0)->count();
             $view->with('notificationsCount', $notificationsCount);
+
+            $categories = Category::get();
+            $view->with('categories', $categories);
         }
         if (Auth::guard('authority')->check()) {
             $id = Auth::guard('authority')->user()->id;

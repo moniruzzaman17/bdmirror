@@ -102,6 +102,14 @@
                             <option value="lauth" @if (old('user_type')=="lauth" ) {{ 'selected' }} @endif>Legal Authority</option>
                         </select>
                     </div>
+                    <div class="field dept_category" style="display: none;">
+                        <select name="dept_category" id="dept_category" class="form-controll common-list-button common-list-select w-100">
+                            <option value="" selected disabled> Select Responsible Department..</option>
+                            @foreach($dept_categories as $key => $dept_category)
+                            <option value="{{ $dept_category->id }}">{{ $dept_category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="field">
                         <select name="division" id="division" class="form-controll common-list-button common-list-select w-100">
                             <option value="" selected class="division_dummy"> Select Division..</option>
@@ -192,11 +200,17 @@
                 $('.division_dummy').text('Select division..');
                 $('.district_dummy').text('Select district..');
                 $('.upazila_dummy').text('Select upazila..');
+                $('#dept_category').removeAttr('required');
+                $('.dept_category').hide();
+
 
             } else {
                 $('.division_dummy').text('Select working division..');
                 $('.district_dummy').text('Select working district..');
                 $('.upazila_dummy').text('Select working upazila..');
+                $('#dept_category').prop('required', true);
+                $('.dept_category').show();
+
             }
         });
 

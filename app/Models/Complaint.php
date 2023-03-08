@@ -20,6 +20,8 @@ class Complaint extends Model
         'visibility',
         'is_anonymous',
         'is_published',
+        'status',
+        'category_id',
         'publish_datetime',
     ];
 

@@ -21,7 +21,8 @@ class ComplaintController extends Controller
             'video' => 'nullable',
             'document' => 'nullable',
             'is_anonymous' => 'nullable',
-            'complaint_schedule' => 'nullable'
+            'complaint_schedule' => 'nullable',
+            'category' => 'required',
         ]);
         if (empty(request('is_anonymous'))) {
             if (empty(request('complaint_schedule'))) {
@@ -32,7 +33,8 @@ class ComplaintController extends Controller
                     'division' => Auth::guard('citizen')->user()->division,
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
-                    'is_anonymous' => 0
+                    'is_anonymous' => 0,
+                    'category_id' => request('category')
                 ]);
             }
             else{
@@ -45,7 +47,8 @@ class ComplaintController extends Controller
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 0,
                     'is_published' => 0,
-                    'publish_datetime' => request('complaint_schedule')
+                    'publish_datetime' => request('complaint_schedule'),
+                    'category_id' => request('category')
                 ]);
             }
         }
@@ -58,7 +61,8 @@ class ComplaintController extends Controller
                     'division' => Auth::guard('citizen')->user()->division,
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
-                    'is_anonymous' => 1
+                    'is_anonymous' => 1,
+                    'category_id' => request('category')
                 ]);
             }
             else{
@@ -71,7 +75,8 @@ class ComplaintController extends Controller
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 1,
                     'is_published' => 0,
-                    'publish_datetime' => request('complaint_schedule')
+                    'publish_datetime' => request('complaint_schedule'),
+                    'category_id' => request('category')
                 ]);
             }
         }

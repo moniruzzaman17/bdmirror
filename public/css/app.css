@@ -21785,6 +21785,9 @@ form .btn input[type=submit] {
 .create-post-modal .modal-content .complaint_textarea:focus-visible {
   outline: 1px solid #00674C !important;
 }
+.create-post-modal .modal-content #category {
+  border: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+}
 @media screen and (min-width: 992px) {
   .create-post-modal .modal-dialog {
     max-width: 50%;

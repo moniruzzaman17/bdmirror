@@ -32,9 +32,17 @@
                         <div class="main-body">
                             <textarea name="complaint" class="w-100 complaint_textarea" id="" required></textarea>
                         </div>
+                        <div class="d-flex align-items-center mt-3 mb-3">
+                            <select name="category" id="category" class="form-controll common-list-button common-list-select w-100" required>
+                                <option value="" selected disabled> Select Complaint Category..</option>
+                                @foreach($categories as $key => $category)
+                                <option value="{{ $category->id }}">{{ $category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="d-flex align-items-center">
                             <input type="checkbox" id="complaint_type" name="is_anonymous" value="1">&nbsp;&nbsp;
-                            <label for="complaint_type" class="font-italic text-primary">Check this box if you want to post anonymously.</label>
+                            <label for="complaint_type" class="font-italic text-primary">Check this box if you want to post anonymously. <i>(Optional)</i></label>
                         </div>
                         <div class="d-flex align-items-center mt-3 mb-3">
                             <label for="complaint_schedule" class="">Set Publish Schedule <i class="text-danger">(If no needed leave the field blank)</i></label>&nbsp;&nbsp;

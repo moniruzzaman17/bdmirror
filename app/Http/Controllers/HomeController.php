@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Division;
 use App\Models\District;
 use App\Models\Upazila;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $dept_categories = Category::get();
+        return view('welcome', compact('dept_categories'));
     }
 
     public function getDistrict(){

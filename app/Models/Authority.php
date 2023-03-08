@@ -18,6 +18,7 @@ class Authority extends Model implements AuthenticatableContract
         'mobile',
         'organization',
         'designation',
+        'dept_category',
         'official_id',
         'nid',
         'working_division',
