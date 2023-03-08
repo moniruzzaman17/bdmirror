@@ -21,6 +21,10 @@
         <ul class="navbar-nav navbar-nav-left align-items-center">
             <li class="nav-item"><a href="/" aria-label="Homepage" class="nav-link nav-link-left nav-button alt-text is-selected active"><i class="fa fa-home" aria-hidden="true"></i></a></li>
             <li class="nav-item"><a href="{{ route('authority.list') }}" aria-label="Legal Authorities" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-gavel" aria-hidden="true"></i></a></li>
+            @auth('citizen')
+            <li class="nav-item"><a href="{{ route('map') }}" aria-label="Map" class="nav-link nav-link-left nav-button alt-text"><i class="fa-solid fa-location-dot"></i></a></li>
+
+            @endauth
             @auth('authority')
             <li class="nav-item"><a href="{{ route('complaint.list') }}" aria-label="Complaint Details" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-list" aria-hidden="true"></i></a></li>
 

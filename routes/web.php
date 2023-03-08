@@ -53,6 +53,11 @@ Route::post('/publish-complaint', [App\Http\Controllers\Complaint\ComplaintContr
 Route::post('/hide-complaint', [App\Http\Controllers\Complaint\ComplaintController::class, 'hideComplaint']);
 Route::get('/complaint/id/{id}', [App\Http\Controllers\Complaint\ComplaintController::class, 'complaintDetails'])->name('complaint.details');
 
+// map route 
+
+Route::get('/map', [App\Http\Controllers\Map\MapController::class, 'index'])->name('map');
+
+
 // Authority routes
 Route::get('/complaint-list', [App\Http\Controllers\LegalAuthority\Complaint\ComplaintController::class, 'showList'])->name('complaint.list');
 
