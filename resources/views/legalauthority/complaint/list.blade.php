@@ -57,7 +57,9 @@
                     <td>{{ $complaint->complaintdivision->name }}</td>
                     <td>{{ $complaint->complaintdistrict->name }}</td>
                     <td>{{ $complaint->complaintupazila->name }}</td>
-                    <td><a href=""><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+                    <td><a href="{{ route('complaint.details',["id" => $complaint->id]) }}"><i class="fa fa-rocket" aria-hidden="true"></i></a></td>
+
+
                     </tr>
                     @endforeach
             </tbody>

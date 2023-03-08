@@ -1,6 +1,11 @@
-@if(empty($mycomplaints))
+@if(empty($mycomplaints) && empty($singlecomplaints))
 @php
 $complaints = $globalComplaint;
+@endphp
+{{-- $singlecomplaints from individual complaint view --}}
+@elseif (!empty($singlecomplaints))
+@php
+$complaints = $singlecomplaints;
 @endphp
 @else
 @php
@@ -9,6 +14,54 @@ $complaints = $mycomplaints;
 @endif
 @foreach($complaints as $key => $complaint)
 <article class="post mt-3 mb-3">
+    <div class="info" style="padding-bottom: 40px;">
+        @if($complaint->status ==1)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-todo">In Progress</li>
+            <li class="progtrckr-todo">Resolved</li>
+        </ol>
+        @endif
+        @if($complaint->status ==2)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-done">In Progress</li>
+            <li class="progtrckr-todo">Resolved</li>
+        </ol>
+        @endif
+        @if($complaint->status ==4)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-done">In Progress</li>
+            <li class="progtrckr-done">Resolved</li>
+        </ol>
+        @endif
+        @if($complaint->status ==3)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-done">On Hold</li>
+            <li class="progtrckr-todo">In Progress</li>
+            <li class="progtrckr-todo">Resolved</li>
+        </ol>
+        @endif
+        @if($complaint->status ==5)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-done">In Progress</li>
+            <li class="progtrckr-done">Closed</li>
+        </ol>
+        @endif
+        @if($complaint->status ==6)
+        <ol class="progtrckr" data-progtrckr-steps="5">
+            <li class="progtrckr-done">Open</li>
+            <li class="progtrckr-done">In Progress</li>
+            <li class="progtrckr-done">Closed</li>
+            <li class="progtrckr-done">Reopened</li>
+            <li class="progtrckr-todo">In Progress</li>
+            <li class="progtrckr-todo">Resolved</li>
+        </ol>
+        @endif
+    </div>
     @foreach($complaint->comments as $key => $comment)
     @php
     $lastcommenter = $comment->citizen->name;

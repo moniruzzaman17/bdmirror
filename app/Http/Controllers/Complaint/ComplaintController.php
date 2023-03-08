@@ -173,7 +173,8 @@ class ComplaintController extends Controller
         return $updated;
     }
     public function complaintDetails($id){
-        $complaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings')->where('id', $id)->first();
-        return false;
+        $singlecomplaints = Complaint::with('medias','comments','complaintstatus','comments.citizen','ratings','citizen','citizen.ratings')->where('id', $id)->limit(1)->get();
+        // dd($singlecomplaints);
+        return view('complaint.individualcomplaint', compact('singlecomplaints'));
     }
 }

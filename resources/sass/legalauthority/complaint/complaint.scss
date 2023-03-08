@@ -2,6 +2,10 @@
     .table {
         color: var(--text-color);
 
+        thead {
+            background-color: var(--header-color);
+        }
+
         tbody {
             tr {
                 &:hover {

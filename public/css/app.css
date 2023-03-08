@@ -21946,6 +21946,78 @@ h6,
   margin: 0;
   /* Common Styles */
 }
+.post ol.progtrckr {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.post ol.progtrckr li {
+  display: inline-block;
+  text-align: center;
+  line-height: 3.5em;
+  color: var(--text-color);
+}
+.post ol.progtrckr[data-progtrckr-steps="2"] li {
+  width: 49%;
+}
+.post ol.progtrckr[data-progtrckr-steps="3"] li {
+  width: 33%;
+}
+.post ol.progtrckr[data-progtrckr-steps="4"] li {
+  width: 24%;
+}
+.post ol.progtrckr[data-progtrckr-steps="5"] li {
+  width: 19%;
+}
+.post ol.progtrckr[data-progtrckr-steps="6"] li {
+  width: 16%;
+}
+.post ol.progtrckr[data-progtrckr-steps="7"] li {
+  width: 14%;
+}
+.post ol.progtrckr[data-progtrckr-steps="8"] li {
+  width: 12%;
+}
+.post ol.progtrckr[data-progtrckr-steps="9"] li {
+  width: 11%;
+}
+.post ol.progtrckr li.progtrckr-done {
+  color: yellowgreen;
+  border-bottom: 4px solid yellowgreen;
+}
+.post ol.progtrckr li.progtrckr-todo {
+  color: silver;
+  border-bottom: 4px solid silver;
+}
+.post ol.progtrckr li:after {
+  content: "  ";
+}
+.post ol.progtrckr li:before {
+  position: relative;
+  bottom: -2.5em;
+  float: left;
+  left: 50%;
+  line-height: 1em;
+}
+.post ol.progtrckr li.progtrckr-done:before {
+  content: "✓";
+  color: white;
+  background-color: yellowgreen;
+  height: 2.2em;
+  width: 2.2em;
+  line-height: 2.2em;
+  border: none;
+  border-radius: 2.2em;
+}
+.post ol.progtrckr li.progtrckr-todo:before {
+  content: "Ο";
+  color: silver;
+  background-color: white;
+  font-size: 2.2em;
+  bottom: -1.2em;
+}
 .post .post-options-wrapper {
   position: relative;
 }
@@ -22615,6 +22687,9 @@ button.createbtn i {
 
 .complaint-list-wrapper .table {
   color: var(--text-color);
+}
+.complaint-list-wrapper .table thead {
+  background-color: var(--header-color);
 }
 .complaint-list-wrapper .table tbody tr:hover {
   background-color: var(--header-color) !important;
