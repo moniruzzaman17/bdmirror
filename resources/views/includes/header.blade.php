@@ -27,9 +27,8 @@
             @endauth
             @auth('authority')
             <li class="nav-item"><a href="{{ route('complaint.list') }}" aria-label="Complaint Details" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-list" aria-hidden="true"></i></a></li>
-
-            <li class="nav-item"><a aria-label="Reports" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
             @endauth
+            <li class="nav-item"><a href="{{ route('complaint.catreport') }}" aria-label="Reports" class="nav-link nav-link-left nav-button alt-text"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
         </ul>
         <ul class="navbar-nav navbar-nav-right align-items-center w-100 justify-content-end">
             <li class="nav-item">

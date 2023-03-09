@@ -6,6 +6,7 @@
 
 global.$ = global.jQuery = require('jquery');
 require('./bootstrap');
+import Chart from 'chart.js/auto';
 import swal from 'sweetalert';
 // window.Vue = require('vue').default;
 

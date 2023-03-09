@@ -70,6 +70,9 @@ Route::get('/complaint-list', [App\Http\Controllers\LegalAuthority\Complaint\Com
 Route::post('/update-complaint-status', [App\Http\Controllers\LegalAuthority\Complaint\ComplaintController::class, 'updateStatus']);
 
 
+// report route 
+Route::get('/get-report', [App\Http\Controllers\Report\ReportController::class, 'getCategoryReport'])->name('complaint.catreport');
+
 // Route::prefix('mcp')->group(function() {
 //     Route::get('/', [App\Http\Controllers\Authority\HomeController::class, 'index'])->name('authority.home');
 //     Route::get('/profile', [App\Http\Controllers\Authority\Profile\ProfileController::class, 'index'])->name('authority.profile');
