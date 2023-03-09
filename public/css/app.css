@@ -23087,3 +23087,8 @@ button.createbtn i {
     }
   }
 }
+.report-wrapper .status-pie-chart {
+  width: 400px !important;
+  height: 400px !important;
+  padding-top: 70px;
+}

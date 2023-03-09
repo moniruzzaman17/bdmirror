@@ -5322,6 +5322,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.g.$ = __webpack_require__.g.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.Chart = chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"];
 
 // window.Vue = require('vue').default;
 

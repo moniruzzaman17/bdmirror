@@ -5,6 +5,15 @@ namespace App\Http\Controllers\Report;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
+use PDF;
+use App\Models\Comment;
+use App\Models\ComplaintMedias;
+use App\Models\Rating;
+use App\Models\Status;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use Auth;
 
 class ReportController extends Controller
 {
@@ -37,6 +46,18 @@ class ReportController extends Controller
         $complaint['economic']      = (Complaint::where('category_id', 12)->get()->count()*100)/$total;
         $complaint['total']         = $total;
         
-        return view('report.reprot',compact('complaint'));
+        return view('report.report',compact('complaint'));
+    }
+
+    public function getPdfReport(){
+        
+        $catID = Auth::guard('authority')->user()->dept_category;
+        $districtID = Auth::guard('authority')->user()->district;
+        $complaints = Complaint::with('medias','comments','complaintstatus','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision', 'complaintdistrict','complaintupazila')->where('category_id', $catID)->orderBy('id', 'DESC')->get();
+        $statuses = Status::get();
+
+        $pdf = PDF::loadView('legalauthority.complaint.list', compact('complaints','statuses'));
+
+        return $pdf->download('sample1.pdf');
     }
 }

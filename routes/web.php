@@ -72,6 +72,8 @@ Route::post('/update-complaint-status', [App\Http\Controllers\LegalAuthority\Com
 
 // report route 
 Route::get('/get-report', [App\Http\Controllers\Report\ReportController::class, 'getCategoryReport'])->name('complaint.catreport');
+// pdf route
+Route::get('/download/report/pdf', [App\Http\Controllers\Report\ReportController::class, 'getPdfReport'])->name('report.pdf');
 
 // Route::prefix('mcp')->group(function() {
 //     Route::get('/', [App\Http\Controllers\Authority\HomeController::class, 'index'])->name('authority.home');

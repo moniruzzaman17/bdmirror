@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ini_set('max_execution_time', 300); // 300 seconds = 5 minutes
         Schema::defaultStringLength(191);
         
       view()->composer('*', function ($view) 
