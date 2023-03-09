@@ -20,6 +20,11 @@ Route::get('/feed', function () {
     return view('feed.feed');
 });
 
+// send mail route 
+// ajax 
+Route::post('/seeking-help', [App\Http\Controllers\Mail\MailController::class, 'sendMail'])->name('mail');
+Route::post('/cancell/seeking-help', [App\Http\Controllers\Mail\MailController::class, 'cancelHelp'])->name('cancell.help');
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

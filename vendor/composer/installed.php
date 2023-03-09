@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '398ee8406809dcf1a9c06cf83ec19fe93bbaa79f',
+        'reference' => '6be7bfb7228dbd108279f34eb7b6036bd45b0dba',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -174,6 +174,30 @@
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'geocoder-php/common-http' => array(
+            'pretty_version' => '4.5.0',
+            'version' => '4.5.0.0',
+            'reference' => '4ee2cee60d21631e2a09c196bf6b9fd296bca728',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../geocoder-php/common-http',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'geocoder-php/google-maps-provider' => array(
+            'pretty_version' => '4.7.0',
+            'version' => '4.7.0.0',
+            'reference' => '378cd4dd26cba5a004f2a4738e8988e646af3274',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../geocoder-php/google-maps-provider',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'geocoder-php/provider-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'graham-campbell/result-type' => array(
             'pretty_version' => 'v1.1.0',
@@ -424,7 +448,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '398ee8406809dcf1a9c06cf83ec19fe93bbaa79f',
+            'reference' => '6be7bfb7228dbd108279f34eb7b6036bd45b0dba',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -616,6 +640,65 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'php-http/async-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+                1 => '1.0',
+            ),
+        ),
+        'php-http/client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+                1 => '1.0',
+            ),
+        ),
+        'php-http/discovery' => array(
+            'pretty_version' => '1.15.2',
+            'version' => '1.15.2.0',
+            'reference' => '5cc428320191ac1d0b6520034c2dc0698628ced5',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../php-http/discovery',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/guzzle7-adapter' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => 'fb075a71dbfa4847cf0c2938c4e5a9c478ef8b01',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/guzzle7-adapter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/httplug' => array(
+            'pretty_version' => '2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => 'f640739f80dfa1152533976e3c112477f69274eb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/httplug',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/message-factory' => array(
+            'pretty_version' => 'v1.0.2',
+            'version' => '1.0.2.0',
+            'reference' => 'a478cb11f66a6ac48d8954216cfed9aa06a501a1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/message-factory',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/promise' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '4c4c1f9b7289a2ec57cde7f1e9762a5789506f88',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/promise',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.0',
             'version' => '1.9.0.0',
@@ -722,6 +805,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-factory' => array(
@@ -737,6 +821,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-message' => array(
@@ -752,6 +837,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/log' => array(
@@ -1349,6 +1435,15 @@
             'reference' => '11cb2199493b2f8a3b53e7f19068fc6aac760991',
             'type' => 'library',
             'install_path' => __DIR__ . '/../webmozart/assert',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'willdurand/geocoder' => array(
+            'pretty_version' => '4.6.0',
+            'version' => '4.6.0.0',
+            'reference' => 'be3d9ed0fddf8c698ee079d8a07ae9520b4a49a1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../willdurand/geocoder',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

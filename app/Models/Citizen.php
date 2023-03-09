@@ -20,6 +20,7 @@ class Citizen extends Model implements AuthenticatableContract
         'division',
         'district',
         'upazila',
+        'seeking_help',
     ];
 
     public static function updateLastLoginDate() {
@@ -50,5 +51,9 @@ class Citizen extends Model implements AuthenticatableContract
 
     function citizenUpazila() {
         return $this->belongsTo('App\Models\Upazila','upazila','id');
+    }
+
+    function helpinfo() {
+        return $this->hasMany('App\Models\Help','citizen_id','id');
     }
 }

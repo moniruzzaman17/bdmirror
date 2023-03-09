@@ -4,8 +4,15 @@
 @section('content')
 <div class="map-wrapper">
     <!-- In your Laravel 8 view -->
-    <div class="mylocation m-4">
-        <h5 class="w-100 text-center"><b>{{ Auth::guard('citizen')->user()->name }} your current location is:</b> <br> <span class="location"></span></h5>
+    <div class="mylocation m-4 text-center">
+        {{-- <h5 class="url"></h5> --}}
+        @if(Auth::guard('citizen')->user()->seeking_help == 1)
+        <button type="button" class="btn btn-info">Requesting relatives for help is in progress</button>
+        <button type="button" class="btn btn-warning cancelRequ" data="{{ Auth::guard('citizen')->user()->id }}"><i class="fa fa-times" aria-hidden="true"></i> Cancell Requesting</button>
+        @else
+        <a href="" class="emergency b911" data1="" data="{{ Auth::guard('citizen')->user()->id }}"><i class="fa fa-bell text-warning" aria-hidden="true"></i></a>
+        @endif
+        <h5 class="w-100 text-center mt-3"><b>{{ Auth::guard('citizen')->user()->name }} your current location is:</b> <br> <span class="location"></span></h5>
     </div>
     <div id="map" style="height: 500px;"></div>
 
@@ -17,6 +24,10 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     // Set the center of the map to the user's location
+                    var lattt = position.coords.latitude;
+                    var longgg = position.coords.longitude;
+                    var url = "https://www.google.com/maps?daddr=" + lattt + "," + longgg;
+                    $('.emergency').attr("href", url);
                     var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     var map = new google.maps.Map(document.getElementById('map'), {
                         center: userLocation
@@ -142,6 +153,7 @@
                         clearTimeout(loadingTimeout);
                         loadingTimeout = null;
                         $locationText.text(data.display_name);
+                        $('.emergency').attr("data1", data.display_name);
                     }
                 })
                 .fail(function() {
@@ -157,6 +169,50 @@
             };
             alert("Error: " + errors[error.code]);
         }
+
+        // request for help
+        $(".emergency").click(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var citizen_id = $(this).attr('data');
+            var address = $(this).attr('data1');
+
+            var _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "/seeking-help"
+                , dataType: 'json'
+                , type: "POST"
+                , data: {
+                    url: url
+                    , citizen_id: citizen_id
+                    , address: address
+                    , _token: _token
+                }
+                , success: function(data) {
+                    // console.log(data);
+                    document.location.reload(true);
+                }
+            });
+        });
+        // cancell request
+        $(".cancelRequ").click(function(e) {
+            e.preventDefault();
+            var citizen_id = $(this).attr('data');
+            var _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "/cancell/seeking-help"
+                , dataType: 'json'
+                , type: "POST"
+                , data: {
+                    citizen_id: citizen_id
+                    , _token: _token
+                }
+                , success: function(data) {
+                    // console.log(data);
+                    document.location.reload(true);
+                }
+            });
+        });
 
     </script>
 </div>
