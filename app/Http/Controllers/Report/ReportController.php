@@ -45,8 +45,22 @@ class ReportController extends Controller
         $complaint['social']        = (Complaint::where('category_id', 11)->get()->count()*100)/$total;
         $complaint['economic']      = (Complaint::where('category_id', 12)->get()->count()*100)/$total;
         $complaint['total']         = $total;
-        
-        return view('report.report',compact('complaint'));
+        // 1 Open
+        // 2 In Progress
+        // 3 On Hold
+        // 4 Resolved
+        // 5 Closed 
+        // 6 Reopened
+        $status = array();
+
+        $status['open']         = Complaint::where('status', 1)->get()->count();
+        $status['progress']     = Complaint::where('status', 2)->get()->count();
+        $status['hold']         = Complaint::where('status', 3)->get()->count();
+        $status['resolved']     = Complaint::where('status', 4)->get()->count();
+        $status['closed']       = Complaint::where('status', 5)->get()->count();
+        $status['reopened']     = Complaint::where('status', 6)->get()->count();
+
+        return view('report.report',compact('complaint','status'));
     }
 
     public function getPdfReport(){

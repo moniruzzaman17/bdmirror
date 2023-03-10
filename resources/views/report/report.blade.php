@@ -2,9 +2,9 @@
 @section('title', __('Report | BD Mirror'))
 @section('body-class', 'report-home')
 @section('content')
-<div class="report-wrapper">
+<div class="report-wrapper" id="printarea">
     <table class="graph mt-3">
-        <caption>All time complaint report</caption>
+        <caption>Complaint Category Report <button type="button" class="btn btn-success exclude-print print-report">Print</button></caption>
         <thead>
             <tr>
                 <th scope="col">Item</th>
@@ -62,9 +62,16 @@
             </tr>
         </tbody>
     </table>
-    <div class="status-trace mt-5">
+
+    {{-- $status['progress']
+    $status['hold']
+    $status['resolved']
+    $status['closed']
+    $status['reopened'] --}}
+
+    <div class="status-trace mt-5" id="printPIE">
         <div class="status-pie-chart m-auto">
-            <h4 class="text-center">Complaint Status Overview</h4>
+            <h4 class="text-center exclude-print">Complaint Status Overview &nbsp; <button class="btn btn-success print-statuspie">Print</button></h4>
             <canvas id="pie-chart"></canvas>
             <script>
                 var ctx = document.getElementById('pie-chart').getContext('2d');
@@ -73,7 +80,7 @@
                     , data: {
                         labels: ['Open', 'In Progress', 'On Hold', 'Resolved', 'Closed', 'Reopened']
                         , datasets: [{
-                            data: [12, 19, 3, 3, 3, 3]
+                            data: ["{{ $status['open'] }}", "{{ $status['progress'] }}", "{{ $status['hold'] }}", "{{ $status['resolved'] }}", "{{ $status['closed'] }}", "{{ $status['reopened'] }}"]
                             , backgroundColor: ['#008000', '#0000FF', '#FFFF00', '#00FF00', '#FF0000', '#FFCE56']
                         }]
                     }
@@ -83,4 +90,32 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".print-report").click(function() {
+            // $("#printarea").print();
+            $('#printarea').print({
+                globalStyles: true
+                , mediaPrint: true
+                , iframe: true
+                , noPrintSelector: ".exclude-print"
+                , addGlobalStyles: true
+            , });
+        });
+        $(".print-statuspie").click(function() {
+            // $("#printarea").print();
+            print('printPIE', 'html');
+            // $('#printarea').print({
+            //     globalStyles: true
+            //     , mediaPrint: true
+            //     , iframe: true
+            //     , noPrintSelector: ".exclude-print"
+            //     , addGlobalStyles: true
+            // , });
+        });
+    });
+
+</script>
 @endsection
