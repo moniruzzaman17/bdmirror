@@ -57,13 +57,12 @@
             </div>
 
         </div>
-        <div class="right-side">
-
+        <div class="right-side" style="width: 100%;">
             <div class="nav">
                 <ul>
                     <li onclick="tabs(0)" class="user-post active">My Complaintss</li>
-                    {{-- <li onclick="tabs(1)" class="user-review">Reviews</li>
-                    <li onclick="tabs(2)" class="user-setting"> Settings</li> --}}
+                    <li onclick="tabs(1)" class="emergency-contact" style="width: 165px;">Emergency Contact</li>
+                    {{-- <li onclick="tabs(2)" class="user-setting"> Settings</li> --}}
                 </ul>
             </div>
             <div class="profile-body">
@@ -73,10 +72,22 @@
                     </div>
                 </div>
                 <div class="profile-reviews tab">
-                    <h1>User reviews</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam pariatur officia, aperiam quidem quasi, tenetur molestiae. Architecto mollitia laborum possimus iste esse. Perferendis tempora consectetur, quae qui nihil voluptas. Maiores debitis
-                        repellendus excepturi quisquam temporibus quam nobis voluptatem, reiciendis distinctio deserunt vitae! Maxime provident, distinctio animi commodi nemo, eveniet fugit porro quos nesciunt quidem a, corporis nisi dolorum minus sit eaque error
-                        sequi ullam. Quidem ut fugiat, praesentium velit aliquam!</p>
+                    <style>
+                        .em-contact-wrapper {
+                            color: var(--text-color);
+                            background-color: var(--post-bg-color);
+                            border-radius: 10px;
+                            padding: 25px;
+                            border: solid 1px rgba(0, 0, 0, 0.1);
+                            position: relative;
+                            z-index: 0;
+                            width: 100%;
+                        }
+
+                    </style>
+                    <div class="em-contact-wrapper">
+                        @include('profile.citizenemergencyContact')
+                    </div>
                 </div>
                 <div class="profile-settings tab">
                     <div class="account-setting">

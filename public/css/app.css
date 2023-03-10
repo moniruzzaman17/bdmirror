@@ -22329,7 +22329,7 @@ h6,
   /* background: #000; */
   height: 50px;
   width: 50px;
-  width: 87px;
+  width: 80px;
   border-radius: 50%;
   transition: all 0.2s linear;
 }
@@ -22342,8 +22342,8 @@ h6,
   left: 17px;
   z-index: 11;
   display: block;
-  width: 25px;
-  height: 25px;
+  width: 12px;
+  height: 12px;
   border-top: 2px solid var(--text-color);
   border-left: 2px solid var(--text-color);
 }
@@ -22448,6 +22448,11 @@ h6,
   height: 190px;
   position: relative;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.emergency-contact-table th,
+.emergency-contact-table td {
+  color: var(--text-color);
 }
 
 .profile-img {
@@ -22658,7 +22663,6 @@ button.createbtn i {
 }
 .nav ul li {
   padding: 10px;
-  width: 100%;
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease-in-out;

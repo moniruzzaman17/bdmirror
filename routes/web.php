@@ -32,8 +32,12 @@ Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, '
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+// profile route 
 Route::get('/profile', [App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('profile');
 Route::get('/legal-authorities', [App\Http\Controllers\LegalAuthority\LegalAuthorityController::class, 'index'])->name('authority.list');
+// profile ajax 
+Route::post('/get-helpinfo', [App\Http\Controllers\Profile\ProfileController::class, 'getHelpInfo']);
+Route::post('/create-or-update/emergency-contact', [App\Http\Controllers\Profile\ProfileController::class, 'createORupdate'])->name('createorupdate.help');
 
 // message route 
 Route::get('/messages/{type}/{id}', [App\Http\Controllers\Message\MessageController::class, 'index'])->name('message');
