@@ -77,14 +77,22 @@ $complaints = $mycomplaints;
     <!-- Post Header -->
     <header class="post-header">
         <figure class="avatar-wrapper">
+            @if($complaint->is_anonymous == 1)
+            <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" class="w-100" />
+            @else
             @if(empty($complaint->citizen->image))
             <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" class="w-100" />
             @else
             <img src="{{ $complaint->citizen->image }}" class="avatar" alt="Post avatar" class="w-100" />
             @endif
+            @endif
         </figure>
         <div class="content">
+            @if($complaint->is_anonymous == 1)
+            <h4><strong> Anonymous</strong></h4>
+            @else
             <h4><strong> {{ $complaint->citizen->name }}</strong></h4>
+            @endif
             <p class="title"> {{ Carbon\Carbon::parse($complaint->created_at)->diffForHumans()}} </p>
             <span class="updated">{{ $complaint->complaintdivision->name }} | {{ $complaint->complaintdistrict->name }}| {{ $complaint->complaintupazila->name }}</span>
         </div>

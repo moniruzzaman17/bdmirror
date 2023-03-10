@@ -19,8 +19,8 @@ class ComplaintController extends Controller
 {
     public function showList(){
         $catID = Auth::guard('authority')->user()->dept_category;
-        $districtID = Auth::guard('authority')->user()->district;
-        $complaints = Complaint::with('medias','comments','complaintstatus','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision', 'complaintdistrict','complaintupazila')->where('category_id', $catID)->orderBy('id', 'DESC')->get();
+        $districtID = Auth::guard('authority')->user()->working_district;
+        $complaints = Complaint::with('medias','comments','complaintstatus','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision', 'complaintdistrict','complaintupazila')->where('category_id', $catID)->where('district', $districtID)->orderBy('id', 'DESC')->get();
         $statuses = Status::get();
         // dd($complaints[0]->complaintstatus->name);
         return view('legalauthority.complaint.list', compact('complaints','statuses'));

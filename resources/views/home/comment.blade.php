@@ -2,10 +2,14 @@
 <div class="add-comment add-comment{{ $complaint->id }} mt-3">
     <figure class="avatar-wrapper">
         @auth('citizen')
+        @if($complaint->is_anonymous == 1)
+        <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" />
+        @else
         @if(empty(Auth::guard('citizen')->user()->image))
         <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" />
         @else
         <img src="{{ Auth::guard('citizen')->user()->image }}" class="avatar" alt="Post avatar" />
+        @endif
         @endif
         @endauth
     </figure>
@@ -23,7 +27,7 @@
         @if(empty($complaint->citizen->image))
         <img src="{{ asset('img/avatar.png') }}" class="avatar" alt="Post avatar" />
         @else
-        <img src="{{ $complaint->citizen->image }}" class="avatar" alt="Post avatar" />
+        <img src="{{ $comment->citizen->image }}" class="avatar" alt="Post avatar" />
         @endif
     </figure>
     <div class="content">

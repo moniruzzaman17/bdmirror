@@ -46,7 +46,7 @@ class ComplaintController extends Controller
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 0,
-                    'is_published' => 0,
+                    'visibility' => 0,
                     'publish_datetime' => request('complaint_schedule'),
                     'category_id' => request('category')
                 ]);
@@ -74,7 +74,7 @@ class ComplaintController extends Controller
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 1,
-                    'is_published' => 0,
+                    'visibility' => 0,
                     'publish_datetime' => request('complaint_schedule'),
                     'category_id' => request('category')
                 ]);
