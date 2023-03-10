@@ -21,8 +21,10 @@
 
                     </span>
                     <span class="text">{{ $logedUser->name }}</span>
-
                 </a>
+            </li>
+            <li class="common-list-item">
+                @include('home.leftAreaReport')
             </li>
             {{-- <li class="common-list-item">
                 <a class="common-list-button">

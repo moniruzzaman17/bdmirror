@@ -15,6 +15,7 @@ use App\Models\Complaint;
 use App\Models\Comment;
 use App\Models\Notification;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -85,6 +86,16 @@ class AppServiceProvider extends ServiceProvider
         $globalComplaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->where('visibility', 1)->where('is_published', 1)->orderBy('updated_at','DESC')->get();
         $view->with('globalComplaint', $globalComplaint );
 
+        $topDistricts = DB::table('complaints')
+                ->join('districts', 'complaints.district', '=', 'districts.id')
+                ->select('districts.name', 'districts.bn_name', DB::raw('count(complaints.id) as complaint_count'))
+                ->groupBy('districts.name')
+                ->groupBy('districts.bn_name')
+                ->orderBy('complaint_count', 'desc')
+                ->take(5)
+                ->get();
+                // dd($topDistricts);
+        $view->with('topDistricts', $topDistricts );
       });
     }
 }

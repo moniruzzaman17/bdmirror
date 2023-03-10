@@ -22242,6 +22242,115 @@ h6,
 .side-a.is-open {
   display: block;
 }
+.side-a .flow-container {
+  /* border: 1px solid green; */
+  width: 100%;
+  margin: 0 auto;
+}
+.side-a .flow {
+  margin: 0 auto;
+  /* width: 600px; */
+}
+.side-a .node {
+  background-color: #ffe59a;
+  color: #000;
+  width: 90%;
+  text-align: center;
+  border: 1px solid #f8e197;
+  padding: 15px 5px;
+  word-break: break-word;
+  /* box-shadow: 1px 1px 3px whitesmoke; //this is so bad for image */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.side-a .root {
+  background-color: #ffc001;
+  border: 1px solid #eca836;
+}
+.side-a .color {
+  margin: 0;
+}
+.side-a .color1 {
+  background-color: #F72626;
+  border: 1px solid #F72626;
+}
+.side-a .color2 {
+  background-color: #FD4C4C;
+  border: 1px solid #FD4C4C;
+}
+.side-a .color3 {
+  background-color: #F76767;
+  border: 1px solid #F76767;
+}
+.side-a .color4 {
+  background-color: #F38A8A;
+  border: 1px solid #F38A8A;
+}
+.side-a .color5 {
+  background-color: #F7C2C2;
+  border: 1px solid #F7C2C2;
+}
+.side-a .last {
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+}
+.side-a .note-table {
+  display: table;
+}
+.side-a .note-cell {
+  display: table-cell;
+}
+.side-a .legend tr > td:first-child {
+  text-align: right;
+  vertical-align: top;
+}
+.side-a .edge-label {
+  padding-left: 70px;
+}
+.side-a .export-btn {
+  color: #444;
+  border: 1px solid #CCC;
+  background: #DDD;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  vertical-align: middle;
+  max-width: 100px;
+  padding: 5px;
+  text-align: center;
+  margin: 30px 30px;
+}
+.side-a .export-btn:active {
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.6);
+}
+.side-a .button-down {
+  position: relative;
+  padding: 5px;
+  margin: auto;
+  /* background: #000; */
+  height: 50px;
+  width: 50px;
+  width: 87px;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+.side-a .button-down:hover {
+  transform: translate3d(0, 10px, 0);
+}
+.side-a .button-down::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  z-index: 11;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid var(--text-color);
+  border-left: 2px solid var(--text-color);
+}
+.side-a .button-down::after {
+  top: 10px;
+  transform: rotate(225deg);
+}
 
 .side-b {
   bottom: 0;

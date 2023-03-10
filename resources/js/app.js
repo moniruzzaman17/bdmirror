@@ -10,7 +10,7 @@ import Chart from 'chart.js/auto';
 window.Chart = Chart;
 import swal from 'sweetalert';
 
-import print from 'print-js'
+import print from 'print-js';
 // window.Vue = require('vue').default;
 
 /**
