@@ -22,6 +22,7 @@ class Complaint extends Model
         'is_published',
         'status',
         'category_id',
+        'is_autopost',
         'publish_datetime',
     ];
 

@@ -48,6 +48,11 @@
                             <label for="complaint_schedule" class="">Set Publish Schedule <i class="text-danger">(If no needed leave the field blank)</i></label>&nbsp;&nbsp;
                             <input type="datetime-local" name="complaint_schedule" id="complaint_schedule" name="publish_timetable">
                         </div>
+                        <div class="d-flex align-items-center">
+                            <input type="checkbox" id="auto_post" name="autopost" value="1">&nbsp;&nbsp;
+                            <label for="auto_post" class="font-italic text-primary">If you check it, it will be published automatically if you don't login to the system in the next 10 days.<i>(Optional)</i></label>
+
+                        </div>
                         <div class="toolbar__wrapper" style="text-align:left;">
                             <label aria-label="Add a photo" class="bdmirror-button" for="image">
                                 <li-icon aria-hidden="true" type="image" class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">

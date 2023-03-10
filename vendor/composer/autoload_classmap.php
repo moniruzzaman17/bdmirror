@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CheckComplaintSchedule' => $baseDir . '/app/Console/Commands/CheckComplaintSchedule.php',
     'App\\Console\\Commands\\SeekingHelp' => $baseDir . '/app/Console/Commands/SeekingHelp.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

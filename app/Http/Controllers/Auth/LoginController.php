@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Citizen;
 use Illuminate\Http\Request;
+use App\Models\Complaint;
 use Carbon\Carbon;
 use Auth;
 
@@ -93,6 +94,14 @@ class LoginController extends Controller
     }
     public function authenticated(Request $request, $user) {
         $user->touch();
+        if (Auth::guard('citizen')->check()) {
+            $complaints = Complaint::where('citizen_id', Auth::guard('citizen')->user()->id)->where('is_autopost', 1)->get();
+            foreach ($complaints as $key => $complaint) {
+                    Complaint::where('id', $complaint->id)->update([
+                        'is_autopost' => 0,
+                    ]);
+            }
+        }
     }
     public function logout(Request $request){
         if (Auth::guard('citizen')->check()) {

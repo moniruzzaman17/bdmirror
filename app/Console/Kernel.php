@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('complaint:schedule')->everyMinute();
+        $schedule->command('auto:post')->everyMinute();
     }
 
     /**

@@ -23,7 +23,15 @@ class ComplaintController extends Controller
             'is_anonymous' => 'nullable',
             'complaint_schedule' => 'nullable',
             'category' => 'required',
+            'autopost' => 'nullable',
         ]);
+        if (empty(request('autopost'))) {
+            $autopost = 0;
+        }
+        else{
+            $autopost = 1;
+        }
+        
         if (empty(request('is_anonymous'))) {
             if (empty(request('complaint_schedule'))) {
                 $complaint = Complaint::create([
@@ -34,6 +42,7 @@ class ComplaintController extends Controller
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 0,
+                    'is_autopost' => $autopost,
                     'category_id' => request('category')
                 ]);
             }
@@ -48,6 +57,7 @@ class ComplaintController extends Controller
                     'is_anonymous' => 0,
                     'visibility' => 0,
                     'publish_datetime' => request('complaint_schedule'),
+                    'is_autopost' => $autopost,
                     'category_id' => request('category')
                 ]);
             }
@@ -62,6 +72,7 @@ class ComplaintController extends Controller
                     'district' => Auth::guard('citizen')->user()->district,
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 1,
+                    'is_autopost' => $autopost,
                     'category_id' => request('category')
                 ]);
             }
@@ -75,6 +86,7 @@ class ComplaintController extends Controller
                     'upazila' => Auth::guard('citizen')->user()->upazila,
                     'is_anonymous' => 1,
                     'visibility' => 0,
+                    'is_autopost' => $autopost,
                     'publish_datetime' => request('complaint_schedule'),
                     'category_id' => request('category')
                 ]);

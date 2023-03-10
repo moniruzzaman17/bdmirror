@@ -42,7 +42,7 @@ class ProfileController extends Controller
             $id = Auth::guard('authority')->user()->id;
             $authority = Authority::with('authorityDivision','authorityDistrict','authorityUpazila')->where('id',$id)->first();
             
-            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('updated_at','DESC')->where('division', Auth::guard('authority')->user()->working_division)->where('district',Auth::guard('authority')->user()->working_district)->where('upazila',Auth::guard('authority')->user()->working_upazila)->get();
+            $mycomplaints = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->orderBy('updated_at','DESC')->where('visibility', 1)->where('is_autopost', 0)->where('division', Auth::guard('authority')->user()->working_division)->where('district',Auth::guard('authority')->user()->working_district)->where('upazila',Auth::guard('authority')->user()->working_upazila)->get();
 
             return view('profile.profile', compact('authority','mycomplaints'));
         }

@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
         $divisions = Division::get();
         $view->with('divisions', $divisions );
 
-        $globalComplaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->where('visibility', 1)->where('is_published', 1)->orderBy('updated_at','DESC')->get();
+        $globalComplaint = Complaint::with('medias','comments','comments.citizen','ratings','citizen','citizen.ratings','complaintdivision','complaintdistrict','complaintupazila')->where('visibility', 1)->where('is_autopost', 0)->where('is_published', 1)->orderBy('updated_at','DESC')->get();
         $view->with('globalComplaint', $globalComplaint );
 
         $topDistricts = DB::table('complaints')
