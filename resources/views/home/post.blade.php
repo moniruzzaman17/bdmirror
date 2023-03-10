@@ -1,4 +1,4 @@
-@if(empty($mycomplaints) && empty($singlecomplaints))
+@if(empty($mycomplaints) && empty($singlecomplaints) && empty($filtercomplaint))
 @php
 $complaints = $globalComplaint;
 @endphp
@@ -6,6 +6,10 @@ $complaints = $globalComplaint;
 @elseif (!empty($singlecomplaints))
 @php
 $complaints = $singlecomplaints;
+@endphp
+@elseif (!empty($filtercomplaint))
+@php
+$complaints = $filtercomplaint;
 @endphp
 @else
 @php

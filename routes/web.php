@@ -28,6 +28,7 @@ Route::post('/cancell/seeking-help', [App\Http\Controllers\Mail\MailController::
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/filter', [App\Http\Controllers\HomeController::class, 'filter'])->name('filter');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
